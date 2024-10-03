@@ -1,0 +1,203 @@
+/* main.css: Estilo global y layout */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden; /* Evitar scroll horizontal indeseado */
+}
+
+#layout {
+  display: grid; /* Usar Grid para el layout */
+  grid-template-columns: 250px 1fr; /* Definir columnas: 250px para el sidebar y el resto para el contenido */
+  grid-template-rows: auto 1fr auto; /* Tres filas: header, contenido y footer */
+  min-height: 100vh; /* Asegurar que el layout ocupe toda la altura del viewport */
+}
+
+/* Sidebar */
+#sidebar {
+  background: #2c3e50;
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / 2; /* Sidebar en la primera columna */
+  grid-row: 1 / 3; /* Sidebar ocupa las dos primeras filas */
+  height: 100vh; /* Asegura que ocupe toda la altura */
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+#sidebar h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar nav ul li {
+  margin-bottom: 10px;
+}
+
+#sidebar nav ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+#sidebar nav ul li a:hover {
+  background: #3498db;
+}
+
+/* Contenedor principal */
+#content {
+  padding: 40px;
+  overflow-y: auto; /* Permitir scroll solo en el contenido */
+  background: #ffffff;
+  grid-column: 2 / 3; /* Contenido en la segunda columna */
+  grid-row: 1 / 2; /* Contenido ocupa la primera fila */
+  min-height: calc(
+    100vh - 80px
+  ); /* Ajustar la altura para evitar empujar al footer */
+}
+
+/* Footer dentro de #layout */
+footer {
+  background: #2c3e50;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  height: 80px; /* Altura fija para el footer */
+  grid-column: 2 / 3; /* Footer ocupa solo la columna del contenido */
+  grid-row: 2 / 3; /* Footer en la segunda fila */
+  position: relative;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #3498db;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  animation: pulse 1.5s infinite;
+}
+
+footer a:hover {
+  background: #2980b9;
+  border-color: #ecf0f1;
+  transform: scale(1.05);
+}
+
+footer img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Corrección de desbordamiento y scroll */
+html,
+body {
+  height: 100%;
+  overflow-y: visible; /* Permitir scroll vertical en el documento */
+}
+
+/* Botón para mostrar/ocultar el sidebar */
+#menu-toggle {
+  background: #3498db;
+  color: #ffffff;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: none; /* Oculto por defecto */
+  z-index: 1500; /* Asegura que esté encima del sidebar */
+}
+
+#menu-toggle.show {
+  display: block; /* Mostrar en pantallas pequeñas */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  #layout {
+    grid-template-columns: 1fr; /* Convertir todo a una sola columna */
+    grid-template-rows: auto auto auto; /* Sidebar y contenido en filas separadas */
+  }
+
+  #sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    transition: left 0.3s ease; /* Animación de desplazamiento */
+  }
+
+  #layout.show-sidebar #sidebar {
+    left: 0; /* Mostrar el sidebar al hacer click en el menú */
+  }
+
+  #content {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3; /* Colocar contenido debajo del sidebar */
+  }
+
+  footer {
+    grid-column: 1 / 2; /* Footer ocupa una columna en responsive */
+  }
+
+  /* Mostrar el botón para abrir/cerrar el sidebar en pantallas pequeñas */
+  #menu-toggle {
+    display: block;
+  }
+
+  #menu-toggle.show {
+    left: 20px; /* Posición del botón cuando sidebar está oculto */
+  }
+}
+
+/* Definir la animación `pulse` */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02); /* Aumentar tamaño */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
