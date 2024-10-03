@@ -15,19 +15,24 @@
         padding: 0;
         background-color: #f4f4f4;
       }
+
       .container {
-        width: 80%;
+        width: 100%;
+        max-width: 900px; /* Limitar el ancho máximo en pantallas grandes */
         margin: 0 auto;
         padding: 20px;
         background: #fff;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        position: relative;
       }
+
       h1,
       h2,
       h3 {
         color: #333;
       }
+
       h1 {
         text-align: center;
         background: #ff9800;
@@ -35,17 +40,21 @@
         padding: 15px;
         border-radius: 10px;
       }
+
       .section {
         margin-bottom: 30px;
       }
+
       .section h2 {
         border-left: 5px solid #ff9800;
         padding-left: 10px;
       }
+
       .section p {
         margin: 10px 0;
         line-height: 1.6;
       }
+
       .code-block {
         background: #282c34;
         color: #61dafb;
@@ -53,30 +62,39 @@
         border-radius: 5px;
         overflow-x: auto;
       }
+
+      /* Estilo para las tablas */
       table {
         width: 100%;
         border-collapse: collapse;
         margin: 20px 0;
+        overflow-x: auto;
+        display: block; /* Hacer la tabla de tipo block para scroll horizontal */
       }
+
       table,
       th,
       td {
         border: 1px solid #ddd;
       }
+
       th,
       td {
         padding: 12px;
         text-align: left;
       }
+
       th {
         background-color: #ff9800;
         color: white;
       }
+
+      /* Estilos para el botón Back */
       a {
         text-decoration: none;
         color: #3498db;
-        margin: 10px;
       }
+
       button {
         display: flex;
         height: 3em;
@@ -108,6 +126,49 @@
         box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
         transform: translateY(-2px);
       }
+
+      /* Responsive Design */
+      @media (min-width: 768px) {
+        /* Estilo para el botón Back en pantallas de escritorio */
+        a {
+          position: fixed; /* Fijar el botón en la esquina superior izquierda */
+          left: 20px;
+          top: 20px;
+          z-index: 1000; /* Asegurar que el botón esté por encima del contenido */
+        }
+
+        button {
+          width: auto; /* Ajustar el ancho del botón en pantallas grandes */
+        }
+      }
+
+      @media (max-width: 767px) {
+        /* Ajuste para tablas en dispositivos pequeños */
+        table {
+          display: block;
+          overflow-x: auto;
+          width: 100%;
+          margin: 0 0 20px 0; /* Agregar margen inferior */
+        }
+
+        th,
+        td {
+          white-space: nowrap; /* Evitar que las celdas se dividan en varias líneas */
+        }
+
+        /* Botón normal en dispositivos pequeños */
+        a {
+          position: relative; /* Botón seguirá el flujo del contenido */
+          margin: 10px 0; /* Separación con el contenido */
+          display: block;
+        }
+
+        button {
+          position: relative;
+          width: 100%;
+          margin-bottom: 10px; /* Espacio adicional en la parte inferior */
+        }
+      }
     </style>
   </head>
   <body>
@@ -127,6 +188,7 @@
         <span>Back</span>
       </button>
     </a>
+
     <div class="container">
       <!-- Sección 1: Introducción a Java -->
       <h1>Introducción a Java y sus Tipos de Variables</h1>

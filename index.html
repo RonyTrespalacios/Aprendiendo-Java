@@ -7,6 +7,7 @@
       name="description"
       content="Apuntes de Clases: Repositorio de material didáctico y clases sobre programación y tecnología"
     />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Apuntes de Clases</title>
     <!-- Fuente externa y CSS básico -->
     <link
@@ -26,7 +27,7 @@
         background: #f7f7f7;
         color: #333;
         line-height: 1.6;
-        min-height: 100vh; /* Asegura que el cuerpo tenga altura completa */
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
       }
@@ -40,14 +41,14 @@
         background: #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        flex: 1; /* Expande el contenedor principal */
+        flex: 1;
       }
 
       /* Estilo para el encabezado */
       h1 {
         text-align: center;
         font-weight: 600;
-        font-size: 2.4rem;
+        font-size: 2rem;
         margin-bottom: 20px;
         color: #2c3e50;
       }
@@ -86,18 +87,24 @@
         background: #2980b9;
       }
 
-      /* Pie de página */
+      /* Pie de página (footer sticky) */
       footer {
         text-align: center;
         padding: 20px;
         background: #2c3e50;
         color: #ffffff;
         border-radius: 8px;
-        margin-top: 40px;
+        position: sticky;
+        bottom: 0;
+        width: 100%;
+        margin-top: auto;
       }
 
+      /* Estilo para el botón con icono */
       footer a {
-        display: inline-block;
+        display: inline-flex; /* Flexbox para alineación */
+        align-items: center; /* Alinea el contenido verticalmente */
+        gap: 8px; /* Espacio entre icono y texto */
         color: #ecf0f1;
         text-decoration: none;
         padding: 10px 20px;
@@ -112,7 +119,12 @@
       footer a:hover {
         background: #2980b9;
         border-color: #ecf0f1;
-        transform: scale(1.05); /* Aumenta un poco el tamaño */
+        transform: scale(1.05);
+      }
+
+      footer img {
+        width: 20px; /* Tamaño del icono */
+        height: 20px;
       }
 
       @keyframes pulse {
@@ -126,11 +138,6 @@
           transform: scale(1);
         }
       }
-
-      /* Configuración para asegurar que el footer esté siempre abajo */
-      .footer-container {
-        flex-shrink: 0; /* Evita que el footer se encoja */
-      }
     </style>
   </head>
   <body>
@@ -140,19 +147,26 @@
         <li>
           <a href="./Clase_01/index.html">Clase 01: Introducción a Java</a>
         </li>
+        <li>
+          <a href="#">Clase 02 - No disponible</a>
+        </li>
       </ul>
     </div>
-    <div class="footer-container">
-      <footer>
-        <p>
-          &copy; 2024 Apuntes de Clases | Diseñado por
-          <a
-            href="https://www.linkedin.com/in/rony-trespalacios/"
-            target="_blank"
-            >Rony Trespalacios</a
-          >
-        </p>
-      </footer>
-    </div>
+    <footer>
+      <p>
+        &copy; 2024 Apuntes de Clases | Diseñado por
+        <a
+          href="https://www.linkedin.com/in/rony-trespalacios/"
+          target="_blank"
+        >
+          <!-- Icono añadido dentro del enlace -->
+          <img
+            src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000"
+            alt="LinkedIn Icono"
+          />
+          Rony Trespalacios
+        </a>
+      </p>
+    </footer>
   </body>
 </html>
