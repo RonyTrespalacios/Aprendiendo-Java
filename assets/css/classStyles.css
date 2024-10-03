@@ -1,0 +1,142 @@
+/* classStyles.css: Estilos para el contenido de las clases */
+
+/* Contenedor principal */
+#class-content {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Encabezados */
+#class-content h1,
+#class-content h2,
+#class-content h3 {
+  color: #2c3e50;
+  margin: 20px 0 10px;
+}
+
+#class-content h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#class-content h2 {
+  font-size: 1.8rem;
+  border-left: 5px solid #3498db;
+  padding-left: 10px;
+}
+
+#class-content h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/* Párrafos */
+#class-content p {
+  margin: 10px 0;
+  text-align: justify;
+}
+
+/* Bloques de código */
+pre,
+code {
+  background: #282c34;
+  color: #61dafb;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+  overflow-x: auto;
+}
+
+pre {
+  margin: 20px 0;
+}
+
+/* Tablas */
+#class-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#class-content th,
+#class-content td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#class-content th {
+  background: #3498db;
+  color: white;
+}
+
+#class-content td {
+  background: #f9f9f9;
+}
+
+/* Enlaces */
+#class-content a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+#class-content a:hover {
+  text-decoration: underline;
+}
+
+/* Listas */
+#class-content ul,
+#class-content ol {
+  margin: 10px 20px;
+}
+
+#class-content ul li,
+#class-content ol li {
+  margin-bottom: 10px;
+}
+
+/* Imágenes */
+#class-content img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+/* Bloque de citas */
+#class-content blockquote {
+  border-left: 4px solid #3498db;
+  padding-left: 10px;
+  color: #555;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+/* Centrando las imágenes en el contenedor #class-content */
+#class-content img {
+  display: block; /* Convertir las imágenes en elementos de tipo bloque */
+  margin: 20px auto; /* Centrarlas con margen automático */
+  max-width: 100%; /* Asegurar que la imagen no desborde su contenedor */
+  border-radius: 8px; /* Opcional: Agregar bordes redondeados a las imágenes */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  #class-content {
+    padding: 10px;
+  }
+
+  #class-content h1 {
+    font-size: 2rem;
+  }
+
+  #class-content h2 {
+    font-size: 1.5rem;
+  }
+
+  #class-content pre,
+  code {
+    font-size: 14px;
+  }
+}

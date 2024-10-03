@@ -5,168 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Apuntes de Clases: Repositorio de material didáctico y clases sobre programación y tecnología"
+      content="Apuntes de Clases: Material didáctico sobre programación y tecnología"
     />
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
-    <title>Apuntes de Clases</title>
-    <!-- Fuente externa y CSS básico -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/classStyles.css" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
+    <!-- Prism.js para resaltado de sintaxis -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css"
       rel="stylesheet"
     />
-    <style>
-      /* Reset y configuración de estilos básicos */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background: #f7f7f7;
-        color: #333;
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      /* Contenedor principal */
-      .container {
-        max-width: 900px;
-        width: 100%;
-        margin: 40px auto;
-        padding: 20px;
-        background: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        flex: 1;
-      }
-
-      /* Estilo para el encabezado */
-      h1 {
-        text-align: center;
-        font-weight: 600;
-        font-size: 2rem;
-        margin-bottom: 20px;
-        color: #2c3e50;
-      }
-
-      /* Estilo para la lista de clases */
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      li {
-        background: #3498db;
-        margin: 15px 0;
-        border-radius: 8px;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        overflow: hidden;
-      }
-
-      li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(52, 152, 219, 0.3);
-      }
-
-      /* Enlace de cada clase */
-      a {
-        display: block;
-        padding: 15px 20px;
-        text-decoration: none;
-        color: #ffffff;
-        font-weight: 400;
-        font-size: 1.1rem;
-        transition: background 0.3s ease-in-out;
-      }
-
-      a:hover {
-        background: #2980b9;
-      }
-
-      /* Pie de página (footer sticky) */
-      footer {
-        text-align: center;
-        padding: 20px;
-        background: #2c3e50;
-        color: #ffffff;
-        border-radius: 8px;
-        position: sticky;
-        bottom: 0;
-        width: 100%;
-        margin-top: auto;
-      }
-
-      /* Estilo para el botón con icono */
-      footer a {
-        display: inline-flex; /* Flexbox para alineación */
-        align-items: center; /* Alinea el contenido verticalmente */
-        gap: 8px; /* Espacio entre icono y texto */
-        color: #ecf0f1;
-        text-decoration: none;
-        padding: 10px 20px;
-        background: #3498db;
-        border: 2px solid transparent;
-        border-radius: 25px;
-        font-weight: 600;
-        transition: background 0.3s, border-color 0.3s, transform 0.3s;
-        animation: pulse 1.5s infinite;
-      }
-
-      footer a:hover {
-        background: #2980b9;
-        border-color: #ecf0f1;
-        transform: scale(1.05);
-      }
-
-      footer img {
-        width: 20px; /* Tamaño del icono */
-        height: 20px;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.02);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-    </style>
+    <title>Apuntes de Clases</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Apuntes de Clases</h1>
-      <ul>
-        <li>
-          <a href="./Clase_01/index.html">Clase 01: Introducción a Java</a>
-        </li>
-        <li>
-          <a href="#">Clase 02 - No disponible</a>
-        </li>
-      </ul>
+    <!-- Contenedor principal -->
+    <div id="layout">
+      <!-- Barra lateral -->
+      <aside id="sidebar">
+        <h1>Apuntes de Clases</h1>
+        <nav>
+          <ul id="class-list">
+            <!-- Los enlaces de las clases se cargarán aquí dinámicamente desde main.js -->
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenedor de contenido principal -->
+      <main id="content">
+        <div id="class-content">
+          <!-- Aquí se cargará dinámicamente el contenido de las clases -->
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          &copy; 2024 Apuntes de Clases | Diseñado por
+          <a
+            href="https://www.linkedin.com/in/rony-trespalacios/"
+            target="_blank"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=ffffff"
+              alt="LinkedIn Icono"
+            />
+            Rony Trespalacios
+          </a>
+        </p>
+      </footer>
     </div>
-    <footer>
-      <p>
-        &copy; 2024 Apuntes de Clases | Diseñado por
-        <a
-          href="https://www.linkedin.com/in/rony-trespalacios/"
-          target="_blank"
-        >
-          <!-- Icono añadido dentro del enlace -->
-          <img
-            src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000"
-            alt="LinkedIn Icono"
-          />
-          Rony Trespalacios
-        </a>
-      </p>
-    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <script src="./assets/js/markdown.js"></script>
+    <!-- markdown.js debe cargarse antes -->
+    <script src="./assets/js/main.js"></script>
+    <!-- Luego se carga main.js -->
   </body>
 </html>
