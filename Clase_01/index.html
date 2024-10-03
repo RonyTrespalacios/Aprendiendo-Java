@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infografía - Introducción a Java</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2,
+      h3 {
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        background: #ff9800;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+      .section h2 {
+        border-left: 5px solid #ff9800;
+        padding-left: 10px;
+      }
+      .section p {
+        margin: 10px 0;
+        line-height: 1.6;
+      }
+      .code-block {
+        background: #282c34;
+        color: #61dafb;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #ff9800;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sección 1: Introducción a Java -->
+      <h1>Introducción a Java y sus Tipos de Variables</h1>
+      <div class="section">
+        <h2>¿Qué es Java?</h2>
+        <p>
+          Java es un lenguaje de programación de propósito general, concurrente,
+          basado en clases y orientado a objetos, desarrollado por Sun
+          Microsystems en 1995. Su característica principal es que es
+          independiente de la plataforma, lo que permite que los programas
+          escritos en Java se ejecuten en cualquier sistema operativo que cuente
+          con una Máquina Virtual de Java (JVM).
+        </p>
+        <p>
+          Se utiliza en una amplia gama de aplicaciones, desde desarrollo web y
+          aplicaciones móviles (principalmente en Android) hasta aplicaciones de
+          escritorio y sistemas empresariales complejos. Java se caracteriza por
+          su robustez, seguridad y capacidad para manejar grandes volúmenes de
+          datos, lo que lo convierte en una opción popular en el ámbito
+          empresarial.
+        </p>
+        <p>
+          Una de las filosofías de Java es "Write Once, Run Anywhere" (WORA),
+          que significa que el código Java puede ejecutarse en cualquier
+          plataforma que tenga instalada la JVM, sin necesidad de modificar el
+          código fuente. Esta característica es crucial para la portabilidad y
+          la eficiencia en el desarrollo de aplicaciones multiplataforma.
+        </p>
+      </div>
+
+      <!-- Sección 2: Tipos de Variables en Java -->
+      <div class="section">
+        <h2>Tipos de Variables en Java</h2>
+        <p>
+          Las variables en Java se clasifican según su tipo de dato y el tipo de
+          valor que almacenan. A continuación se presentan los tipos principales
+          y sus características:
+        </p>
+
+        <!-- Variables Binarias -->
+        <h3>1. Variables Binarias</h3>
+        <p>
+          Las variables binarias se utilizan principalmente para almacenar
+          valores de tipo booleano (`true` o `false`). Estas variables son muy
+          útiles para condiciones de control y toma de decisiones.
+        </p>
+        <p><strong>Ejemplo de declaración:</strong></p>
+        <div class="code-block">
+          <pre><code>boolean esActivo = true;  // Almacena si un usuario está activo o no</code></pre>
+        </div>
+        <p>
+          Además, en Java se pueden utilizar valores binarios directos en
+          variables enteras, usando el prefijo <code>0b</code>:
+        </p>
+        <div class="code-block">
+          <pre><code>int valorBinario = 0b1010; // Almacena el valor binario 1010 que equivale a 10 en decimal</code></pre>
+        </div>
+
+        <!-- Variables Enteras -->
+        <h3>2. Variables Enteras</h3>
+        <p>
+          Las variables enteras almacenan números sin decimales. En Java, se
+          pueden utilizar diferentes tipos de datos enteros según el rango y
+          tamaño en memoria que se necesite. Se usan típicamente para
+          operaciones matemáticas, contadores y condiciones de control.
+        </p>
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Descripción</th>
+            <th>Tamaño</th>
+            <th>Rango</th>
+            <th>Ejemplo de Declaración</th>
+          </tr>
+          <tr>
+            <td><code>byte</code></td>
+            <td>Almacena números enteros pequeños.</td>
+            <td>8 bits</td>
+            <td>-128 a 127</td>
+            <td><code>byte edad = 25;</code></td>
+          </tr>
+          <tr>
+            <td><code>short</code></td>
+            <td>Almacena enteros de rango medio.</td>
+            <td>16 bits</td>
+            <td>-32,768 a 32,767</td>
+            <td><code>short altura = 175;</code></td>
+          </tr>
+          <tr>
+            <td><code>int</code></td>
+            <td>Almacena enteros grandes.</td>
+            <td>32 bits</td>
+            <td>-2^31 a 2^31 - 1</td>
+            <td><code>int poblacion = 1000000;</code></td>
+          </tr>
+          <tr>
+            <td><code>long</code></td>
+            <td>Almacena enteros muy grandes.</td>
+            <td>64 bits</td>
+            <td>-2^63 a 2^63 - 1</td>
+            <td><code>long distancia = 10000000000L;</code></td>
+          </tr>
+        </table>
+        <p><strong>¿Cuándo usar cada uno?</strong></p>
+        <p>
+          - <code>byte</code>: Úsalo para ahorrar memoria en sistemas con
+          recursos limitados o cuando se trabajen valores pequeños, como la
+          edad.
+          <br />
+          - <code>short</code>: Recomendado para arrays grandes si la memoria es
+          una limitación, pero generalmente no es muy utilizado.
+          <br />
+          - <code>int</code>: Es el tipo de dato entero más utilizado para
+          operaciones generales y cálculos matemáticos.
+          <br />
+          - <code>long</code>: Úsalo cuando se trabaje con números grandes como
+          la distancia entre planetas o cálculos financieros a gran escala.
+        </p>
+
+        <!-- Variables Decimales -->
+        <h3>3. Variables Decimales</h3>
+        <p>
+          Las variables decimales permiten almacenar números con decimales. Se
+          utilizan comúnmente en operaciones matemáticas de alta precisión, como
+          cálculos científicos y financieros.
+        </p>
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Descripción</th>
+            <th>Tamaño</th>
+            <th>Rango</th>
+            <th>Ejemplo de Declaración</th>
+          </tr>
+          <tr>
+            <td><code>float</code></td>
+            <td>Almacena decimales de precisión simple.</td>
+            <td>32 bits</td>
+            <td>±1.4E-45 a ±3.4E38</td>
+            <td><code>float pi = 3.14f;</code></td>
+          </tr>
+          <tr>
+            <td><code>double</code></td>
+            <td>Almacena decimales de precisión doble.</td>
+            <td>64 bits</td>
+            <td>±4.9E-324 a ±1.7E308</td>
+            <td><code>double e = 2.7182818284;</code></td>
+          </tr>
+        </table>
+        <p><strong>¿Cuándo usar cada uno?</strong></p>
+        <p>
+          - <code>float</code>: Adecuado para gráficos, coordenadas o cuando no
+          se requiere mucha precisión. Útil para sistemas embebidos.
+          <br />
+          - <code>double</code>: Se usa para cálculos científicos y financieros
+          donde la precisión es crucial.
+        </p>
+
+        <!-- Variables de Caracteres -->
+        <h3>4. Variables de Caracteres</h3>
+        <p>
+          El tipo de dato <code>char</code> almacena un solo carácter y se
+          representa con comillas simples. Es útil para representar letras o
+          caracteres Unicode.
+        </p>
+        <p><strong>Ejemplo de declaración:</strong></p>
+        <div class="code-block">
+          <pre><code>char inicial = 'A';   // Almacena una sola letra</code></pre>
+        </div>
+
+        <!-- Variables Booleanas -->
+        <h3>5. Variables Booleanas</h3>
+        <p>
+          Las variables booleanas se utilizan para almacenar solo dos valores
+          posibles: <code>true</code> o <code>false</code>. Son ideales para
+          controlar flujos de ejecución o representar estados.
+        </p>
+        <p><strong>Ejemplo de declaración:</strong></p>
+        <div class="code-block">
+          <pre><code>boolean esJavaFacil = true;  // Representa si se considera Java fácil o no</code></pre>
+        </div>
+
+        <!-- Sección: Representación en Binario y Hexadecimal -->
+        <h3>Representación en Binario y Hexadecimal</h3>
+        <p>
+          En Java, los valores se pueden definir en diferentes sistemas
+          numéricos como binario (prefijo <code>0b</code>) y hexadecimal
+          (prefijo <code>0x</code>).
+        </p>
+        <p><strong>Ejemplo de declaración en binario:</strong></p>
+        <div class="code-block">
+          <pre><code>int valorBinario = 0b1101;  // Valor binario equivalente a 13 en decimal</code></pre>
+        </div>
+        <p><strong>Ejemplo de declaración en hexadecimal:</strong></p>
+        <div class="code-block">
+          <pre><code>int valorHexadecimal = 0x1A3;  // Valor hexadecimal equivalente a 419 en decimal</code></pre>
+        </div>
+      </div>
+
+      <!-- Sección 3: Ejemplo Práctico en un Entorno Empresarial -->
+      <div class="section">
+        <h2>Ejemplo Práctico en un Entorno Empresarial</h2>
+        <p>
+          Imaginemos un escenario donde estamos desarrollando una aplicación
+          empresarial que almacena información básica de un empleado: nombre,
+          edad, salario, si está activo y su código identificador. Veamos cómo
+          se podrían declarar y usar estas variables en Java:
+        </p>
+        <div class="code-block">
+          <pre><code>
+public class Empresa {
+    public static void main(String[] args) {
+        // Definir variables del empleado
+        String nombreEmpleado = "Carlos Pérez";
+        int edadEmpleado = 35;
+        double salarioEmpleado = 8500.75;
+        boolean esActivo = true;
+        long codigoEmpleado = 123456789L;
+
+        // Imprimir la información del empleado
+        System.out.println("Información del Empleado:");
+        System.out.println("Nombre: " + nombreEmpleado);
+        System.out.println("Edad: " + edadEmpleado);
+        System.out.println("Salario: $" + salarioEmpleado);
+        System.out.println("Activo: " + esActivo);
+        System.out.println("Código: " + codigoEmpleado);
+    }
+}
+                </code></pre>
+        </div>
+        <p>
+          Este ejemplo muestra cómo se pueden utilizar diferentes tipos de
+          variables en una aplicación real, facilitando el manejo de datos
+          empresariales con un código organizado y eficiente.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
