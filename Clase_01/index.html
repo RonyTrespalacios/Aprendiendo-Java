@@ -9,6 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-java.min.js"></script>
+
     <style>
       body {
         font-family: "Roboto", sans-serif;
@@ -427,5 +434,11 @@ public class Empresa {
         </p>
       </div>
     </div>
+    <!-- Script para asignar automáticamente "language-java" a todos los bloques de código -->
+    <script>
+      document.querySelectorAll("code").forEach((block) => {
+        block.classList.add("language-java");
+      });
+    </script>
   </body>
 </html>
