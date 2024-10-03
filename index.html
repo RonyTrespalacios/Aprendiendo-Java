@@ -1,37 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Apuntes de Clases: Repositorio de material didáctico y clases sobre programación y tecnología"
+    />
     <title>Apuntes de Clases</title>
+    <!-- Fuente externa y CSS básico -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      /* Reset y configuración de estilos básicos */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-      h1 {
+        font-family: "Poppins", sans-serif;
+        background: #f7f7f7;
         color: #333;
+        line-height: 1.6;
+        min-height: 100vh; /* Asegura que el cuerpo tenga altura completa */
+        display: flex;
+        flex-direction: column;
       }
+
+      /* Contenedor principal */
+      .container {
+        max-width: 900px;
+        width: 100%;
+        margin: 40px auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        flex: 1; /* Expande el contenedor principal */
+      }
+
+      /* Estilo para el encabezado */
+      h1 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+
+      /* Estilo para la lista de clases */
       ul {
         list-style-type: none;
         padding: 0;
       }
+
       li {
-        margin: 10px 0;
+        background: #3498db;
+        margin: 15px 0;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        overflow: hidden;
       }
+
+      li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(52, 152, 219, 0.3);
+      }
+
+      /* Enlace de cada clase */
       a {
+        display: block;
+        padding: 15px 20px;
         text-decoration: none;
-        color: #3498db;
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 1.1rem;
+        transition: background 0.3s ease-in-out;
       }
+
       a:hover {
-        text-decoration: underline;
+        background: #2980b9;
+      }
+
+      /* Pie de página */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #2c3e50;
+        color: #ffffff;
+        border-radius: 8px;
+        margin-top: 40px;
+      }
+
+      footer a {
+        display: inline-block;
+        color: #ecf0f1;
+        text-decoration: none;
+        padding: 10px 20px;
+        background: #3498db;
+        border: 2px solid transparent;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: background 0.3s, border-color 0.3s, transform 0.3s;
+        animation: pulse 1.5s infinite;
+      }
+
+      footer a:hover {
+        background: #2980b9;
+        border-color: #ecf0f1;
+        transform: scale(1.05); /* Aumenta un poco el tamaño */
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.02);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Configuración para asegurar que el footer esté siempre abajo */
+      .footer-container {
+        flex-shrink: 0; /* Evita que el footer se encoja */
       }
     </style>
   </head>
   <body>
-    <h1>Apuntes de Clases</h1>
-    <ul>
-      <li><a href="./Clase_01/index.html">Clase 01: Introducción a Java</a></li>
-    </ul>
+    <div class="container">
+      <h1>Apuntes de Clases</h1>
+      <ul>
+        <li>
+          <a href="./Clase_01/index.html">Clase 01: Introducción a Java</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-container">
+      <footer>
+        <p>
+          &copy; 2024 Apuntes de Clases | Diseñado por
+          <a
+            href="https://www.linkedin.com/in/rony-trespalacios/"
+            target="_blank"
+            >Rony Trespalacios</a
+          >
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
