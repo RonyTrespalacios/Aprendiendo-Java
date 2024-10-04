@@ -2,7 +2,7 @@
 
 ## Elaborado por Rony Trespalacios
 
-![Java Tools](https://www.jrebel.com/sites/default/files/image/2020-05/image-blog-revel-top-java-tools.jpg)
+<img id="banner-img" src="https://appmaster.io/cdn-cgi/image/width=768,quality=83,format=auto/api/_files/hRaLG2N4DVjRZJQzCpN2zJ/download/" alt="Java Image">
 
 Bienvenido a **Apuntes de Clases - Java**, un repositorio y sitio web creados para acompañar el aprendizaje del lenguaje de programación Java. Este proyecto ofrece una experiencia integral que combina teoría, ejemplos prácticos y ejercicios interactivos, todo accesible desde una página web amigable y organizada.
 

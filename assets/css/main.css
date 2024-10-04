@@ -154,16 +154,16 @@ body {
 /* main.css - Estilo personalizado para secciones desplegables */
 details {
   margin: 15px 0;
-  border: 1px solid #3498db;
+  /*border: 1px solid #3498db;*/
   border-radius: 5px;
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
   cursor: pointer;
   user-select: none;
 }
 
 details[open] summary {
-  color: #2980b9;
+  color: #11405f;
   animation: expand 0.3s ease-in-out forwards;
 }
 

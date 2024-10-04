@@ -98,6 +98,7 @@ Los tipos decimales en Java permiten almacenar números con decimales. Se utiliz
 
 Desarrolla una aplicación simple que almacene y muestre información básica de un empleado. El código debe incluir los siguientes datos: nombre, edad, salario, estado de empleado activo/inactivo y un identificador único.
 
+<details> <summary>Ver solución</summary>
 ```java
 public class Empresa {
     public static void main(String[] args) {
@@ -114,12 +115,16 @@ public class Empresa {
         System.out.println("Activo: " + esActivo);
         System.out.println("Código: " + codigoEmpleado);
     }
+
 }
+
 ```
+</details>
 
 <details> <summary>Ver salida</summary>
 La salida de este código es:
 ```
+
 Información del Empleado:
 Nombre: Carlos Pérez
 Edad: 35
@@ -129,7 +134,6 @@ Código: 123456789
 
 ```
 </details>
-```
 
 # Tips para Programar en Java con VS Code
 
@@ -195,3 +199,5 @@ Código: 123456789
 **`Ctrl` + `Y`**: Rehace la última acción.
 
 </details>
+
+```

@@ -113,12 +113,18 @@ pre {
   margin: 20px 0;
 }
 
-/* Centrando las imágenes en el contenedor #class-content */
 #class-content img {
   display: block; /* Convertir las imágenes en elementos de tipo bloque */
   margin: 20px auto; /* Centrarlas con margen automático */
   max-width: 100%; /* Asegurar que la imagen no desborde su contenedor */
   border-radius: 8px; /* Opcional: Agregar bordes redondeados a las imágenes */
+}
+
+/* Estilos específicos para la imagen con el ID 'banner-img' */
+#banner-img {
+  width: 100%; /* Asegurar que ocupe todo el ancho del contenedor */
+  height: 200px; /* Establecer una altura específica para hacerla tipo banner */
+  object-fit: cover; /* Recortar la imagen para adaptarse a la caja */
 }
 
 /* Ajustes responsivos */
