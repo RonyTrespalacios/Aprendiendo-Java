@@ -37,14 +37,13 @@ async function loadClassList() {
   });
 }
 
-// Función para cargar el contenido del README.md de cada clase
+// Función para cargar el contenido del README.md de cada clase y gestionar #class-content
 async function loadClassContent(classId) {
-  console.log(`Intentando cargar el contenido de la clase: ${classId}`);
-  const contentArea = document.getElementById("class-content");
+  const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la clase
 
   if (!contentArea) {
     console.error(
-      'No se encontró el contenedor de contenido de la clase con id="class-content"'
+      'No se encontró el contenedor de contenido con id="class-content"'
     );
     return;
   }
@@ -55,20 +54,30 @@ async function loadClassContent(classId) {
       throw new Error("No se pudo cargar el contenido de la clase");
 
     const markdown = await response.text();
-    console.log(`Markdown de ${classId} cargado correctamente:`, markdown);
 
     // Renderizar el markdown a HTML usando la función de markdown.js
     const htmlContent = renderMarkdownToHtml(markdown);
-    console.log(`HTML convertido para ${classId}:`, htmlContent);
 
-    // Insertar el HTML en el contenedor principal
+    // Insertar el HTML en el contenedor #class-content
     contentArea.innerHTML = htmlContent;
 
-    // Actualizar la URL sin recargar la página
-    history.pushState({ classId }, null, `#/${classId}`);
-
-    // Aplicar resaltado de sintaxis usando Prism.js
+    // Aplicar resaltado de sintaxis usando Prism.js para formatear código
     Prism.highlightAll();
+
+    // Aplicar clases CSS necesarias para el contenedor
+    contentArea.classList.add("class-content"); // Asegurar que la clase 'class-content' se aplique
+
+    // Desplazar el contenedor de scroll hacia arriba con animación suave
+    const scrollContainer = document.getElementById("content"); // Contenedor de scroll
+    if (scrollContainer && scrollContainer.scrollTop > 0) {
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    // Actualizar la URL para reflejar la clase cargada sin recargar la página
+    history.pushState({ classId }, null, `#/${classId}`);
   } catch (error) {
     console.error(
       `Error al cargar el contenido de la clase ${classId}:`,
@@ -76,12 +85,105 @@ async function loadClassContent(classId) {
     );
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
-  // Insertar el HTML en el contenedor principal
-  contentArea.innerHTML = htmlContent;
-
-  // Asegurar que el `layout` ocupe toda la altura al agregar contenido dinámico
-  //document.getElementById("layout").style.minHeight = "100vh";
 }
+
+// Función para cargar y mostrar el contenido del README.md de la raíz en #class-content
+async function showWelcomeMessage() {
+  const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la raíz
+
+  if (!contentArea) {
+    console.error(
+      'No se encontró el contenedor de contenido con id="class-content"'
+    );
+    return;
+  }
+
+  try {
+    const response = await fetch("./README.md"); // Cargar el README.md de la raíz
+    if (!response.ok)
+      throw new Error("No se pudo cargar el contenido de la raíz");
+
+    const markdown = await response.text();
+
+    // Renderizar el markdown a HTML usando la función de markdown.js
+    const htmlContent = renderMarkdownToHtml(markdown);
+
+    // Insertar el HTML en el contenedor #class-content
+    contentArea.innerHTML = htmlContent;
+
+    // Aplicar resaltado de sintaxis usando Prism.js para formatear código
+    Prism.highlightAll();
+
+    // Aplicar clases CSS necesarias para el contenedor
+    contentArea.classList.remove("class-content"); // Remover estilos de clase
+    contentArea.classList.add("home-content"); // Asegurar que se apliquen estilos específicos de home
+
+    // Desplazar el contenedor de scroll hacia arriba con animación suave
+    const scrollContainer = document.getElementById("content"); // Contenedor de scroll
+    if (scrollContainer) {
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  } catch (error) {
+    console.error(`Error al cargar el contenido de la raíz:`, error);
+    contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+  }
+}
+
+// Función para gestionar el scroll y la carga de contenido según la ruta actual
+function handleScrollOnRouteChange() {
+  const scrollContainer = document.getElementById("content"); // Contenedor para manejar el scroll
+
+  // Verificar si estamos en la ruta raíz (home)
+  if (window.location.hash === "" || window.location.hash === "#/") {
+    showWelcomeMessage(); // Cargar el contenido de la raíz
+  } else {
+    const classId = window.location.hash.replace("#/", "");
+    loadClassContent(classId); // Cargar el contenido de la clase
+
+    // Desplazar el contenedor de scroll hacia arriba con animación suave
+    if (scrollContainer && scrollContainer.scrollTop > 0) {
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }
+}
+
+// Interceptar clics en enlaces del sidebar para evitar el salto brusco de scroll
+document.querySelectorAll("#sidebar a").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Evitar el comportamiento predeterminado de clic
+
+    const href = link.getAttribute("href"); // Obtener la URL de destino
+    const classId = href.replace("#/", ""); // Obtener la clase a cargar
+
+    // Actualizar la URL sin recargar la página
+    history.pushState({ classId }, null, href);
+
+    // Llamar a la función para cargar el contenido de la clase
+    if (classId) {
+      loadClassContent(classId);
+    } else {
+      // Si no hay classId, significa que se está volviendo a home
+      showWelcomeMessage(); // Mostrar mensaje de bienvenida
+    }
+  });
+});
+
+// Detectar cambios de hash (ruta con #) y aplicar el manejo de scroll y carga de contenido
+window.addEventListener("hashchange", handleScrollOnRouteChange);
+
+// Detectar cambios de historial (botón Atrás/Adelante del navegador)
+window.addEventListener("popstate", handleScrollOnRouteChange);
+
+// Cargar la vista inicial basada en la URL actual
+window.addEventListener("DOMContentLoaded", () => {
+  handleScrollOnRouteChange(); // Cargar el contenido correspondiente al iniciar
+});
 
 // Función para cargar y mostrar el contenido del README.md de la raíz
 async function showWelcomeMessage() {

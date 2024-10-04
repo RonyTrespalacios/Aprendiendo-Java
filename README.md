@@ -1,4 +1,6 @@
-# Apuntes de Clases - Java
+# Apuntes de Clases - Java 2024
+
+## Elaborado por Rony Trespalacios
 
 ![Java Tools](https://www.jrebel.com/sites/default/files/image/2020-05/image-blog-revel-top-java-tools.jpg)
 
