@@ -21,7 +21,7 @@ body {
 
 #layout {
   display: grid; /* Usar Grid para el layout */
-  grid-template-columns: 250px 1fr; /* Definir columnas: 250px para el sidebar y el resto para el contenido */
+  grid-template-columns: 350px 1fr; /* Definir columnas: 250px para el sidebar y el resto para el contenido */
   grid-template-rows: auto 1fr auto; /* Tres filas: header, contenido y footer */
   min-height: 100vh; /* Asegurar que el layout ocupe toda la altura del viewport */
 }
@@ -44,6 +44,12 @@ body {
 #sidebar h1 {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+#sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 4px;
   text-align: center;
 }
 
@@ -159,7 +165,6 @@ details {
   padding: 10px;
   background-color: #f8f8f8;
   cursor: pointer;
-  user-select: none;
 }
 
 details[open] summary {

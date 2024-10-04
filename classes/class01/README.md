@@ -25,6 +25,72 @@ Hello, World!
 ```
 </details>
 
+## Conceptos Básicos de Java
+
+### `public class`
+
+Una clase en Java es una plantilla que define las propiedades y comportamientos de un objeto. Al declarar `public class`, estamos creando una clase que puede ser accesible desde cualquier otra parte del programa.
+
+**Ejemplo:**
+
+```java
+public class MiPrimeraClase {
+    // Código de la clase
+}
+```
+
+**¿Cuándo usarlo?**
+
+- Se usa para definir el comportamiento de un objeto.
+- Agrupa variables y métodos para dar una funcionalidad específica.
+
+### `public static void main`
+
+Este es el punto de entrada principal de cualquier aplicación Java. Es el método que la máquina virtual de Java (JVM) busca para iniciar la ejecución del programa.
+
+**Desglose:**
+
+- **`public`**: Accesible desde cualquier parte del código.
+- **`static`**: Pertenece a la clase en lugar de a una instancia de la clase.
+- **`void`**: No devuelve ningún valor.
+- **`main`**: Es el nombre del método principal que se ejecuta.
+
+**Ejemplo:**
+
+```java
+public static void main(String[] args) {
+    // Código que se ejecuta al iniciar el programa
+}
+```
+
+### `String[] args`
+
+`String[] args` es el parámetro que recibe el método `main`. Representa una lista (o array) de cadenas de texto que se pueden pasar como argumentos al ejecutar el programa desde la línea de comandos.
+
+**Ejemplo de uso:**
+
+```java
+public static void main(String[] args) {
+    System.out.println("Número de argumentos: " + args.length);
+}
+```
+
+### Ejercicio Práctico
+
+Crea una clase llamada `Saludo` que muestre en pantalla el mensaje: "¡Bienvenido al mundo de Java!". Usa el método `main` como punto de entrada.
+
+<details> <summary>Ver solución</summary>
+
+```java
+public class Saludo {
+    public static void main(String[] args) {
+        System.out.println("¡Bienvenido al mundo de Java!");
+    }
+}
+```
+
+</details>
+
 ## Tipos de Datos en Java
 
 Los tipos de datos en Java definen el tipo de valor que pueden almacenar las variables y determinan las operaciones que se pueden realizar con ellas. A continuación, se presentan los tipos de datos básicos en Java, sus características y cuándo utilizarlos.

@@ -16,8 +16,13 @@
 }
 
 #class-content h1 {
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* Ajusta el tamaño del texto */
   text-align: center;
+  background-color: #800020; /* Fondo color vinotinto */
+  color: #ffffff; /* Cambia el color del texto a blanco para mejor contraste */
+  padding: 15px 20px; /* Espaciado interno para que se vea más grande */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar más profundidad */
 }
 
 #class-content h2 {
