@@ -23,7 +23,7 @@ La salida de este código es:
 ```python
 Hello, World!
 ```
-</details> ```
+</details>
 
 ## Tipos de Datos en Java
 

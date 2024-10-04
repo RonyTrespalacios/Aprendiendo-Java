@@ -2,42 +2,27 @@
 
 ![Java Tools](https://www.jrebel.com/sites/default/files/image/2020-05/image-blog-revel-top-java-tools.jpg)
 
-Bienvenido a **Apuntes de Clases - Java**, un repositorio creado para facilitar el aprendizaje del lenguaje de programación Java. Aquí encontrarás material didáctico, ejemplos de código y ejercicios prácticos que te ayudarán a entender los conceptos básicos y avanzados de este poderoso lenguaje de programación.
+Bienvenido a **Apuntes de Clases - Java**, un repositorio y sitio web creados para acompañar el aprendizaje del lenguaje de programación Java. Este proyecto ofrece una experiencia integral que combina teoría, ejemplos prácticos y ejercicios interactivos, todo accesible desde una página web amigable y organizada.
 
-## ¿De qué trata este repositorio?
+## Objetivo del Proyecto
 
-Este repositorio está diseñado para acompañar clases y sesiones de aprendizaje relacionadas con Java. Incluye documentos HTML con descripciones de cada tema, ejemplos prácticos y estructuras de código organizadas de manera simple y efectiva.
+El objetivo principal de este repositorio es proporcionar un recurso de aprendizaje actualizado y de fácil acceso para quienes deseen aprender Java desde cero o profundizar en sus conocimientos. A lo largo de las secciones del sitio web, se presentan temas variados de Java con explicaciones detalladas y ejemplos de código.
 
-## Cómo usar el repositorio
+## Acceso a la Página Web
 
-1. Clona el repositorio a tu máquina local:
-
-   ```bash
-   git clone https://github.com/ronytrespalacios/Aprendiendo-Java.git
-   ```
-
-2. Navega a la carpeta del proyecto:
-
-   ```bash
-   cd Aprendiendo-Java
-   ```
-
-3. Abre el archivo `index.html` para visualizar el contenido principal.
-
-4. También puedes acceder al contenido desde la página web [Apuntes de Clases - Java](https://ronytrespalacios.github.io/Aprendiendo-Java/) para una experiencia interactiva en línea.
-
-## Estructura del repositorio
-
-- **Clase_01**: Introducción a Java con ejemplos prácticos y ejercicios.
-- **index.html**: Página de inicio con enlaces a las diferentes clases disponibles.
-- **favicon.png**: Icono de la aplicación.
-- **README.md**: Archivo de descripción del repositorio.
-
-## Despliegue
-
-Puedes acceder a la versión desplegada del contenido directamente desde el siguiente enlace:
+Para explorar todo el contenido organizado en una estructura de clases y temas, accede a la página web:
 
 🔗 [Apuntes de Clases - Java](https://ronytrespalacios.github.io/Aprendiendo-Java/)
+
+## Estructura General del Proyecto
+
+- **assets/**: Contiene estilos (`CSS`), scripts (`JavaScript`) y recursos gráficos.
+- **classes/**: Directorio con secciones de aprendizaje divididas por temas.
+- **index.html**: Página principal que sirve como punto de inicio para explorar todo el material.
+
+## Año de Realización
+
+Este proyecto fue desarrollado en el año 2024 como parte de una iniciativa para facilitar el aprendizaje autónomo y accesible del lenguaje Java.
 
 ---
 
