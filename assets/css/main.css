@@ -152,13 +152,16 @@ body {
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
+  /* Ajustes del layout en versión móvil */
   #layout {
-    grid-template-columns: 1fr; /* Convertir a una sola columna */
+    grid-template-columns: 1fr; /* Convertir todo a una sola columna */
     grid-template-rows: auto 1fr auto; /* Tres filas: sidebar, contenido y footer */
+    min-height: 100vh; /* Asegura que el layout ocupe toda la altura del viewport */
     height: 100vh; /* Asegurar que el layout no exceda la altura del viewport */
     overflow: hidden; /* Evitar scroll en el layout completo */
   }
 
+  /* Ajustes del sidebar */
   #sidebar {
     position: fixed;
     left: -250px;
@@ -168,23 +171,30 @@ body {
     transition: left 0.3s ease; /* Animación de desplazamiento */
   }
 
+  /* Mostrar el sidebar al hacer clic en el menú */
   #layout.show-sidebar #sidebar {
-    left: 0; /* Mostrar el sidebar al hacer click en el menú */
+    left: 0; /* Mostrar el sidebar cuando se active */
   }
 
+  /* Ajustes del contenedor de contenido */
   #content {
     grid-column: 1 / 2; /* El contenido ocupa toda la columna */
     grid-row: 2 / 3; /* Segunda fila del grid */
     overflow-y: auto; /* Permitir scroll solo en el contenido */
+    height: calc(
+      100vh - 120px
+    ); /* Ajustar la altura para considerar el tamaño del footer */
     max-height: calc(
       100vh - 120px
-    ); /* Ajustar la altura para considerar el nuevo tamaño del footer */
+    ); /* Asegurar que el contenido no exceda el tamaño */
+    padding-bottom: 20px; /* Añadir un padding para evitar que el contenido se esconda tras el footer */
   }
 
+  /* Ajustar el footer en dispositivos móviles */
   footer {
     grid-column: 1 / 2; /* Footer ocupa solo la columna del contenido */
     grid-row: 3 / 4; /* Tercera fila */
-    height: 80px; /* Cambiar la altura del footer a 120px */
+    height: 120px; /* Cambiar la altura del footer a 120px */
     position: relative; /* Mantener el footer dentro del flujo del documento */
   }
 
@@ -194,13 +204,16 @@ body {
   }
 
   #menu-toggle.show {
-    left: 20px; /* Posición del botón cuando sidebar está oculto */
+    left: 20px; /* Posición del botón cuando el sidebar esté oculto */
   }
 
+  /* Ajustar el encabezado del sidebar para evitar superposición con el botón */
   #layout.show-sidebar #sidebar h1 {
     margin-top: 60px; /* Añadir margen superior para evitar la superposición */
     transition: margin-top 0.3s ease; /* Animación para suavizar el desplazamiento */
   }
+
+  /* Animación para el título al cerrar el sidebar */
   #sidebar h1 {
     margin-top: 0; /* Margen superior original */
     transition: margin-top 0.3s ease-in-out; /* Animación para salida */
