@@ -173,6 +173,25 @@ details[open] summary {
   color: #2980b9;
 }
 
+/* Estilos adicionales para el botón de Inicio en el sidebar */
+#sidebar #home-button {
+  font-size: 1rem; /* Ajustar el tamaño de la fuente */
+  font-weight: 600; /* Hacer el texto un poco más destacado */
+  color: #ffffff;
+  background: #3498db; /* Color de fondo del botón */
+  padding: 12px 20px; /* Espaciado interior */
+  border-radius: 5px; /* Bordes redondeados */
+  display: block; /* Ocupa toda la fila */
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 20px; /* Espacio inferior para separar del resto */
+  transition: background 0.3s, transform 0.3s; /* Transiciones */
+}
+
+#sidebar #home-button:hover {
+  background: #2980b9; /* Color más oscuro al pasar el cursor */
+  transform: translateY(-3px); /* Pequeño desplazamiento hacia arriba */
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
   /* Ajustes del layout en versión móvil */
