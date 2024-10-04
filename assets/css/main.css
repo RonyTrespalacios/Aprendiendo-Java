@@ -150,6 +150,29 @@ body {
   display: block; /* Mostrar en pantallas pequeñas */
 }
 
+/* main.css - Estilo personalizado para secciones desplegables */
+details {
+  margin: 15px 0;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #3498db;
+}
+
+summary:hover {
+  color: #2980b9;
+}
+
+details[open] summary {
+  color: #2980b9;
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
   /* Ajustes del layout en versión móvil */

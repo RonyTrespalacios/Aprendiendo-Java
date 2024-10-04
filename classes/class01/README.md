@@ -18,6 +18,13 @@ public class HelloWorld {
 }
 ```
 
+<details> <summary>Ver salida</summary>
+La salida de este código es:
+```python
+Hello, World!
+```
+</details> ```
+
 ## Tipos de Datos en Java
 
 Los tipos de datos en Java definen el tipo de valor que pueden almacenar las variables y determinan las operaciones que se pueden realizar con ellas. A continuación, se presentan los tipos de datos básicos en Java, sus características y cuándo utilizarlos.
@@ -108,4 +115,18 @@ public class Empresa {
         System.out.println("Código: " + codigoEmpleado);
     }
 }
+```
+
+<details> <summary>Ver salida</summary>
+La salida de este código es:
+```
+Información del Empleado:
+Nombre: Carlos Pérez
+Edad: 35
+Salario: $8500.75
+Activo: true
+Código: 123456789
+
+```
+</details>
 ```
