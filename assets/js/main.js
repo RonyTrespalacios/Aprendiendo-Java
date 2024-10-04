@@ -1,6 +1,31 @@
 // main.js: Lógica para cargar el contenido dinámicamente y manejar la navegación
 console.log("main.js cargado correctamente");
 
+function toggleAccordion(element) {
+  const details = document.querySelectorAll("details");
+  details.forEach((detail) => {
+    if (detail !== element) {
+      detail.removeAttribute("open");
+    }
+  });
+}
+
+const allDetails = document.querySelectorAll("details");
+
+allDetails.forEach((details) => {
+  details.addEventListener("toggle", () => {
+    // Si se abre, agregar la clase para animar la apertura
+    if (details.open) {
+      details.classList.add("animating-open");
+      details.classList.remove("animating-close");
+    } else {
+      // Si se cierra, agregar la clase para animar el cierre
+      details.classList.add("animating-close");
+      details.classList.remove("animating-open");
+    }
+  });
+});
+
 // Función para cargar el listado de clases en la barra lateral
 async function loadClassList() {
   const classList = document.getElementById("class-list");

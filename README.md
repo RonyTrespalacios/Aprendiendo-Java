@@ -14,7 +14,7 @@ El objetivo principal de este repositorio es proporcionar un recurso de aprendiz
 
 Para explorar todo el contenido organizado en una estructura de clases y temas, accede a la página web:
 
-🔗 [Apuntes de Clases - Java](https://ronytrespalacios.github.io/Aprendiendo-Java/)
+🔗 <a href="https://ronytrespalacios.github.io/Aprendiendo-Java/" target="_blank">Apuntes de Clases - Java</a>
 
 ## Estructura General del Proyecto
 
@@ -28,4 +28,4 @@ Este proyecto fue desarrollado en el año 2024 como parte de una iniciativa para
 
 ---
 
-&copy; 2024 Apuntes de Clases | Diseñado por [Rony Trespalacios](https://www.linkedin.com/in/rony-trespalacios/)
+&copy; 2024 Apuntes de Clases | Diseñado por <a href="https://www.linkedin.com/in/rony-trespalacios/" target="_blank">Rony Trespalacios</a>

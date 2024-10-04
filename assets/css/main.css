@@ -158,6 +158,40 @@ details {
   border-radius: 5px;
   padding: 10px;
   background-color: #f9f9f9;
+  cursor: pointer;
+  user-select: none;
+}
+
+details[open] summary {
+  color: #2980b9;
+  animation: expand 0.3s ease-in-out forwards;
+}
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 500px; /* Valor arbitrario, ajustar según el contenido */
+  }
+}
+
+/* Estilo de transición al cerrar */
+details:not([open]) summary ~ * {
+  animation: collapse 0.6s ease-in-out forwards;
+}
+
+@keyframes collapse {
+  0% {
+    opacity: 1;
+    max-height: 500px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+  }
 }
 
 summary {
@@ -167,10 +201,6 @@ summary {
 }
 
 summary:hover {
-  color: #2980b9;
-}
-
-details[open] summary {
   color: #2980b9;
 }
 

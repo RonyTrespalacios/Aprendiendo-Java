@@ -130,3 +130,68 @@ Código: 123456789
 ```
 </details>
 ```
+
+# Tips para Programar en Java con VS Code
+
+<details onclick="toggleAccordion(this)">
+<summary><strong>1. Atajos de Teclado Básicos</strong></summary>
+
+**`psvm` + `Tab`**: Crea la función `public static void main(String[] args)`.
+
+**`sout` + `Tab`**: Crea una línea de impresión `System.out.println()`.
+
+**`Ctrl` + `Shift` + `B`**: Compila el proyecto actual.
+
+</details>
+
+<details onclick="toggleAccordion(this)">
+<summary><strong>2. Atajos de Edición</strong></summary>
+
+**`Shift` + `Alt` + `Down Arrow`**: Duplica la línea o selección actual hacia abajo.
+
+**`Shift` + `Alt` + `Up Arrow`**: Duplica la línea o selección actual hacia arriba.
+
+**`Alt` + `Up Arrow` o `Down Arrow`**: Mueve la línea o selección actual hacia arriba o abajo.
+
+**`Ctrl` + `D`**: Selecciona la siguiente instancia de la palabra seleccionada.
+
+</details>
+
+<details onclick="toggleAccordion(this)">
+<summary><strong>3. Depuración y Ejecución</strong></summary>
+
+**`F5`**: Inicia el modo de depuración.
+
+**`Ctrl` + `F5`**: Ejecuta el código sin depuración.
+
+**F12**: Ve a la definición de la función, clase o variable.
+
+**`Ctrl` + `Shift` + `M`**: Abre el panel de problemas (muestra errores y advertencias).
+
+</details>
+
+<details onclick="toggleAccordion(this)">
+<summary><strong>4. Organización y Formato</strong></summary>
+
+**`Ctrl` + `Shift` + `O`**: Organiza e importa las librerías necesarias para el archivo actual.
+
+**`Ctrl` + `Shift` + `F`**: Formatea todo el archivo de código.
+
+**`Ctrl` + `K` + `F`**: Formatea la selección.
+
+</details>
+
+<details onclick="toggleAccordion(this)">
+<summary><strong>5. Navegación Rápida</strong></summary>
+
+**`Ctrl` + `Shift` + `P`**: Abre la paleta de comandos para ejecutar cualquier comando de VS Code.
+
+**F12**: Ve a la definición de la función, clase o variable.
+
+**`Ctrl` + `Shift` + `R`**: Renombra la variable, función o clase seleccionada.
+
+**`Ctrl` + `Z`**: Deshace la última acción.
+
+**`Ctrl` + `Y`**: Rehace la última acción.
+
+</details>
