@@ -153,8 +153,10 @@ body {
 /* Estilos responsivos */
 @media (max-width: 768px) {
   #layout {
-    grid-template-columns: 1fr; /* Convertir todo a una sola columna */
-    grid-template-rows: auto auto auto; /* Sidebar y contenido en filas separadas */
+    grid-template-columns: 1fr; /* Convertir a una sola columna */
+    grid-template-rows: auto 1fr auto; /* Tres filas: sidebar, contenido y footer */
+    height: 100vh; /* Asegurar que el layout no exceda la altura del viewport */
+    overflow: hidden; /* Evitar scroll en el layout completo */
   }
 
   #sidebar {
@@ -171,12 +173,19 @@ body {
   }
 
   #content {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3; /* Colocar contenido debajo del sidebar */
+    grid-column: 1 / 2; /* El contenido ocupa toda la columna */
+    grid-row: 2 / 3; /* Segunda fila del grid */
+    overflow-y: auto; /* Permitir scroll solo en el contenido */
+    max-height: calc(
+      100vh - 120px
+    ); /* Ajustar la altura para considerar el nuevo tamaño del footer */
   }
 
   footer {
-    grid-column: 1 / 2; /* Footer ocupa una columna en responsive */
+    grid-column: 1 / 2; /* Footer ocupa solo la columna del contenido */
+    grid-row: 3 / 4; /* Tercera fila */
+    height: 80px; /* Cambiar la altura del footer a 120px */
+    position: relative; /* Mantener el footer dentro del flujo del documento */
   }
 
   /* Mostrar el botón para abrir/cerrar el sidebar en pantallas pequeñas */
@@ -186,6 +195,15 @@ body {
 
   #menu-toggle.show {
     left: 20px; /* Posición del botón cuando sidebar está oculto */
+  }
+
+  #layout.show-sidebar #sidebar h1 {
+    margin-top: 60px; /* Añadir margen superior para evitar la superposición */
+    transition: margin-top 0.3s ease; /* Animación para suavizar el desplazamiento */
+  }
+  #sidebar h1 {
+    margin-top: 0; /* Margen superior original */
+    transition: margin-top 0.3s ease-in-out; /* Animación para salida */
   }
 }
 
