@@ -203,6 +203,7 @@ summary {
   cursor: pointer;
   font-weight: bold;
   color: #3498db;
+  user-select: none;
 }
 
 summary:hover {
