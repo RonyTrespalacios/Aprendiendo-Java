@@ -42,20 +42,33 @@
   text-align: justify;
 }
 
-/* Bloques de código */
-pre,
+/* Estilos para elementos <code> sueltos */
 code {
   background: #282c34;
   color: #61dafb;
-  padding: 10px;
+  padding: 10px; /* Padding solo para <code> que no estén dentro de <pre> */
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Estilos para <pre> */
+pre {
+  background: #282c34;
+  color: #61dafb;
+  margin: 20px 0;
+  padding: 0px; /* Elimina el padding de <pre> */
   border-radius: 5px;
   font-family: "Courier New", Courier, monospace;
   overflow-x: auto;
 }
 
-pre {
-  margin: 20px 0;
+/* Estilos para <code> dentro de <pre> */
+pre code {
+  padding: 0px; /* Sin padding adicional en <code> dentro de <pre> */
+  background: none; /* Opcional: elimina el fondo adicional de <code> dentro de <pre> */
+  color: inherit; /* Hereda el color de <pre> */
 }
+
 
 /* Tablas */
 #class-content table {
