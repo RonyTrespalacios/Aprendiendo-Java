@@ -266,7 +266,7 @@ summary:hover {
     max-height: calc(
       100vh - 120px
     ); /* Asegurar que el contenido no exceda el tamaño */
-    padding-bottom: 20px; /* Añadir un padding para evitar que el contenido se esconda tras el footer */
+    padding: 4px;
   }
 
   /* Ajustar el footer en dispositivos móviles */

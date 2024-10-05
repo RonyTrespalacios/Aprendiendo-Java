@@ -163,4 +163,16 @@ pre code {
   code {
     font-size: 14px;
   }
+  table {
+    width: 100%; /* Hacer que las tablas tomen el 100% del contenedor */
+    display: block; /* Cambiar a block para permitir scroll */
+    overflow-x: auto; /* Habilitar el scroll horizontal */
+    border-collapse: collapse; /* Asegurar que las celdas no se separen */
+  }
+
+  th,
+  td {
+    white-space: nowrap; /* Evitar que el contenido se divida en varias líneas */
+    padding: 10px; /* Ajustar el padding para que el contenido sea más compacto */
+  }
 }
