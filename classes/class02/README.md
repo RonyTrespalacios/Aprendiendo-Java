@@ -211,7 +211,7 @@ public class OperadoresJava {
 
 ### Ejercicio 1: Cálculo de Promedio de Notas (Básico)
 
-**Planteamiento:** Crea un programa que calcule el promedio de tres notas ingresadas por el usuario. Usa los operadores de suma y división. El programa debe pedir las tres notas, sumar estos valores y luego calcular el promedio (suma de las tres notas dividido entre 3). Muestra el promedio en la consola con un mensaje que indique si el estudiante aprobó o reprobó, considerando que el promedio para aprobar es 60.
+Crea un programa que calcule el promedio de tres notas ingresadas por el usuario. Usa los operadores de suma y división. El programa debe pedir las tres notas, sumar estos valores y luego calcular el promedio (suma de las tres notas dividido entre 3). Muestra el promedio en la consola con un mensaje que indique si el estudiante aprobó o reprobó, considerando que el promedio para aprobar es 60.
 
 **Ejemplo de entrada/salida esperado:**
 
@@ -260,7 +260,7 @@ public class PromedioNotas {
 
 ### Ejercicio 2: Cálculo de Salario Neto con Deducciones
 
-**Planteamiento:** Crea un programa que calcule el salario neto de un empleado después de aplicar deducciones de impuestos. El programa debe solicitar el salario base y los porcentajes de deducción de impuestos (por ejemplo, impuesto federal y seguro social). Luego, calcula el salario neto utilizando una sola línea de código que combine las operaciones de resta y asignación.
+Crea un programa que calcule el salario neto de un empleado después de aplicar deducciones de impuestos. El programa debe solicitar el salario base y los porcentajes de deducción de impuestos (por ejemplo, impuesto federal y seguro social). Luego, calcula el salario neto utilizando una sola línea de código que combine las operaciones de resta y asignación.
 
 1. Solicita el salario base del empleado (por ejemplo: 2000).
 2. Solicita el porcentaje de deducción por impuesto federal (por ejemplo: 15%).
@@ -356,7 +356,7 @@ String resultado = (edad >= 18) ? "Adulto" : "Menor de edad";
 System.out.println("Resultado: " + resultado);
 ```
 
-<details> <summary>Ver ejemplo completo</summary>
+<details> <summary>Ver otro ejemplo</summary>
 
 ```java
 int numero = 10;
@@ -400,9 +400,9 @@ public class ConstantesEjemplo {
 
 # Ejercicios Prácticos
 
-### Ejercicio 1: Cálculo de IMC (Índice de Masa Corporal)
+## Ejercicio 1: Cálculo de IMC (Índice de Masa Corporal)
 
-**Planteamiento:** Crea un programa que calcule el IMC de una persona. El programa debe solicitar el peso y la estatura del usuario y calcular el IMC usando la fórmula `IMC = peso / (estatura * estatura)`. El resultado debe mostrar en qué categoría se encuentra la persona:
+Crea un programa que calcule el IMC de una persona. El programa debe solicitar el peso y la estatura del usuario y calcular el IMC usando la fórmula `IMC = peso / (estatura * estatura)`. El resultado debe mostrar en qué categoría se encuentra la persona:
 
 - IMC menor a 18.5: Bajo peso
 - IMC entre 18.5 y 24.9: Peso normal
@@ -449,9 +449,9 @@ public class CalculoIMC {
 
 </details>
 
-### Ejercicio 2: Descuento en Compra
+## Ejercicio 2: Descuento en Compra
 
-**Planteamiento:** Crea un programa que calcule el precio final de una compra después de aplicar un descuento. El programa debe solicitar el precio original y el porcentaje de descuento. Luego, calcula el precio con descuento y muestra el total a pagar.
+Crea un programa que calcule el precio final de una compra después de aplicar un descuento. El programa debe solicitar el precio original y el porcentaje de descuento. Luego, calcula el precio con descuento y muestra el total a pagar.
 
 **Ejemplo de entrada/salida esperado:**
 
@@ -486,9 +486,9 @@ public class DescuentoCompra {
 
 </details>
 
-### Ejercicio 3: Calcular el Costo Total de Productos con IVA
+## Ejercicio 3: Calcular el Costo Total de Productos con IVA
 
-**Planteamiento:** Crea un programa que calcule el costo total de una lista de productos después de aplicar un IVA del 19%. El programa debe solicitar el precio de cada producto y calcular el costo total sumando el IVA. Utiliza una constante para definir el porcentaje de IVA.
+Crea un programa que calcule el costo total de una lista de productos después de aplicar un IVA del 19%. El programa debe solicitar el precio de cada producto y calcular el costo total sumando el IVA. Utiliza una constante para definir el porcentaje de IVA.
 
 **Ejemplo de entrada/salida esperado:**
 
@@ -526,9 +526,9 @@ public class CostoConIVA {
 
 </details>
 
-### Ejercicio 4: Conversión de Temperatura
+## Ejercicio 4: Conversión de Temperatura
 
-**Planteamiento:** Crea un programa que convierta una temperatura de grados Celsius a Fahrenheit. El programa debe solicitar la temperatura en Celsius e imprimir la temperatura en Fahrenheit usando la fórmula `F = (C * 9/5) + 32`. Utiliza una constante para definir el factor de conversión.
+Crea un programa que convierta una temperatura de grados Celsius a Fahrenheit. El programa debe solicitar la temperatura en Celsius e imprimir la temperatura en Fahrenheit usando la fórmula `F = (C * 9/5) + 32`. Utiliza una constante para definir el factor de conversión.
 
 **Ejemplo de entrada/salida esperado:**
 
@@ -568,21 +568,21 @@ El casteo de variables en Java es el proceso de convertir un tipo de dato a otro
 1. **Casteo Implícito**: Se realiza automáticamente cuando el valor se convierte de un tipo menor a uno mayor (por ejemplo, de `int` a `double`).
 2. **Casteo Explícito**: Se realiza de forma manual cuando se desea convertir de un tipo mayor a uno menor o entre tipos no compatibles (por ejemplo, de `double` a `int`). Para esto, se coloca el tipo deseado entre paréntesis antes de la variable o el valor.
 
-### Ejemplo: Casteo Implícito
+## Ejemplo: Casteo Implícito
 ```java
 int numeroEntero = 100;
 double numeroDecimal = numeroEntero; // Casteo implícito de int a double
 System.out.println("Valor convertido a double: " + numeroDecimal); // Salida: 100.0
 ```
 
-### Ejemplo: Casteo Explícito
+## Ejemplo: Casteo Explícito
 ```java
 double numeroDecimal = 100.99;
 int numeroEntero = (int) numeroDecimal; // Casteo explícito de double a int
 System.out.println("Valor convertido a entero: " + numeroEntero); // Salida: 100
 ```
 
-### Ejemplo: División de Enteros con Casteo a `double`
+## Ejemplo: División de Enteros con Casteo a `double`
 Si se realiza una división entre dos enteros en Java, el resultado será también un entero. Para obtener un resultado con decimales, se debe realizar un casteo a `double`:
 
 ```java
@@ -611,8 +611,9 @@ public class CasteoEjemplo {
 ```
 </details>
 
-### Ejercicio Práctico
-**Planteamiento:** Crea un programa que convierta una cantidad de kilómetros a millas. El programa debe solicitar la cantidad de kilómetros al usuario, realizar la conversión usando la fórmula `1 kilómetro = 0.621371 millas` y mostrar el resultado en la consola. Utiliza un casteo de la variable `kilometros` a `double` para obtener un resultado con decimales.
+## Ejercicio Práctico
+
+Crea un programa que convierta una cantidad de kilómetros a millas. El programa debe solicitar la cantidad de kilómetros al usuario, realizar la conversión usando la fórmula `1 kilómetro = 0.621371 millas` y mostrar el resultado en la consola. Utiliza un casteo de la variable `kilometros` a `double` para obtener un resultado con decimales.
 
 **Ejemplo de entrada/salida esperado:**
 ```
