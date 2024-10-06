@@ -210,6 +210,39 @@ window.addEventListener("DOMContentLoaded", () => {
   handleScrollOnRouteChange(); // Cargar el contenido correspondiente al iniciar
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const layout = document.getElementById("layout"); // Contenedor principal del layout
+  const sidebar = document.getElementById("sidebar"); // El sidebar
+  const sidebarLinks = document.querySelectorAll("#sidebar nav ul li a"); // Todos los enlaces dentro del sidebar
+
+  // Función para cerrar el sidebar en dispositivos móviles
+  function closeSidebar() {
+    if (layout.classList.contains("show-sidebar")) {
+      layout.classList.remove("show-sidebar"); // Cerrar el sidebar si está abierto
+    }
+  }
+
+  // Añadir evento de click a cada enlace dentro del sidebar
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeSidebar(); // Cerrar sidebar al hacer clic en un enlace
+    });
+  });
+
+  // Cerrar el sidebar al cambiar de hash (cambio de ruta)
+  window.addEventListener("hashchange", closeSidebar);
+
+  // Cerrar el sidebar al cambiar el historial (botones Atrás/Adelante)
+  window.addEventListener("popstate", closeSidebar);
+
+  // Asegurar que el sidebar se cierre incluso en navegaciones internas de la aplicación
+  document.body.addEventListener("click", (event) => {
+    if (event.target.closest("#sidebar nav ul li a")) {
+      closeSidebar(); // Detecta cualquier click dentro del sidebar y lo cierra
+    }
+  });
+});
+
 // Función para cargar y mostrar el contenido del README.md de la raíz
 async function showWelcomeMessage() {
   const contentArea = document.getElementById("class-content");
@@ -251,7 +284,6 @@ function setupResponsiveMenu() {
   });
 }
 
-// Inicializar la página cargando el listado de clases y configurando el menú
 // Inicializar la página cargando el listado de clases y configurando el menú
 function init() {
   console.log("Inicializando la aplicación");
