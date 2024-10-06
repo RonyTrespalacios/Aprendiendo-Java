@@ -69,7 +69,6 @@ pre code {
   color: inherit; /* Hereda el color de <pre> */
 }
 
-
 /* Tablas */
 #class-content table {
   width: 100%;
@@ -94,15 +93,6 @@ pre code {
   background: #f9f9f9;
 }
 
-/* Enlaces */
-#class-content a {
-  color: #3498db;
-  text-decoration: none;
-}
-
-#class-content a:hover {
-  text-decoration: underline;
-}
 
 /* Listas */
 #class-content ul,
@@ -144,6 +134,61 @@ pre code {
   height: 200px; /* Establecer una altura específica para hacerla tipo banner */
   object-fit: cover; /* Recortar la imagen para adaptarse a la caja */
 }
+
+/* classStyles.css */
+
+/* Estilos específicos para los botones de navegación */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between; /* Distribuye los botones en los extremos */
+  margin-top: 20px; /* Separación del contenido */
+  user-select: none;
+}
+
+.navigation-buttons .prev-button,
+.navigation-buttons .next-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: #ffffff; /* Color de letra blanco */
+  background-color: #800020; /* Color de fondo personalizado */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.navigation-buttons .prev-button:hover,
+.navigation-buttons .next-button:hover {
+  background-color: #66001a; /* Color más oscuro al hacer hover */
+  transform: translateY(-3px);
+}
+
+.navigation-buttons .prev-button:active,
+.navigation-buttons .next-button:active {
+  background-color: #4d0013; /* Color aún más oscuro al hacer clic */
+  transform: translateY(0);
+}
+
+/* Botón deshabilitado */
+.navigation-buttons .disabled {
+  background-color: #a6a6a6; /* Color gris claro para botón deshabilitado */
+  cursor: not-allowed; /* Indica que no es clicable */
+  pointer-events: none; /* Desactiva la interacción */
+}
+
+/* Botón anterior se alinea a la izquierda */
+.navigation-buttons .prev-button {
+  margin-right: auto; /* Empuja el botón hacia la izquierda */
+}
+
+/* Botón siguiente se alinea a la derecha */
+.navigation-buttons .next-button {
+  margin-left: auto; /* Empuja el botón hacia la derecha */
+}
+
+
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {

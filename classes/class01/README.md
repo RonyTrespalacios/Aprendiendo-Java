@@ -183,7 +183,6 @@ public class Empresa {
     }
 
 }
-
 ```
 </details>
 
@@ -266,3 +265,6 @@ Código: 123456789
 
 </details>
 
+<div class="navigation-buttons">
+    <a href="/#/class02" class="next-button">Clase Siguiente →</a>
+</div>

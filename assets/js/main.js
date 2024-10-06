@@ -38,6 +38,7 @@ async function loadClassList() {
   const classes = [
     { id: "class01", name: "Clase 01: Introducción a Java" },
     { id: "class02", name: "Clase 02: Scanner y Operadores Logicos" },
+    { id: "class03", name: "Clase 03: Retos de aprendizaje" },
   ];
 
   // Imprimir la lista de clases en consola para depurar
