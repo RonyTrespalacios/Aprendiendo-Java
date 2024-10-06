@@ -7,6 +7,6 @@ En esta clase, nos enfrentaremos a desafíos prácticos que nos ayudarán a apli
 ### ¡Mantente atento! Esta actividad estará disponible próximamente.
 
 <div class="navigation-buttons">
-    <a href="/#/class02" class="prev-button">← Clase Anterior</a>
+    <a href="#/class02" class="prev-button">← Clase Anterior</a>
     <a class="next-button disabled">Clase Siguiente →</a>
 </div>
