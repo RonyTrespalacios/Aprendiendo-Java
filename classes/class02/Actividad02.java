@@ -6,26 +6,8 @@
     Posteriormente, pide al usuario que ingrese dos números, guardarlos en variables previamente declaradas, realiza la suma de los números y muestra el resultado en la consola.
 */
 
-import java.util.Scanner;
-
 public class Actividad02 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Digita el valor de a -> ");
-        int a = scanner.nextInt();
-
-        System.out.print("Digita el valor de b -> ");
-        int b = scanner.nextInt();
-
-        System.out.println("\n\ta = " + a + " | b = " + b);
-
-        System.out.println("\n\ta + b = " + (a+b));
-        System.out.println("\n\ta - b = " + (a-b));
-        System.out.println("\n\ta * b = " + (a*b));
-        System.out.println("\n\ta / b = " + ((float)a/(float)b)); // casteo de variables
-        System.out.println("\n\ta % b = " + (a%b));
-
-        scanner.close();
+        // Escribe aqui tu codigo solución 
     }
 }

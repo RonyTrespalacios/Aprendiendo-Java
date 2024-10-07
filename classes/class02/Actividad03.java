@@ -9,21 +9,8 @@
  * 
  */
 
-import java.util.Scanner;
-
 public class Actividad03 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa un numero entero: ");
-        int a = scanner.nextInt();
-        System.out.print("Ingresa otro numero entero: ");
-        int b = scanner.nextInt();
-
-        boolean mayor = a > b ? true : false;
-        System.out.println("El nümero "+a+" es mayor a "+b+" ? = "+mayor+"");
-        System.out.println("El nümero "+a+" es igual a "+b+" ? = "+(a==b ? true : false));
-        System.out.println("El nümero "+a+" es divisible entre 2 ? = "+(((a%=2) == 0) ? true : false));
-
-        scanner.close();
+        // Escribe aqui tu codigo solución 
     }
 }

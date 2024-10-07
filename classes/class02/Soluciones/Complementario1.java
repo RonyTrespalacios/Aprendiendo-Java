@@ -10,8 +10,21 @@ Determina si el usuario es mayor de edad (tener 18 años o más) y muestra un me
 
  */
 
+import java.util.Scanner;
+
 public class Complementario1 {
     public static void main(String[] args) {
-        // Escribe aqui tu codigo solución 
+        Scanner scanner = new Scanner(System.in);
+        final int ANIOACTUAL = 2024;
+
+        System.out.print("Digita tu anio de nacimiento >> ");
+        int anioNacimiento = scanner.nextInt();
+
+        int calculoEdad = ANIOACTUAL - anioNacimiento;
+
+        System.out.println("Tienes "+calculoEdad+" años.");
+        System.out.println(calculoEdad>=18? "Eres mayor de edad!" : "Eres menor de edad.");
+
+        scanner.close();
     }
 }

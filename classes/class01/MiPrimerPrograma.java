@@ -6,11 +6,11 @@ public class MiPrimerPrograma {
         System.out.println(saludo+edad+" anios");
         boolean happy = true;
         char feliz = 'D';
-        char troste = 'c';
+        char triste = 'c';
         if(happy){
             System.out.println("Estoy feliz! :"+feliz);
         }else{
-            System.out.println("Estoy triste! :"+troste);
+            System.out.println("Estoy triste! :"+triste);
         }
         float pi = 3.141516f;
         System.out.println(pi);
