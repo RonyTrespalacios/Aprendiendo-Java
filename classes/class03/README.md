@@ -237,33 +237,34 @@ Ingrese una palabra o frase: Anula la luna
 Es un palíndromo.
 ```
 
-<details> <summary>Ver solución</summary>
-```java
-import java.util.Scanner;
+<details>
+  <summary>Ver solución</summary>
 
-public class Ejercicio05 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
+  ```java
+  import java.util.Scanner;
 
-        System.out.print("Digita una frase o palabra: ");
-        String frase = scanner.nextLine();
-        frase = frase.replaceAll("\\s","");
-        frase = frase.toLowerCase();
+  public class Ejercicio05 {
+      public static void main(String[] args) {
+          Scanner scanner = new Scanner(System.in);
 
-        StringBuffer fraseNormal = new StringBuffer(frase);
-        StringBuffer fraseInvertida = new StringBuffer(frase).reverse();
+          System.out.print("Digita una frase o palabra: ");
+          String frase = scanner.nextLine();
+          frase = frase.replaceAll("\\s", "");
+          frase = frase.toLowerCase();
 
-        String out = (fraseNormal.toString().equals(fraseInvertida.toString())) ? "Es un palíndromo." : "No es palíndromo.";
-        
-        System.out.println(frase);
-        System.out.println(fraseInvertida.toString());
-        System.out.println(out);
+          StringBuffer fraseNormal = new StringBuffer(frase);
+          StringBuffer fraseInvertida = new StringBuffer(frase).reverse();
 
-        scanner.close();
-    }
-}
-```
+          String out = (fraseNormal.toString().equals(fraseInvertida.toString())) ? "Es un palíndromo." : "No es palíndromo.";
+
+          System.out.println(frase);
+          System.out.println(fraseInvertida.toString());
+          System.out.println(out);
+
+          scanner.close();
+      }
+  }
+  ```
 </details>
 
 ---
