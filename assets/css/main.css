@@ -39,6 +39,8 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 1000; /* Asegura que esté sobre otros elementos */
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch;
 }
 
 #sidebar h1 {
