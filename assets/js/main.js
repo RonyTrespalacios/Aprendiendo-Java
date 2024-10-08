@@ -14,17 +14,23 @@ const allDetails = document.querySelectorAll("details");
 
 allDetails.forEach((details) => {
   details.addEventListener("toggle", () => {
-    // Si se abre, agregar la clase para animar la apertura
     if (details.open) {
       details.classList.add("animating-open");
       details.classList.remove("animating-close");
     } else {
-      // Si se cierra, agregar la clase para animar el cierre
       details.classList.add("animating-close");
       details.classList.remove("animating-open");
     }
   });
 });
+
+// Definición de las clases disponibles
+const classes = [
+  { id: "class01", name: "Clase 01: Introducción a Java" },
+  { id: "class02", name: "Clase 02: Scanner y Operadores Lógicos" },
+  { id: "class03", name: "Clase 03: Retos de aprendizaje" },
+  { id: "class04", name: "Clase 04: Estructuras de control I" },
+];
 
 // Función para cargar el listado de clases en la barra lateral
 async function loadClassList() {
@@ -33,14 +39,6 @@ async function loadClassList() {
     console.error('No se encontró el elemento con id="class-list"');
     return;
   }
-
-  // Definición de las clases disponibles
-  const classes = [
-    { id: "class01", name: "Clase 01: Introducción a Java" },
-    { id: "class02", name: "Clase 02: Scanner y Operadores Logicos" },
-    { id: "class03", name: "Clase 03: Retos de aprendizaje" },
-    { id: "class04", name: "Clase 04: Estructuras de control I" },
-  ];
 
   // Imprimir la lista de clases en consola para depurar
   console.log("Cargando lista de clases:", classes);
@@ -64,21 +62,52 @@ async function loadClassList() {
   });
 }
 
+// Función para generar los botones de navegación
+function generateNavigationButtons(classId) {
+  const navigationContainer = document.createElement("div");
+  navigationContainer.classList.add("navigation-buttons");
+
+  const currentClassIndex = classes.findIndex(cls => cls.id === classId);
+  
+  // Crear botón para la clase anterior, si no es la primera clase
+  if (currentClassIndex > 0) {
+    const prevButton = document.createElement("a");
+    prevButton.href = `./#/${classes[currentClassIndex - 1].id}`;
+    prevButton.textContent = "← Clase Anterior";
+    prevButton.classList.add("prev-button");
+    navigationContainer.appendChild(prevButton);
+  }
+
+  // Crear botón para la clase siguiente, si no es la última clase
+  if (currentClassIndex < classes.length - 1) {
+    const nextButton = document.createElement("a");
+    nextButton.href = `./#/${classes[currentClassIndex + 1].id}`;
+    nextButton.textContent = "Clase Siguiente →";
+    nextButton.classList.add("next-button");
+    navigationContainer.appendChild(nextButton);
+  } else {
+    // Si es la última clase, el botón de siguiente debe estar deshabilitado
+    const nextButton = document.createElement("a");
+    nextButton.textContent = "Clase Siguiente →";
+    nextButton.classList.add("next-button", "disabled");
+    navigationContainer.appendChild(nextButton);
+  }
+
+  return navigationContainer;
+}
+
 // Función para cargar el contenido del README.md de cada clase y gestionar #class-content
 async function loadClassContent(classId) {
   const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la clase
 
   if (!contentArea) {
-    console.error(
-      'No se encontró el contenedor de contenido con id="class-content"'
-    );
+    console.error('No se encontró el contenedor de contenido con id="class-content"');
     return;
   }
 
   try {
     const response = await fetch(`./classes/${classId}/README.md`);
-    if (!response.ok)
-      throw new Error("No se pudo cargar el contenido de la clase");
+    if (!response.ok) throw new Error("No se pudo cargar el contenido de la clase");
 
     const markdown = await response.text();
 
@@ -91,25 +120,20 @@ async function loadClassContent(classId) {
     // Aplicar resaltado de sintaxis usando Prism.js para formatear código
     Prism.highlightAll();
 
-    // Aplicar clases CSS necesarias para el contenedor
-    contentArea.classList.add("class-content"); // Asegurar que la clase 'class-content' se aplique
+    // Insertar los botones de navegación después del contenido
+    const navigationButtons = generateNavigationButtons(classId);
+    contentArea.appendChild(navigationButtons);
 
     // Desplazar el contenedor de scroll hacia arriba con animación suave
     const scrollContainer = document.getElementById("content"); // Contenedor de scroll
     if (scrollContainer && scrollContainer.scrollTop > 0) {
-      scrollContainer.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     // Actualizar la URL para reflejar la clase cargada sin recargar la página
     history.pushState({ classId }, null, `#/${classId}`);
   } catch (error) {
-    console.error(
-      `Error al cargar el contenido de la clase ${classId}:`,
-      error
-    );
+    console.error(`Error al cargar el contenido de la clase ${classId}:`, error);
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
 }
@@ -119,16 +143,13 @@ async function showWelcomeMessage() {
   const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la raíz
 
   if (!contentArea) {
-    console.error(
-      'No se encontró el contenedor de contenido con id="class-content"'
-    );
+    console.error('No se encontró el contenedor de contenido con id="class-content"');
     return;
   }
 
   try {
     const response = await fetch("./README.md"); // Cargar el README.md de la raíz
-    if (!response.ok)
-      throw new Error("No se pudo cargar el contenido de la raíz");
+    if (!response.ok) throw new Error("No se pudo cargar el contenido de la raíz");
 
     const markdown = await response.text();
 
@@ -148,10 +169,7 @@ async function showWelcomeMessage() {
     // Desplazar el contenedor de scroll hacia arriba con animación suave
     const scrollContainer = document.getElementById("content"); // Contenedor de scroll
     if (scrollContainer) {
-      scrollContainer.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     }
   } catch (error) {
     console.error(`Error al cargar el contenido de la raíz:`, error);
@@ -172,10 +190,7 @@ function handleScrollOnRouteChange() {
 
     // Desplazar el contenedor de scroll hacia arriba con animación suave
     if (scrollContainer && scrollContainer.scrollTop > 0) {
-      scrollContainer.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 }
@@ -251,21 +266,16 @@ async function showWelcomeMessage() {
   if (!contentArea) return;
 
   try {
-    // Intentar cargar el README.md de la raíz
     const response = await fetch("./README.md");
-    if (!response.ok)
-      throw new Error("No se pudo cargar el README.md de la raíz");
+    if (!response.ok) throw new Error("No se pudo cargar el README.md de la raíz");
 
     const markdown = await response.text();
 
-    // Renderizar el markdown a HTML usando la función de markdown.js
     const htmlContent = renderMarkdownToHtml(markdown);
     console.log("Contenido del README.md de la raíz cargado y renderizado");
 
-    // Insertar el HTML en el contenedor principal
     contentArea.innerHTML = htmlContent;
 
-    // Aplicar resaltado de sintaxis si hay bloques de código en el README.md
     Prism.highlightAll();
   } catch (error) {
     console.error("Error al cargar el README.md de la raíz:", error);
@@ -295,13 +305,10 @@ function init() {
   // Cargar el contenido inicial según el hash de la URL
   const classIdFromUrl = window.location.hash.substring(2); // Remover `#/`
   if (classIdFromUrl) {
-    console.log(
-      `Cargando contenido inicial de la clase desde URL: ${classIdFromUrl}`
-    );
+    console.log(`Cargando contenido inicial de la clase desde URL: ${classIdFromUrl}`);
     loadClassContent(classIdFromUrl); // Cargar la clase correspondiente
   } else {
-    // Si no hay hash, mostrar el contenido del README.md de la raíz
-    showWelcomeMessage();
+    showWelcomeMessage(); // Si no hay hash, mostrar el contenido del README.md de la raíz
   }
 }
 
@@ -312,16 +319,11 @@ window.addEventListener("DOMContentLoaded", init);
 window.addEventListener("popstate", (event) => {
   console.log("Evento popstate detectado:", event);
 
-  // Obtener el ID de la clase desde la URL (por ejemplo, #/class01)
-  const classIdFromUrl = window.location.hash.substring(2); // Remueve `#` y `/`
+  const classIdFromUrl = window.location.hash.substring(2);
 
   if (classIdFromUrl) {
-    console.log(
-      `Cargando contenido de la clase desde popstate: ${classIdFromUrl}`
-    );
-    loadClassContent(classIdFromUrl); // Cargar la clase según el ID en la URL
+    loadClassContent(classIdFromUrl);
   } else {
-    // Si no hay hash en la URL, mostrar el contenido del README.md de la raíz
     showWelcomeMessage();
   }
 });

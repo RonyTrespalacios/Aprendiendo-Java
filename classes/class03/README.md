@@ -438,8 +438,3 @@ El ajuste de términos puede desbloquear más información relevante.
 
 Cuanto más practiques y utilices estos tips, más rápido y eficiente serás buscando soluciones a tus problemas de programación.
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class02" class="prev-button">← Clase Anterior</a>
-    <a href="./#/class04" class="next-button">Clase Siguiente →</a>
-</div>

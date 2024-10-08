@@ -264,7 +264,3 @@ Código: 123456789
 **`Ctrl` + `Y`**: Rehace la última acción.
 
 </details>
-
-<div class="navigation-buttons">
-    <a href="./#/class02" class="next-button">Clase Siguiente →</a>
-</div>
