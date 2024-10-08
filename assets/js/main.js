@@ -39,6 +39,7 @@ async function loadClassList() {
     { id: "class01", name: "Clase 01: Introducción a Java" },
     { id: "class02", name: "Clase 02: Scanner y Operadores Logicos" },
     { id: "class03", name: "Clase 03: Retos de aprendizaje" },
+    { id: "class04", name: "Clase 04: Estructuras de control I" },
   ];
 
   // Imprimir la lista de clases en consola para depurar
