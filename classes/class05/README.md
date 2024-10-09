@@ -846,3 +846,217 @@ Bienvenido, Administrador. Tienes acceso total.
 </details>
 
 Estos ejemplos demuestran cómo `enum` puede ser utilizado para mejorar la organización del código, garantizar la validez de los valores y facilitar el manejo de múltiples opciones en diferentes contextos. 🌟
+
+# Switch Case Avanzado en Java
+
+## Switch Expression en Java 💡
+
+### ¿Qué es una "Switch Expression"?
+A partir de Java 12, se introdujo la **switch expression**, que nos permite escribir bloques `switch` de una manera más compacta y funcional. Vamos a explorar algunos ejemplos para comprender mejor cómo funcionan.
+
+<details>
+<summary>💡 <b>Tip</b>: ¿Por qué usar Switch Expression?</summary>
+Las switch expressions son más concisas y menos propensas a errores que los `switch` tradicionales, especialmente cuando se asignan valores a una variable. Además, eliminan la necesidad de escribir múltiples líneas de `break`.
+</details>
+
+#### Ejemplo simple de Switch Expression
+
+```java
+int dia = 3;
+switch (dia) {
+    case 1 -> System.out.println("Lunes");
+    case 2 -> System.out.println("Martes");
+    case 3 -> System.out.println("Miércoles");
+    case 4 -> System.out.println("Jueves");
+    case 5 -> System.out.println("Viernes");
+    case 6 -> System.out.println("Sábado");
+    case 7 -> System.out.println("Domingo");
+    default -> System.out.println("Día no válido");
+}
+```
+
+### Switch Expression asignando valores a variables
+
+#### Ejemplo simple asignando a una variable
+
+```java
+int dia = 3;
+String nombreDia = switch (dia) {
+    case 1 -> "Lunes";
+    case 2 -> "Martes";
+    case 3 -> "Miércoles";
+    case 4 -> "Jueves";
+    case 5 -> "Viernes";
+    case 6 -> "Sábado";
+    case 7 -> "Domingo";
+    default -> "Día no válido";
+};
+System.out.println("El día es: " + nombreDia);
+```
+
+<details>
+<summary>⚠️ <b>Precaución</b>: Errores comunes al usar Switch Expression</summary>
+Recuerda que `switch` con flechas (`->`) no requiere `break`. Si intentas incluir un `break`, obtendrás un error de compilación.
+</details>
+
+#### Switch Expression con varias líneas de código
+A veces necesitamos realizar más de una operación dependiendo del caso seleccionado. En estos casos, utilizamos un bloque de llaves `{}` junto con la palabra clave `yield` para devolver un valor después de realizar múltiples operaciones.
+
+```java
+int puntos = 8;
+String resultado = switch (puntos) {
+    case 1, 2, 3 -> "Insuficiente";
+    case 4, 5, 6 -> "Aceptable";
+    case 7, 8 -> {
+        System.out.println("Buen rendimiento");
+        yield "Notable";
+    }
+    case 9, 10 -> {
+        System.out.println("¡Excelente trabajo!");
+        yield "Sobresaliente";
+    }
+    default -> "Puntuación no válida";
+};
+System.out.println("Resultado: " + resultado);
+```
+
+<details>
+<summary>⚠️ <b>Precaución</b>: Uso de yield</summary>
+Cuando utilizas `yield`, asegúrate de que estás dentro de un bloque `{}` para evitar errores de sintaxis. `yield` se usa para devolver un valor en un `switch` más complejo.
+</details>
+
+## Comparativa entre Switch Tradicional y Switch Expression
+Veamos cómo usar `switch` para múltiples casos que comparten una misma salida se ve más eficiente y limpio con las switch expressions.
+
+### Switch Tradicional
+
+```java
+int mes = 3;
+String estacion;
+switch (mes) {
+    case 12:
+    case 1:
+    case 2:
+        estacion = "Invierno";
+        break;
+    case 3:
+    case 4:
+    case 5:
+        estacion = "Primavera";
+        break;
+    case 6:
+    case 7:
+    case 8:
+        estacion = "Verano";
+        break;
+    case 9:
+    case 10:
+    case 11:
+        estacion = "Otoño";
+        break;
+    default:
+        estacion = "Mes no válido";
+}
+System.out.println("La estación es: " + estacion);
+```
+
+### Switch Expression
+
+```java
+int mes = 3;
+String estacion = switch (mes) {
+    case 12, 1, 2 -> "Invierno";
+    case 3, 4, 5 -> "Primavera";
+    case 6, 7, 8 -> "Verano";
+    case 9, 10, 11 -> "Otoño";
+    default -> "Mes no válido";
+};
+System.out.println("La estación es: " + estacion);
+```
+
+<details>
+<summary>💡 <b>Tip</b>: Uso recomendado</summary>
+Utiliza las switch expressions cuando tengas múltiples casos que compartan la misma salida. Te ayudará a reducir la verbosidad del código y evitar posibles errores relacionados con la falta de `break`.
+</details>
+
+## Uso de la palabra clave `yield` en Switch Expression
+La palabra clave `yield`, introducida en Java 13, nos permite devolver un valor dentro de un bloque de varias líneas dentro de una `switch expression`. Esto es especialmente útil cuando necesitamos realizar más de una operación antes de devolver un resultado.
+
+### Ejemplo sencillo con `yield`
+En este ejemplo, realizaremos una operación simple de cálculo antes de devolver el resultado con `yield`.
+
+```java
+int valor = 4;
+int resultado = switch (valor) {
+    case 1, 2, 3 -> valor * 2;
+    case 4, 5, 6 -> {
+        int multiplicacion = valor * 3;
+        yield multiplicacion;
+    }
+    default -> valor;
+};
+System.out.println("Resultado: " + resultado);
+```
+
+<details>
+<summary>⚠️ <b>Precaución</b>: Uso incorrecto de yield</summary>
+No puedes usar `yield` fuera de un bloque `{}`. Siempre que haya varias operaciones dentro de un caso, asegúrate de usar `{}` y `yield` correctamente para devolver un valor.
+</details>
+
+### Ejemplo complejo con `yield`
+En este ejemplo, definiremos algunas variables dentro de la `switch expression` y realizaremos varias operaciones antes de devolver el resultado.
+
+```java
+int puntuacion = 8;
+String descripcion = switch (puntuacion) {
+    case 1, 2, 3 -> "Rendimiento Bajo";
+    case 4, 5, 6 -> "Rendimiento Aceptable";
+    case 7, 8, 9 -> {
+        int bonus = puntuacion * 10;
+        String comentario = "Buen rendimiento con bonus de " + bonus + " puntos.";
+        yield comentario;
+    }
+    case 10 -> {
+        int bonus = puntuacion * 15;
+        String comentario = "¡Excelente rendimiento con bonus de " + bonus + " puntos!";
+        yield comentario;
+    }
+    default -> "Puntuación no válida";
+};
+System.out.println("Descripción: " + descripcion);
+```
+
+<details>
+<summary>💡 <b>Tip</b>: Caso de uso de yield</summary>
+Usa `yield` cuando necesites realizar cálculos complejos o múltiples pasos antes de devolver un valor. Esto facilita la lectura y el mantenimiento del código.
+</details>
+
+### Ejemplo complejo con `yield`
+
+```java
+int calificacion = 9;
+String nivel = switch (calificacion) {
+    case 1, 2, 3 -> "Bajo";
+    case 4, 5, 6 -> "Medio";
+    case 7, 8, 9 -> {
+        System.out.println("¡Buen trabajo!");
+        yield "Alto";
+    }
+    case 10 -> {
+        System.out.println("¡Excelente!");
+        yield "Muy Alto";
+    }
+    default -> "Calificación no válida";
+};
+System.out.println("Nivel: " + nivel);
+```
+
+## Coincidencia de Patrones en Switch
+En las versiones más recientes de Java, se ha añadido una característica llamada **pattern matching para `switch`**. Esta función permite manejar distintos tipos de objetos de manera más legible y eficiente, mejorando significativamente la claridad del código.
+
+<details>
+<summary>⚠️ <b>Precaución</b>: Uso del Pattern Matching</summary>
+La coincidencia de patrones en `switch` facilita la evaluación de diferentes tipos de objetos sin la necesidad de realizar múltiples comprobaciones explícitas, pero es importante tener una buena comprensión de los conceptos de programación orientada a objetos en Java para evitar errores.
+</details>
+
+Aunque no entraremos en profundidad en el **pattern matching for switch** ahora, es importante destacar su existencia. Más adelante en el curso, cuando hayamos abordado los conceptos necesarios, exploraremos esta poderosa herramienta en detalle.
