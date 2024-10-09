@@ -30,6 +30,8 @@ const classes = [
   { id: "class02", name: "Clase 02: Scanner y Operadores Lógicos" },
   { id: "class03", name: "Clase 03: Retos de aprendizaje" },
   { id: "class04", name: "Clase 04: Condicional if" },
+  { id: "class05", name: "Clase 05: Java switch" },
+  { id: "class06", name: "Clase 06: No disponible" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
