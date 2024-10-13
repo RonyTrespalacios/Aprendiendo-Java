@@ -15,7 +15,7 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden; /* Evitar scroll horizontal indeseado */
 }
 
@@ -23,7 +23,7 @@ body {
   display: grid; /* Usar Grid para el layout */
   grid-template-columns: 350px 1fr; /* Definir columnas: 250px para el sidebar y el resto para el contenido */
   grid-template-rows: auto 1fr auto; /* Tres filas: header, contenido y footer */
-  min-height: 100vh; /* Asegurar que el layout ocupe toda la altura del viewport */
+  min-height: 100dvh; /* Asegurar que el layout ocupe toda la altura del viewport */
 }
 
 /* Sidebar */
@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   z-index: 1000; /* Asegura que esté sobre otros elementos */
-  overflow-y: auto; 
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -135,7 +135,7 @@ footer img {
 /* Corrección de desbordamiento y scroll */
 html,
 body {
-  height: 100%;
+  height: 100dvh;
   overflow-y: visible; /* Permitir scroll vertical en el documento */
 }
 
