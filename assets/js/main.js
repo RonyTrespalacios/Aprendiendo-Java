@@ -30,8 +30,9 @@ const classes = [
   { id: "class02", name: "Clase 02: Scanner y Operadores Lógicos" },
   { id: "class03", name: "Clase 03: Retos de aprendizaje" },
   { id: "class04", name: "Clase 04: Condicional if" },
-  { id: "class05", name: "Clase 05: Java switch" },
-  { id: "class06", name: "Clase 06: No disponible" },
+  { id: "class05", name: "Clase 05: Switch" },
+  { id: "class06", name: "Clase 06: Try Catch" },
+  { id: "class07", name: "Clase 07: No disponible" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
@@ -69,8 +70,8 @@ function generateNavigationButtons(classId) {
   const navigationContainer = document.createElement("div");
   navigationContainer.classList.add("navigation-buttons");
 
-  const currentClassIndex = classes.findIndex(cls => cls.id === classId);
-  
+  const currentClassIndex = classes.findIndex((cls) => cls.id === classId);
+
   // Crear botón para la clase anterior, si no es la primera clase
   if (currentClassIndex > 0) {
     const prevButton = document.createElement("a");
@@ -103,13 +104,16 @@ async function loadClassContent(classId) {
   const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la clase
 
   if (!contentArea) {
-    console.error('No se encontró el contenedor de contenido con id="class-content"');
+    console.error(
+      'No se encontró el contenedor de contenido con id="class-content"'
+    );
     return;
   }
 
   try {
     const response = await fetch(`./classes/${classId}/README.md`);
-    if (!response.ok) throw new Error("No se pudo cargar el contenido de la clase");
+    if (!response.ok)
+      throw new Error("No se pudo cargar el contenido de la clase");
 
     const markdown = await response.text();
 
@@ -135,7 +139,10 @@ async function loadClassContent(classId) {
     // Actualizar la URL para reflejar la clase cargada sin recargar la página
     history.pushState({ classId }, null, `#/${classId}`);
   } catch (error) {
-    console.error(`Error al cargar el contenido de la clase ${classId}:`, error);
+    console.error(
+      `Error al cargar el contenido de la clase ${classId}:`,
+      error
+    );
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
 }
@@ -145,13 +152,16 @@ async function showWelcomeMessage() {
   const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la raíz
 
   if (!contentArea) {
-    console.error('No se encontró el contenedor de contenido con id="class-content"');
+    console.error(
+      'No se encontró el contenedor de contenido con id="class-content"'
+    );
     return;
   }
 
   try {
     const response = await fetch("./README.md"); // Cargar el README.md de la raíz
-    if (!response.ok) throw new Error("No se pudo cargar el contenido de la raíz");
+    if (!response.ok)
+      throw new Error("No se pudo cargar el contenido de la raíz");
 
     const markdown = await response.text();
 
@@ -269,7 +279,8 @@ async function showWelcomeMessage() {
 
   try {
     const response = await fetch("./README.md");
-    if (!response.ok) throw new Error("No se pudo cargar el README.md de la raíz");
+    if (!response.ok)
+      throw new Error("No se pudo cargar el README.md de la raíz");
 
     const markdown = await response.text();
 
@@ -307,7 +318,9 @@ function init() {
   // Cargar el contenido inicial según el hash de la URL
   const classIdFromUrl = window.location.hash.substring(2); // Remover `#/`
   if (classIdFromUrl) {
-    console.log(`Cargando contenido inicial de la clase desde URL: ${classIdFromUrl}`);
+    console.log(
+      `Cargando contenido inicial de la clase desde URL: ${classIdFromUrl}`
+    );
     loadClassContent(classIdFromUrl); // Cargar la clase correspondiente
   } else {
     showWelcomeMessage(); // Si no hay hash, mostrar el contenido del README.md de la raíz
