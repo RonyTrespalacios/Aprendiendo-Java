@@ -32,7 +32,8 @@ const classes = [
   { id: "class04", name: "Clase 04: Condicional if" },
   { id: "class05", name: "Clase 05: Switch" },
   { id: "class06", name: "Clase 06: Try Catch" },
-  { id: "class07", name: "Clase 07: No disponible" },
+  { id: "class07", name: "Clase 07: Clase String" },
+  { id: "class08", name: "Clase 07: No disponible" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
