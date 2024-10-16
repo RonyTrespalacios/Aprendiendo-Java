@@ -1,11 +1,10 @@
-# Retos de Aprendizaje I
+# 🚀 **Retos de Aprendizaje I**
 
-En esta clase, nos enfrentaremos a desafíos prácticos que nos ayudarán a aplicar y fortalecer nuestros conocimientos en Java. A través de ejercicios dinámicos, fomentaremos nuestra creatividad y habilidades de resolución de problemas.
+En esta clase, nos enfrentaremos a desafíos prácticos que nos ayudarán a aplicar y fortalecer nuestros conocimientos en Java. A través de ejercicios dinámicos, fomentaremos nuestra creatividad y habilidades de resolución de problemas. 💡
 
-## Ejercicio 1: Calculadora Básica con Operaciones Aritméticas
+## ➕ **Ejercicio 1: Calculadora Básica con Operaciones Aritméticas**
 
-Crea un programa que permita al usuario ingresar dos números y una operación aritmética (+, -, *, /). 
-El programa debe realizar la operación solicitada por el usuario y mostrar el resultado. Asegúrate de gestionar los posibles errores como la división por cero.
+Crea un programa que permita al usuario ingresar dos números y una operación aritmética (+, -, *, /). El programa debe realizar la operación solicitada por el usuario y mostrar el resultado. Asegúrate de gestionar los posibles errores como la división por cero. 🚫➗
 
 **Ejemplo de Entrada:**
 ```
@@ -20,6 +19,7 @@ El resultado es: 32
 ```
 
 <details> <summary>Ver solución</summary>
+
 ```java
 import java.util.Scanner;
 
@@ -51,13 +51,13 @@ public class Ejercicio01 {
 
 ---
 
-## Ejercicio 2: Promedio y Clasificación de Calificaciones
+## ➕ **Ejercicio 2: Promedio y Clasificación de Calificaciones**
 
 Escribe un programa que solicite al usuario ingresar las calificaciones de 5 materias. El programa debe calcular el promedio y clasificar el resultado según las siguientes condiciones:
-- Si el promedio es mayor o igual a 90, el resultado es "Excelente".
-- Si el promedio está entre 70 y 89, el resultado es "Bueno".
-- Si el promedio está entre 50 y 69, el resultado es "Regular".
-- Si el promedio es menor de 50, el resultado es "Insuficiente".
+- Si el promedio es mayor o igual a 90, el resultado es "Excelente". 🌟
+- Si el promedio está entre 70 y 89, el resultado es "Bueno". 👍
+- Si el promedio está entre 50 y 69, el resultado es "Regular". ⚠️
+- Si el promedio es menor de 50, el resultado es "Insuficiente". ❌
 
 **Ejemplo de Entrada:**
 ```
@@ -75,6 +75,7 @@ Clasificación: Bueno
 ```
 
 <details> <summary>Ver solución</summary>
+
 ```java
 import java.util.Scanner;
 
@@ -96,8 +97,8 @@ public class Ejercicio02 {
         promedio /= 5;
         System.out.println("El promedio es: " + promedio);
 
-        String resultado =  (promedio >= 90) ? "Excelente" : 
-                            (promedio >= 70) ? "Bueno" : 
+        String resultado =  (promedio >= 90) ? "Excelente" :
+                            (promedio >= 70) ? "Bueno" :
                             (promedio >= 50) ? "Regular" : "Insuficiente";
         
         System.out.println("Clasificación: " + resultado);
@@ -110,16 +111,18 @@ public class Ejercicio02 {
 
 ---
 
-## Ejercicio 3: Cálculo de Intereses Compuestos
+## ➕ **Ejercicio 3: Cálculo de Intereses Compuestos**
 
 Crea un programa que calcule el monto final después de aplicar intereses compuestos. El usuario debe ingresar el monto inicial, la tasa de interés anual, y la cantidad de años. La fórmula para el cálculo de los intereses compuestos es:
-A = P(1 + r/n)^(nt)  
+
+A = P(1 + r/n)^(nt)
+
 Donde:
-- A es el monto final
-- P es el monto inicial
-- r es la tasa de interés anual (en decimal, por ejemplo, 5% = 0.05)
-- n es el número de veces que se aplican los intereses por año (usa 12 para mensual)
-- t es el número de años
+- `A` es el monto final 💰
+- `P` es el monto inicial
+- `r` es la tasa de interés anual (en decimal, por ejemplo, 5% = 0.05)
+- `n` es el número de veces que se aplican los intereses por año (usa 12 para mensual)
+- `t` es el número de años
 
 **Ejemplo de Entrada:**
 ```
@@ -134,6 +137,7 @@ El monto final después de 10 años es: 1647.01
 ```
 
 <details> <summary>Ver solución</summary>
+
 ```java
 import java.util.Scanner;
 import java.lang.Math;
@@ -161,9 +165,9 @@ public class Ejercicio03 {
 
 ---
 
-## Ejercicio 4: Clasificación de Números como Pares o Impares
+## ➕ **Ejercicio 4: Clasificación de Números como Pares o Impares**
 
-Escribe un programa que solicite al usuario ingresar 5 números enteros y, utilizando operadores aritméticos y el operador ternario, determine si cada número es par o impar. Luego, muestra un resumen con los resultados.
+Escribe un programa que solicite al usuario ingresar 5 números enteros y, utilizando operadores aritméticos y el operador ternario, determine si cada número es par o impar. Luego, muestra un resumen con los resultados. 🔄
 
 **Ejemplo de Entrada:**
 ```
@@ -184,6 +188,7 @@ Ingrese el número 5: 15
 ```
 
 <details> <summary>Ver solución</summary>
+
 ```java
 import java.util.Scanner;
 
@@ -223,9 +228,9 @@ public class Ejercicio04 {
 
 ---
 
-## Ejercicio 5: Verificación de Palíndromos
+## ➕ **Ejercicio 5: Verificación de Palíndromos**
 
-Crea un programa que verifique si una palabra o frase ingresada por el usuario es un palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda, ignorando los espacios y signos de puntuación).
+Crea un programa que verifique si una palabra o frase ingresada por el usuario es un palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda, ignorando los espacios y signos de puntuación). 🔄
 
 **Ejemplo de Entrada:**
 ```
@@ -269,16 +274,17 @@ Es un palíndromo.
 
 ---
 
-¡Buena suerte con estos ejercicios!
+¡Buena suerte con estos ejercicios! 💪
 
-## Tips avanzados para mejorar tus búsquedas en Google sobre Java y programación
+## ➕ **Tips avanzados para mejorar tus búsquedas en Google sobre Java y programación**
 
 <details> <summary>Tips avanzados para mejorar tus búsquedas en Google</summary>
-Dominar la búsqueda en Google es clave para encontrar soluciones rápidas y precisas, especialmente en programación. Aquí tienes una guía con tips y ejemplos prácticos que te ayudarán a realizar búsquedas más efectivas. ¡Vamos a ello!
+
+Dominar la búsqueda en Google es clave para encontrar soluciones rápidas y precisas, especialmente en programación. Aquí tienes una guía con tips y ejemplos prácticos que te ayudarán a realizar búsquedas más efectivas. ¡Vamos a ello! 🔍
 
 ---
 
-## 1. Búsqueda exacta usando comillas (`" "`)
+## 1. **Búsqueda exacta usando comillas (`" "`)**
 
 **Descripción:** Si quieres encontrar una frase exacta, utiliza comillas. Esto le indicará a Google que solo te muestre resultados que contengan esa frase específica.
 
@@ -290,7 +296,7 @@ Esto te mostrará solo resultados que contengan exactamente ese error, lo cual e
 
 ---
 
-## 2. Filtra por sitio web usando `site:`
+## 2. **Filtra por sitio web usando `site:`**
 
 **Descripción:** Si necesitas resultados de un sitio web en particular, usa el operador `site:` seguido del dominio del sitio.
 
@@ -301,13 +307,13 @@ site:stackoverflow.com java Scanner class not working
 Esto te dará resultados únicamente de Stack Overflow relacionados con la clase `Scanner` en Java.
 
 **Recomendación:** Usa este operador para sitios confiables como:
-- <a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a>
-- <a href="https://geeksforgeeks.org/" target="_blank">GeeksforGeeks</a>
-- <a href="https://w3schools.com/" target="_blank">w3schools</a>
+- [Stack Overflow](https://stackoverflow.com/)
+- [GeeksforGeeks](https://geeksforgeeks.org/)
+- [w3schools](https://w3schools.com/)
 
 ---
 
-## 3. Busca entre opciones con `OR`
+## 3. **Busca entre opciones con `OR`**
 
 **Descripción:** Si estás buscando varios temas o alternativas, utiliza `OR` para encontrar páginas que mencionen uno u otro término.
 
@@ -319,7 +325,7 @@ Te mostrará resultados que hablen tanto de "Exceptions" como de "Errors".
 
 ---
 
-## 4. Asegura que ambos términos estén presentes con `AND`
+## 4. **Asegura que ambos términos estén presentes con `AND`**
 
 **Descripción:** Si quieres que tus resultados incluyan dos términos específicos, usa `AND` entre ellos.
 
@@ -331,7 +337,7 @@ Esto garantiza que los resultados incluyan tanto "Java" como "ArrayIndexOutOfBou
 
 ---
 
-## 5. Excluye términos no deseados usando el signo menos `-`
+## 5. **Excluye términos no deseados usando el signo menos `-`**
 
 **Descripción:** Cuando quieres evitar ciertos términos en tu búsqueda, utiliza el operador `-` para excluir resultados no relevantes.
 
@@ -343,7 +349,7 @@ Esto excluirá los resultados relacionados con "frameworks", útil cuando solo t
 
 ---
 
-## 6. Encuentra archivos específicos con `filetype:`
+## 6. **Encuentra archivos específicos con `filetype:`**
 
 **Descripción:** Si buscas documentos en un formato específico, como PDFs, usa el operador `filetype:` seguido del tipo de archivo.
 
@@ -355,7 +361,7 @@ Te mostrará tutoriales de Java que estén en formato PDF, perfecto si prefieres
 
 ---
 
-## 7. Completa frases con el comodín `*`
+## 7. **Completa frases con el comodín `*`**
 
 **Descripción:** Cuando no recuerdas una parte de una frase, usa el símbolo `*` para que Google lo complete.
 
@@ -367,7 +373,7 @@ Esto te ayudará a encontrar documentación o ejemplos completos si no recuerdas
 
 ---
 
-## 8. Encuentra sitios relacionados con `related:`
+## 8. **Encuentra sitios relacionados con `related:`**
 
 **Descripción:** Si te gusta el contenido de un sitio pero quieres ver más fuentes similares, usa `related:`.
 
@@ -379,7 +385,7 @@ Te mostrará sitios similares a GeeksforGeeks, donde podrás encontrar más tuto
 
 ---
 
-## 9. Realiza búsquedas en inglés para obtener más resultados
+## 9. **Realiza búsquedas en inglés para obtener más resultados**
 
 **Descripción:** La comunidad de programación en inglés es más amplia, por lo que buscar en inglés te proporcionará muchas más opciones.
 
@@ -391,7 +397,7 @@ Aunque no domines completamente el inglés, puedes traducir páginas automática
 
 ---
 
-## 10. Refinar tus búsquedas: ¿Qué buscas realmente?
+## 10. **Refinar tus búsquedas: ¿Qué buscas realmente?**
 
 Saber lo que buscas es fundamental. Si tienes un error en Java, intenta copiar y pegar el mensaje de error tal cual en el buscador. Esto te llevará a foros donde otros ya hayan lidiado con problemas similares.
 
@@ -408,18 +414,18 @@ ArrayIndexOutOfBoundsException Eclipse Java
 
 ---
 
-## 11. Aprende a filtrar información útil
+## 11. **Aprende a filtrar información útil**
 
 Con el tiempo, adquirirás la habilidad de identificar qué fuentes son confiables y relevantes. Algunas páginas serán tus aliadas, y cada vez que encuentres un error, sabrás a qué sitios acudir primero.
 
 **Páginas recomendadas:**
-- <a href="https://docs.oracle.com/en/java/" target="_blank">Java Documentation</a>
-- <a href="https://stackoverflow.com" target="_blank">Stack Overflow</a>
-- <a href="https://baeldung.com" target="_blank">Baeldung</a>
+- [Java Documentation](https://docs.oracle.com/en/java/)
+- [Stack Overflow](https://stackoverflow.com)
+- [Baeldung](https://baeldung.com)
 
 ---
 
-## 12. Agota las búsquedas probando nuevas combinaciones
+## 12. **Agota las búsquedas probando nuevas combinaciones**
 
 Si no encuentras lo que buscas a la primera, cambia las palabras clave o la estructura de tu búsqueda. A veces un término diferente puede hacer la diferencia.
 
@@ -435,7 +441,9 @@ El ajuste de términos puede desbloquear más información relevante.
 
 ---
 
-## ¡Domina el arte de Googlear!
+---
+
+¡Domina el arte de Googlear! 🕵️‍♂️
 
 Cuanto más practiques y utilices estos tips, más rápido y eficiente serás buscando soluciones a tus problemas de programación.
 </details>
