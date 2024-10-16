@@ -61,16 +61,30 @@ Para manejar errores en Java, es importante conocer los tipos de excepciones má
 
 | Tipo de error                    | Descripción                                                                                   |
 | -------------------------------- | --------------------------------------------------------------------------------------------- |
+| `Exception`                      | Clase base para todas las excepciones comprobadas en Java.                                     |
+| `RuntimeException`               | Clase base para todas las excepciones no comprobadas que ocurren durante la ejecución.        |
 | `NumberFormatException`          | Ocurre cuando se intenta convertir una cadena a un número inválido. 📉                        |
 | `ArithmeticException`            | Ocurre cuando se realiza una operación aritmética inválida, como división entre cero. ➗      |
 | `NullPointerException`           | Se genera cuando se intenta usar un objeto que no ha sido inicializado. ❌                    |
 | `ArrayIndexOutOfBoundsException` | Ocurre cuando se intenta acceder a una posición fuera del límite del array. 📊                |
+| `IndexOutOfBoundsException`      | Se produce cuando se intenta acceder a un índice fuera del rango de una lista o array. 🔢     |
 | `IllegalArgumentException`       | Se lanza para indicar que un argumento no es válido. ⚠️                                       |
+| `InputMismatchException`         | Ocurre cuando se proporciona un tipo de entrada incorrecto al usar `Scanner`. 📥              |
 | `ClassCastException`             | Ocurre cuando se intenta convertir un objeto a una clase incompatible. 🔄                     |
 | `IOException`                    | Se lanza cuando ocurre un error de entrada/salida, como al leer un archivo. 📁                |
 | `FileNotFoundException`          | Ocurre cuando se intenta acceder a un archivo que no existe. 📂                               |
-| `IndexOutOfBoundsException`      | Se produce cuando se intenta acceder a un índice fuera del rango de una lista o array. 🔢     |
+| `IllegalStateException`          | Se lanza para indicar que el estado de la aplicación no permite la operación solicitada. ⚠️   |
+| `NoSuchElementException`         | Se lanza cuando no hay más elementos disponibles en una colección o iterador. ❌              |
+| `UnsupportedOperationException`  | Se lanza para indicar que la operación solicitada no está soportada. 🚫                       |
 | `StackOverflowError`             | Se lanza cuando ocurre un desbordamiento de pila, normalmente debido a recursión infinita. ♾️ |
+| `OutOfMemoryError`               | Se lanza cuando la máquina virtual de Java no puede asignar más memoria. 🧠                   |
+| `SecurityException`              | Se lanza para indicar una violación de seguridad. 🔒                                         |
+| `InterruptedException`           | Ocurre cuando un hilo es interrumpido mientras está esperando o dormido. 💤                   |
+| `SQLException`                   | Se lanza cuando ocurre un error al acceder a la base de datos mediante SQL. 🗄️                |
+| `MalformedURLException`          | Se lanza cuando una URL no tiene un formato válido. 🌐                                        |
+| `EOFException`                   | Se lanza para indicar que se ha alcanzado el final del archivo inesperadamente. 📄            |
+| `CloneNotSupportedException`     | Se lanza cuando se intenta clonar un objeto que no implementa la interfaz `Cloneable`. ✨     |
+| `TimeoutException`               | Se lanza cuando una operación excede el tiempo máximo de espera permitido. ⏱️                |
 
 **Consejo:** Conocer estos errores y cómo manejarlos puede ayudarte a escribir programas más robustos y menos propensos a fallar en situaciones inesperadas. ✅
 
@@ -295,11 +309,28 @@ Al leer datos con `scanner.nextLine()` y convertirlos a enteros usando `Integer.
 
 - `NumberFormatException` si la entrada no es un número.
 
-| Conversión        | Método                   |
-| ----------------- | ------------------------ |
-| Cadena a entero   | `Integer.parseInt()`     |
-| Cadena a decimal  | `Double.parseDouble()`   |
-| Cadena a booleano | `Boolean.parseBoolean()` |
+| Conversión              | Método (Ejemplo y Salida)       |
+| ----------------------- | ------------------------------ |
+| Cadena a entero         | `Integer.parseInt("123") // Salida: 123`           |
+| Cadena a decimal        | `Double.parseDouble("3.14") // Salida: 3.14`         |
+| Cadena a booleano       | `Boolean.parseBoolean("true") // Salida: true`       |
+| Cadena a long           | `Long.parseLong("123456789") // Salida: 123456789`             |
+| Entero a cadena         | `Integer.toString(123) // Salida: "123"`           |
+| Decimal a cadena        | `Double.toString(3.14) // Salida: "3.14"`            |
+| Booleano a cadena       | `Boolean.toString(true) // Salida: "true"`           |
+| Long a cadena           | `Long.toString(123456789) // Salida: "123456789"`              |
+| Caracter a entero       | `(int) 'A' // Salida: 65`                   |
+| Entero a carácter       | `(char) 65 // Salida: 'A'`                   |
+| Cadena a arreglo de bytes | `"Hola".getBytes() // Salida: [72, 111, 108, 97]`           |
+| Arreglo de bytes a cadena | `new String(new byte[]{72, 111, 108, 97}) // Salida: "Hola"`      |
+| Cadena a arreglo de caracteres | `"Hola".toCharArray() // Salida: ['H', 'o', 'l', 'a']`    |
+| Arreglo de caracteres a cadena | `new String(new char[]{'H', 'o', 'l', 'a'}) // Salida: "Hola"` |
+| Decimal a entero        | `(int) 3.14 // Salida: 3`                 |
+| Entero a decimal        | `(double) 3 // Salida: 3.0`                 |
+| Cadena a float          | `Float.parseFloat("3.14") // Salida: 3.14f`           |
+| Float a cadena          | `Float.toString(3.14f) // Salida: "3.14"`             |
+| Cadena a short          | `Short.parseShort("123") // Salida: 123`           |
+| Short a cadena          | `Short.toString((short) 123) // Salida: "123"`             |
 
 **Ejemplo:**
 
@@ -471,3 +502,117 @@ try {
 **Consejo:** Utiliza excepciones específicas siempre que sea posible para hacer que el manejo de errores sea más claro y efectivo. 🎯
 
 </details>
+
+# ➕ **Contenido Complementario `try-catch-finally`**
+
+## ➕ **¿Qué es el bloque `finally`?** 🔒
+
+El bloque `finally` es una parte opcional de la estructura `try-catch` en Java. Se utiliza para ejecutar un bloque de código que debe ser ejecutado sin importar si ocurre o no una excepción en el bloque `try`. Esto significa que, sin importar si se produce un error y si el bloque `catch` se ejecuta, el bloque `finally` siempre será ejecutado.
+
+### **¿Por qué usar `finally`?**
+
+El uso del bloque `finally` es muy útil para realizar tareas de **limpieza**, como cerrar archivos, liberar recursos, o cerrar conexiones a bases de datos. Por ejemplo, cuando trabajamos con recursos que deben ser liberados (como un archivo o un `Scanner`), debemos asegurarnos de que se cierren correctamente para evitar problemas de memoria o errores inesperados.
+
+## ➕ **Estructura del bloque `try-catch-finally`** 🧩
+
+Veamos la estructura básica de un bloque `try-catch-finally`:
+
+```java
+import java.util.Scanner;
+
+public class TryCatchFinallyExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Ingrese un número: ");
+            int numero = Integer.parseInt(scanner.nextLine());
+            System.out.println("El número ingresado es: " + numero);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: El valor ingresado no es un número válido.");
+        } finally {
+            // Este bloque siempre se ejecutará
+            scanner.close();
+            System.out.println("Recurso 'scanner' cerrado.");
+        }
+    }
+}
+```
+
+### **Explicación del ejemplo**
+
+- **`try`**: En el bloque `try` se coloca el código que puede lanzar una excepción, en este caso, intentamos convertir una entrada del usuario a un número entero usando `Integer.parseInt()`.
+- **`catch`**: Si ocurre un error durante la conversión, el bloque `catch` captura la excepción `NumberFormatException` y muestra un mensaje de error.
+- **`finally`**: El bloque `finally` siempre se ejecuta, incluso si ocurre una excepción. Aquí cerramos el recurso `scanner` para asegurarnos de que no queden recursos abiertos.
+
+## ➕ **¿Qué sucede si ocurre un error dentro de `catch`?** ⚠️
+
+A veces, el bloque `catch` también puede lanzar una excepción, lo que podría llevar a que el código de limpieza (como cerrar recursos) no se ejecute. Es por esto que el bloque `finally` es tan importante, ya que asegura que ciertas acciones se realicen sin importar qué pase en el `try` o el `catch`.
+
+### **Ejemplo con error en `catch`**
+
+```java
+import java.util.Scanner;
+
+public class ErrorEnCatch {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Ingrese un número: ");
+            int numero = Integer.parseInt(scanner.nextLine());
+            System.out.println("El número ingresado es: " + numero);
+        } catch (NumberFormatException e) {
+            // Intentamos hacer algo que también puede fallar
+            System.out.println(1 / 0); // Esto lanza una ArithmeticException
+        } finally {
+            // Este bloque siempre se ejecutará
+            scanner.close();
+            System.out.println("Recurso 'scanner' cerrado.");
+        }
+    }
+}
+```
+
+### **Explicación del ejemplo**
+
+- En el bloque `catch`, estamos haciendo una división por cero, lo cual lanza una `ArithmeticException`.
+- A pesar del error en el `catch`, el bloque `finally` aún se ejecuta y el recurso `scanner` se cierra adecuadamente.
+
+## ➕ **Diferencias entre `finally` y código después de `try-catch`** ⚖️
+
+Podrías preguntarte por qué usar `finally` si podemos simplemente escribir el código después del bloque `try-catch`. La razón principal es que el bloque `finally` **siempre se ejecuta**, incluso si ocurre una excepción que detenga la ejecución del programa antes de llegar al final del bloque `try-catch`.
+
+### **Ejemplo: Código después del `try-catch`**
+
+```java
+import java.util.Scanner;
+
+public class TryCatchWithoutFinally {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Ingrese un número: ");
+            int numero = Integer.parseInt(scanner.nextLine());
+            System.out.println("El número ingresado es: " + numero);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: El valor ingresado no es un número válido.");
+        }
+        // Código después del try-catch
+        scanner.close();
+        System.out.println("Recurso 'scanner' cerrado.");
+    }
+}
+```
+
+### **¿Cuál es la diferencia?**
+
+En este ejemplo, si ocurre un error en el bloque `try` o `catch` que impida la continuación del programa, el código después del `try-catch` no se ejecutará y el recurso `scanner` no se cerrará, lo que podría causar un problema de recursos no liberados.
+
+Por otro lado, el bloque `finally` garantiza que **siempre** se ejecute, sin importar qué pase dentro del `try` o `catch`.
+
+## ➕ **Resumen del uso de `finally`** 📝
+
+- El bloque `finally` se usa para asegurarse de que ciertas tareas, como cerrar recursos, **siempre** se ejecuten.
+- Incluso si ocurre un error en el bloque `catch`, el bloque `finally` se ejecutará.
+- Es una buena práctica utilizar `finally` para liberar recursos que necesitan cerrarse o limpiarse, como archivos, conexiones de red, o instancias de `Scanner`.
+
+Con el uso adecuado del bloque `finally`, podemos escribir código más seguro y confiable, evitando fugas de recursos y asegurándonos de que siempre se ejecuten las tareas críticas de limpieza. 😊
