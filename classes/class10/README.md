@@ -91,6 +91,17 @@ System.out.println("La nueva edad del segundo elemento es: " + edades[1]); // Sa
 
 ## **Tipos de Arrays y Ejemplos de Definición**
 
+La siguiente tabla muestra cómo definir diferentes tipos de arrays, tanto vacíos como con valores iniciales:
+
+| Tipo de Array       | Definición de Array Vacío         | Definición de Array con Valores               |
+| ------------------- | --------------------------------- | --------------------------------------------- |
+| Array de Enteros    | `int[] array = new int[5];`       | `int[] array = {1, 2, 3, 4, 5};`              |
+| Array de Cadenas    | `String[] array = new String[3];` | `String[] array = {"Ana", "Luis", "Carlos"};` |
+| Array de Decimales  | `double[] array = new double[4];` | `double[] array = {1.1, 2.2, 3.3, 4.4};`      |
+| Array Bidimensional | `int[][] matriz = new int[2][3];` | `int[][] matriz = { {1, 2}, {3, 4} };`        |
+
+
+
 - **Array de Enteros Vacío**: `int[] array = new int[5];` crea un array de 5 posiciones, todas inicialmente con valor `0`.
 - **Array de Cadenas con Valores**: `String[] array = {"Ana", "Luis", "Carlos"};` crea un array con 3 elementos, que son cadenas de texto.
 - **Array Bidimensional Vacío**: `int[][] matriz = new int[2][3];` crea una matriz con 2 filas y 3 columnas, todas con valores `0` iniciales.
