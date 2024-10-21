@@ -229,8 +229,17 @@ public class MayorMenorValorArray {
             numeros[4] = Integer.parseInt(scanner.nextLine());
 
             // Encontrar el mayor y menor valor
-            int mayor = Math.max(Math.max(Math.max(numeros[0], numeros[1]), Math.max(numeros[2], numeros[3])), numeros[4]);
-            int menor = Math.min(Math.min(Math.min(numeros[0], numeros[1]), Math.min(numeros[2], numeros[3])), numeros[4]);
+            int mayor = numeros[0];
+            int menor = numeros[0];
+
+            for (int i = 1; i < numeros.length; i++) {
+                if (numeros[i] > mayor) {
+                    mayor = numeros[i];
+                }
+                if (numeros[i] < menor) {
+                    menor = numeros[i];
+                }
+            }
 
             // Mostrar los resultados
             System.out.println("Mayor: " + mayor);
@@ -352,10 +361,13 @@ public class VerificarNombreArray {
             String nombreBuscar = scanner.nextLine();
 
             // Verificar si el nombre existe en el array
-            boolean encontrado = (nombres[0].equalsIgnoreCase(nombreBuscar) ||
-                                  nombres[1].equalsIgnoreCase(nombreBuscar) ||
-                                  nombres[2].equalsIgnoreCase(nombreBuscar) ||
-                                  nombres[3].equalsIgnoreCase(nombreBuscar));
+            boolean encontrado = false;
+            for (String nombre : nombres) {
+                if (nombre.equalsIgnoreCase(nombreBuscar)) {
+                    encontrado = true;
+                    break;
+                }
+            }
 
             // Mostrar el resultado
             if (encontrado) {
@@ -373,4 +385,3 @@ public class VerificarNombreArray {
 ```
 
 </details>
-
