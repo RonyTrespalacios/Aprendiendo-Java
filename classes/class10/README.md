@@ -55,7 +55,7 @@ Podemos asignar valores a cada posición más adelante utilizando los índices.
 
 Los arrays en Java son **indexados desde cero**, lo que significa que el primer elemento tiene el índice 0, el segundo elemento tiene el índice 1, y así sucesivamente. Esto es algo importante de recordar, ya que acceder a un índice que no existe (por ejemplo, un índice negativo o mayor que el tamaño del array) causará un error.
 
-Supongamos que tenemos el siguiente array:
+Vamos a ilustrar cómo se numeran los índices de un array con un ejemplo. Supongamos que tenemos el siguiente array:
 
 ```java
 int[] numeros = {10, 20, 30, 40, 50};
@@ -89,6 +89,17 @@ edades[1] = 35;
 System.out.println("La nueva edad del segundo elemento es: " + edades[1]); // Salida: 35
 ```
 
+## **Los Métodos de la Clase de los Arrays**
+
+Los arrays adoptan los métodos y funcionalidades de la clase de los elementos que contienen. Por ejemplo, si tenemos un array de cadenas (`String[]`), podemos usar todos los métodos que se aplican a las cadenas para cada uno de sus elementos. Veamos un ejemplo:
+
+```java
+String[] nombres = {"Ana", "Luis", "Carlos"};
+System.out.println(nombres[0].toUpperCase()); // Salida: ANA
+```
+
+En este ejemplo, accedemos al primer elemento (`nombres[0]`) y luego usamos el método `toUpperCase()` para convertirlo a mayúsculas.
+
 ## **Tipos de Arrays y Ejemplos de Definición**
 
 La siguiente tabla muestra cómo definir diferentes tipos de arrays, tanto vacíos como con valores iniciales:
@@ -99,7 +110,6 @@ La siguiente tabla muestra cómo definir diferentes tipos de arrays, tanto vací
 | Array de Cadenas    | `String[] array = new String[3];` | `String[] array = {"Ana", "Luis", "Carlos"};` |
 | Array de Decimales  | `double[] array = new double[4];` | `double[] array = {1.1, 2.2, 3.3, 4.4};`      |
 | Array Bidimensional | `int[][] matriz = new int[2][3];` | `int[][] matriz = { {1, 2}, {3, 4} };`        |
-
 
 
 - **Array de Enteros Vacío**: `int[] array = new int[5];` crea un array de 5 posiciones, todas inicialmente con valor `0`.
@@ -231,17 +241,8 @@ public class MayorMenorValorArray {
             numeros[4] = Integer.parseInt(scanner.nextLine());
 
             // Encontrar el mayor y menor valor
-            int mayor = numeros[0];
-            int menor = numeros[0];
-
-            for (int i = 1; i < numeros.length; i++) {
-                if (numeros[i] > mayor) {
-                    mayor = numeros[i];
-                }
-                if (numeros[i] < menor) {
-                    menor = numeros[i];
-                }
-            }
+            int mayor = Math.max(Math.max(Math.max(numeros[0], numeros[1]), Math.max(numeros[2], numeros[3])), numeros[4]);
+            int menor = Math.min(Math.min(Math.min(numeros[0], numeros[1]), Math.min(numeros[2], numeros[3])), numeros[4]);
 
             // Mostrar los resultados
             System.out.println("Mayor: " + mayor);
@@ -363,13 +364,10 @@ public class VerificarNombreArray {
             String nombreBuscar = scanner.nextLine();
 
             // Verificar si el nombre existe en el array
-            boolean encontrado = false;
-            for (String nombre : nombres) {
-                if (nombre.equalsIgnoreCase(nombreBuscar)) {
-                    encontrado = true;
-                    break;
-                }
-            }
+            boolean encontrado = (nombres[0].equalsIgnoreCase(nombreBuscar) ||
+                                  nombres[1].equalsIgnoreCase(nombreBuscar) ||
+                                  nombres[2].equalsIgnoreCase(nombreBuscar) ||
+                                  nombres[3].equalsIgnoreCase(nombreBuscar));
 
             // Mostrar el resultado
             if (encontrado) {
