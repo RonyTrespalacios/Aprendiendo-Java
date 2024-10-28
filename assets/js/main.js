@@ -28,7 +28,7 @@ allDetails.forEach((details) => {
 const classes = [
   { id: "class01", name: "Clase 01: Introducción a Java" },
   { id: "class02", name: "Clase 02: Scanner y Operadores Lógicos" },
-  { id: "class03", name: "Clase 03: Retos de aprendizaje" },
+  { id: "class03", name: "Clase 03: Retos de aprendizaje 1" },
   { id: "class04", name: "Clase 04: Condicional if" },
   { id: "class05", name: "Clase 05: Switch" },
   { id: "class06", name: "Clase 06: Try Catch" },
@@ -38,6 +38,9 @@ const classes = [
   { id: "class10", name: "Clase 10: Introducción a Arrays" },
   { id: "class11", name: "Clase 11: For - For each" },
   { id: "class12", name: "Clase 12: While - Do while" },
+  { id: "class13", name: "Clase 13: Clase Arrays" },
+  { id: "class14", name: "Clase 14: Wrappers" },
+  { id: "class15", name: "Clase 15: Retos de Aprendizaje 3" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
