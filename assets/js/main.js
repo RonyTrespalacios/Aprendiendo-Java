@@ -41,6 +41,7 @@ const classes = [
   { id: "class13", name: "Clase 13: Clase Arrays" },
   { id: "class14", name: "Clase 14: Wrappers" },
   { id: "class15", name: "Clase 15: Retos de Aprendizaje 3" },
+  { id: "class19", name: "Clase 16: Metodos" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
