@@ -26,22 +26,22 @@ allDetails.forEach((details) => {
 
 // Definición de las clases disponibles
 const classes = [
-  { id: "class01", name: "Clase 01: Introducción a Java" },
-  { id: "class02", name: "Clase 02: Scanner y Operadores Lógicos" },
-  { id: "class03", name: "Clase 03: Retos de aprendizaje 1" },
-  { id: "class04", name: "Clase 04: Condicional if" },
-  { id: "class05", name: "Clase 05: Switch" },
-  { id: "class06", name: "Clase 06: Try Catch" },
-  { id: "class07", name: "Clase 07: Clase String" },
-  { id: "class08", name: "Clase 08: Clase Math" },
-  { id: "class09", name: "Clase 09: Retos de Aprendizaje 2" },
-  { id: "class10", name: "Clase 10: Introducción a Arrays" },
-  { id: "class11", name: "Clase 11: For - For each" },
-  { id: "class12", name: "Clase 12: While - Do while" },
-  { id: "class13", name: "Clase 13: Clase Arrays" },
-  { id: "class14", name: "Clase 14: Wrappers" },
-  { id: "class15", name: "Clase 15: Retos de Aprendizaje 3" },
-  { id: "class19", name: "Clase 16: Metodos" },
+  { id: "class01-intro", name: "Clase 01: Introducción a Java" },
+  { id: "class02-scanner", name: "Clase 02: Scanner y Operadores Lógicos" },
+  { id: "class03-reto1", name: "Clase 03: Retos de aprendizaje 1" },
+  { id: "class04-if", name: "Clase 04: Condicional if" },
+  { id: "class05-switch", name: "Clase 05: Switch" },
+  { id: "class06-try", name: "Clase 06: Try Catch" },
+  { id: "class07-String", name: "Clase 07: Clase String" },
+  { id: "class08-Math", name: "Clase 08: Clase Math" },
+  { id: "class09-reto2", name: "Clase 09: Retos de Aprendizaje 2" },
+  { id: "class10-array", name: "Clase 10: Introducción a Arrays" },
+  { id: "class11-for", name: "Clase 11: For - For each" },
+  { id: "class12-while", name: "Clase 12: While - Do while" },
+  { id: "class13-Arrays", name: "Clase 13: Clase Arrays" },
+  { id: "class14-Wrappers", name: "Clase 14: Wrappers" },
+  { id: "class15-reto3", name: "Clase 15: Retos de Aprendizaje 3" },
+  { id: "class19-metodos", name: "Clase 16: Metodos" },
 ];
 
 // Función para cargar el listado de clases en la barra lateral
