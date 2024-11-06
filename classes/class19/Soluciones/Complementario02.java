@@ -11,7 +11,7 @@ public class Complementario02 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[] numeros = pedirNumeros(sc);
-        imprimirTablasMultiplicar(numeros);
+        imprimirTablaMultiplicar(numeros);
         sc.close();
     }
 
@@ -39,7 +39,7 @@ public class Complementario02 {
         System.out.println("<<<");
     }
 
-    public static void imprimirTablasMultiplicar(int[] numeros) {
+    public static void imprimirTablaMultiplicar(int[] numeros) {
         for (int numero : numeros) {
             imprimirTablaMultiplicar(numero);
         }
