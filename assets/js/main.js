@@ -114,9 +114,7 @@ async function loadClassContent(classId) {
   const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la clase
 
   if (!contentArea) {
-    console.error(
-      'No se encontró el contenedor de contenido con id="class-content"'
-    );
+    console.error('No se encontró el contenedor de contenido con id="class-content"');
     return;
   }
 
@@ -127,14 +125,8 @@ async function loadClassContent(classId) {
 
     const markdown = await response.text();
 
-    // Renderizar el markdown a HTML usando la función de markdown.js
-    const htmlContent = renderMarkdownToHtml(markdown);
-
-    // Insertar el HTML en el contenedor #class-content
-    contentArea.innerHTML = htmlContent;
-
-    // Aplicar resaltado de sintaxis usando Prism.js para formatear código
-    Prism.highlightAll();
+    // Renderizar el markdown a HTML y asignarlo directamente desde renderMarkdownToHtmlWithCopy
+    renderMarkdownToHtmlWithCopy(markdown);
 
     // Insertar los botones de navegación después del contenido
     const navigationButtons = generateNavigationButtons(classId);
@@ -149,10 +141,7 @@ async function loadClassContent(classId) {
     // Actualizar la URL para reflejar la clase cargada sin recargar la página
     history.pushState({ classId }, null, `#/${classId}`);
   } catch (error) {
-    console.error(
-      `Error al cargar el contenido de la clase ${classId}:`,
-      error
-    );
+    console.error(`Error al cargar el contenido de la clase ${classId}:`, error);
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
 }
@@ -176,7 +165,7 @@ async function showWelcomeMessage() {
     const markdown = await response.text();
 
     // Renderizar el markdown a HTML usando la función de markdown.js
-    const htmlContent = renderMarkdownToHtml(markdown);
+    const htmlContent = renderMarkdownToHtmlWithCopy(markdown);
 
     // Insertar el HTML en el contenedor #class-content
     contentArea.innerHTML = htmlContent;
@@ -294,7 +283,7 @@ async function showWelcomeMessage() {
 
     const markdown = await response.text();
 
-    const htmlContent = renderMarkdownToHtml(markdown);
+    const htmlContent = renderMarkdownToHtmlWithCopy(markdown);
     console.log("Contenido del README.md de la raíz cargado y renderizado");
 
     contentArea.innerHTML = htmlContent;
