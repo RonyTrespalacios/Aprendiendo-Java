@@ -1,6 +1,9 @@
 // main.js: Lógica para cargar el contenido dinámicamente y manejar la navegación
-console.log("main.js cargado correctamente");
 
+/**
+ * Función para manejar la apertura de un elemento "details" y cerrar otros abiertos
+ * @param {HTMLElement} element - El elemento "details" que se desea abrir
+ */
 function toggleAccordion(element) {
   const details = document.querySelectorAll("details");
   details.forEach((detail) => {
@@ -10,6 +13,7 @@ function toggleAccordion(element) {
   });
 }
 
+// Añade clases de animación a elementos "details" cuando se abren o cierran
 const allDetails = document.querySelectorAll("details");
 
 allDetails.forEach((details) => {
@@ -24,7 +28,7 @@ allDetails.forEach((details) => {
   });
 });
 
-// Definición de las clases disponibles
+// Lista de clases disponibles para navegación dinámica
 const classes = [
   { id: "class01-intro", name: "Clase 01: Introducción a Java" },
   { id: "class02-scanner", name: "Clase 02: Scanner y Operadores Lógicos" },
@@ -45,7 +49,9 @@ const classes = [
   { id: "class21-metodos2", name: "Clase 17: Metodos 2" },
 ];
 
-// Función para cargar el listado de clases en la barra lateral
+/**
+ * Carga la lista de clases en la barra lateral
+ */
 async function loadClassList() {
   const classList = document.getElementById("class-list");
   if (!classList) {
@@ -53,20 +59,16 @@ async function loadClassList() {
     return;
   }
 
-  // Imprimir la lista de clases en consola para depurar
-  console.log("Cargando lista de clases:", classes);
-
-  // Crear los enlaces para cada clase y añadirlos a la barra lateral
+  // Crear enlaces para cada clase y añadirlos a la barra lateral
   classes.forEach((cls) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.href = `#${cls.id}`;
     a.textContent = cls.name;
 
-    // Evento click para cargar el contenido de la clase
+    // Evento click para cargar el contenido de la clase sin recargar la página
     a.addEventListener("click", (event) => {
-      event.preventDefault(); // Evitar la recarga de la página
-      console.log(`Cargando contenido de ${cls.id}`);
+      event.preventDefault();
       loadClassContent(cls.id);
     });
 
@@ -75,14 +77,18 @@ async function loadClassList() {
   });
 }
 
-// Función para generar los botones de navegación
+/**
+ * Genera botones de navegación para moverse entre clases
+ * @param {string} classId - ID de la clase actual
+ * @returns {HTMLElement} - Contenedor con los botones de navegación
+ */
 function generateNavigationButtons(classId) {
   const navigationContainer = document.createElement("div");
   navigationContainer.classList.add("navigation-buttons");
 
   const currentClassIndex = classes.findIndex((cls) => cls.id === classId);
 
-  // Crear botón para la clase anterior, si no es la primera clase
+  // Botón de clase anterior, si no es la primera
   if (currentClassIndex > 0) {
     const prevButton = document.createElement("a");
     prevButton.href = `./#/${classes[currentClassIndex - 1].id}`;
@@ -91,7 +97,7 @@ function generateNavigationButtons(classId) {
     navigationContainer.appendChild(prevButton);
   }
 
-  // Crear botón para la clase siguiente, si no es la última clase
+  // Botón de clase siguiente, si no es la última
   if (currentClassIndex < classes.length - 1) {
     const nextButton = document.createElement("a");
     nextButton.href = `./#/${classes[currentClassIndex + 1].id}`;
@@ -99,7 +105,7 @@ function generateNavigationButtons(classId) {
     nextButton.classList.add("next-button");
     navigationContainer.appendChild(nextButton);
   } else {
-    // Si es la última clase, el botón de siguiente debe estar deshabilitado
+    // Botón deshabilitado para última clase
     const nextButton = document.createElement("a");
     nextButton.textContent = "Clase Siguiente →";
     nextButton.classList.add("next-button", "disabled");
@@ -109,9 +115,12 @@ function generateNavigationButtons(classId) {
   return navigationContainer;
 }
 
-// Función para cargar el contenido del README.md de cada clase y gestionar #class-content
+/**
+ * Carga el contenido del README.md de una clase específica en el contenedor principal
+ * @param {string} classId - ID de la clase a cargar
+ */
 async function loadClassContent(classId) {
-  const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la clase
+  const contentArea = document.getElementById("class-content");
 
   if (!contentArea) {
     console.error('No se encontró el contenedor de contenido con id="class-content"');
@@ -120,25 +129,22 @@ async function loadClassContent(classId) {
 
   try {
     const response = await fetch(`./classes/${classId}/README.md`);
-    if (!response.ok)
-      throw new Error("No se pudo cargar el contenido de la clase");
+    if (!response.ok) throw new Error("No se pudo cargar el contenido de la clase");
 
     const markdown = await response.text();
+    renderMarkdownToHtmlWithCopy(markdown); // Convierte y muestra el Markdown
 
-    // Renderizar el markdown a HTML y asignarlo directamente desde renderMarkdownToHtmlWithCopy
-    renderMarkdownToHtmlWithCopy(markdown);
-
-    // Insertar los botones de navegación después del contenido
+    // Añade botones de navegación después del contenido
     const navigationButtons = generateNavigationButtons(classId);
     contentArea.appendChild(navigationButtons);
 
-    // Desplazar el contenedor de scroll hacia arriba con animación suave
-    const scrollContainer = document.getElementById("content"); // Contenedor de scroll
+    // Desplaza el contenido hacia arriba suavemente
+    const scrollContainer = document.getElementById("content");
     if (scrollContainer && scrollContainer.scrollTop > 0) {
       scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    // Actualizar la URL para reflejar la clase cargada sin recargar la página
+    // Actualiza la URL para reflejar la clase cargada
     history.pushState({ classId }, null, `#/${classId}`);
   } catch (error) {
     console.error(`Error al cargar el contenido de la clase ${classId}:`, error);
@@ -146,123 +152,63 @@ async function loadClassContent(classId) {
   }
 }
 
-
-// Función para gestionar el scroll y la carga de contenido según la ruta actual
+/**
+ * Maneja el cambio de contenido en función de la ruta actual
+ */
 function handleScrollOnRouteChange() {
-  const scrollContainer = document.getElementById("content"); // Contenedor para manejar el scroll
+  const scrollContainer = document.getElementById("content");
 
-  // Verificar si estamos en la ruta raíz (home)
   if (window.location.hash === "" || window.location.hash === "#/") {
-    showWelcomeMessage(); // Cargar el contenido de la raíz
+    showWelcomeMessage();
   } else {
     const classId = window.location.hash.replace("#/", "");
-    loadClassContent(classId); // Cargar el contenido de la clase
+    loadClassContent(classId);
 
-    // Desplazar el contenedor de scroll hacia arriba con animación suave
     if (scrollContainer && scrollContainer.scrollTop > 0) {
       scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 }
 
-// Interceptar clics en enlaces del sidebar para evitar el salto brusco de scroll
+// Detectar y manejar clics en enlaces del sidebar
 document.querySelectorAll("#sidebar a").forEach((link) => {
   link.addEventListener("click", (event) => {
-    event.preventDefault(); // Evitar el comportamiento predeterminado de clic
-
-    const href = link.getAttribute("href"); // Obtener la URL de destino
-    const classId = href.replace("#/", ""); // Obtener la clase a cargar
-
-    // Actualizar la URL sin recargar la página
+    event.preventDefault();
+    const href = link.getAttribute("href");
+    const classId = href.replace("#/", "");
     history.pushState({ classId }, null, href);
-
-    // Llamar a la función para cargar el contenido de la clase
-    if (classId) {
-      loadClassContent(classId);
-    } else {
-      // Si no hay classId, significa que se está volviendo a home
-      showWelcomeMessage(); // Mostrar mensaje de bienvenida
-    }
+    classId ? loadClassContent(classId) : showWelcomeMessage();
   });
 });
 
-// Detectar cambios de hash (ruta con #) y aplicar el manejo de scroll y carga de contenido
+// Configurar eventos para cambios de hash y de historial
 window.addEventListener("hashchange", handleScrollOnRouteChange);
-
-// Detectar cambios de historial (botón Atrás/Adelante del navegador)
 window.addEventListener("popstate", handleScrollOnRouteChange);
 
-// Cargar la vista inicial basada en la URL actual
-window.addEventListener("DOMContentLoaded", () => {
-  handleScrollOnRouteChange(); // Cargar el contenido correspondiente al iniciar
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const layout = document.getElementById("layout"); // Contenedor principal del layout
-  const sidebar = document.getElementById("sidebar"); // El sidebar
-  const sidebarLinks = document.querySelectorAll("#sidebar nav ul li a"); // Todos los enlaces dentro del sidebar
-
-  // Función para cerrar el sidebar en dispositivos móviles
-  function closeSidebar() {
-    if (layout.classList.contains("show-sidebar")) {
-      layout.classList.remove("show-sidebar"); // Cerrar el sidebar si está abierto
-    }
-  }
-
-  // Añadir evento de click a cada enlace dentro del sidebar
-  sidebarLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeSidebar(); // Cerrar sidebar al hacer clic en un enlace
-    });
-  });
-
-  // Cerrar el sidebar al cambiar de hash (cambio de ruta)
-  window.addEventListener("hashchange", closeSidebar);
-
-  // Cerrar el sidebar al cambiar el historial (botones Atrás/Adelante)
-  window.addEventListener("popstate", closeSidebar);
-
-  // Asegurar que el sidebar se cierre incluso en navegaciones internas de la aplicación
-  document.body.addEventListener("click", (event) => {
-    if (event.target.closest("#sidebar nav ul li a")) {
-      closeSidebar(); // Detecta cualquier click dentro del sidebar y lo cierra
-    }
-  });
-});
-
-// Función para cargar y mostrar el contenido del README.md de la raíz en #class-content
+/**
+ * Muestra el contenido del README.md de la raíz en el contenedor principal
+ */
 async function showWelcomeMessage() {
-  const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la raíz
+  const contentArea = document.getElementById("class-content");
 
   if (!contentArea) {
-    console.error(
-      'No se encontró el contenedor de contenido con id="class-content"'
-    );
+    console.error('No se encontró el contenedor de contenido con id="class-content"');
     return;
   }
 
   try {
-    const response = await fetch("./README.md"); // Cargar el README.md de la raíz
-    if (!response.ok)
-      throw new Error("No se pudo cargar el contenido de la raíz");
+    const response = await fetch("./README.md");
+    if (!response.ok) throw new Error("No se pudo cargar el contenido de la raíz");
 
     const markdown = await response.text();
-
-    // Renderizar el markdown a HTML usando la función de markdown.js
     const htmlContent = renderMarkdownToHtml(markdown);
-
-    // Insertar el HTML en el contenedor #class-content
     contentArea.innerHTML = htmlContent;
-
-    // Aplicar resaltado de sintaxis usando Prism.js para formatear código
     Prism.highlightAll();
 
-    // Aplicar clases CSS necesarias para el contenedor
-    contentArea.classList.remove("class-content"); // Remover estilos de clase
-    contentArea.classList.add("home-content"); // Asegurar que se apliquen estilos específicos de home
+    contentArea.classList.remove("class-content");
+    contentArea.classList.add("home-content");
 
-    // Desplazar el contenedor de scroll hacia arriba con animación suave
-    const scrollContainer = document.getElementById("content"); // Contenedor de scroll
+    const scrollContainer = document.getElementById("content");
     if (scrollContainer) {
       scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -272,7 +218,9 @@ async function showWelcomeMessage() {
   }
 }
 
-// Función para manejar el menú responsive
+/**
+ * Configura el menú responsive para dispositivos móviles
+ */
 function setupResponsiveMenu() {
   const sidebar = document.getElementById("sidebar");
   const toggleButton = document.createElement("button");
@@ -285,36 +233,16 @@ function setupResponsiveMenu() {
   });
 }
 
-// Inicializar la página cargando el listado de clases y configurando el menú
+/**
+ * Inicializa la página cargando la lista de clases y el menú responsive
+ */
 function init() {
-  console.log("Inicializando la aplicación");
-  loadClassList(); // Cargar la lista de clases en la barra lateral
-  setupResponsiveMenu(); // Configurar el menú lateral
-
-  // Cargar el contenido inicial según el hash de la URL
-  const classIdFromUrl = window.location.hash.substring(2); // Remover `#/`
-  if (classIdFromUrl) {
-    console.log(
-      `Cargando contenido inicial de la clase desde URL: ${classIdFromUrl}`
-    );
-    loadClassContent(classIdFromUrl); // Cargar la clase correspondiente
-  } else {
-    showWelcomeMessage(); // Si no hay hash, mostrar el contenido del README.md de la raíz
-  }
-}
-
-// Ejecutar la función inicial cuando la página esté completamente cargada
-window.addEventListener("DOMContentLoaded", init);
-
-// Manejar el evento popstate para sincronizar la URL con el contenido cargado
-window.addEventListener("popstate", (event) => {
-  console.log("Evento popstate detectado:", event);
+  loadClassList();
+  setupResponsiveMenu();
 
   const classIdFromUrl = window.location.hash.substring(2);
+  classIdFromUrl ? loadClassContent(classIdFromUrl) : showWelcomeMessage();
+}
 
-  if (classIdFromUrl) {
-    loadClassContent(classIdFromUrl);
-  } else {
-    showWelcomeMessage();
-  }
-});
+window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("popstate", handleScrollOnRouteChange);

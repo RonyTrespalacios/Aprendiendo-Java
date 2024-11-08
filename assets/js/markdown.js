@@ -1,70 +1,95 @@
-console.log("markdown.js cargado correctamente");
+// markdown.js: Configuración y lógica para renderizar Markdown a HTML con opciones avanzadas y funciones de copia
 
-// Configurar showdown.js con opciones adicionales
+// Instancia de showdown.js para convertir Markdown a HTML, configurada con opciones avanzadas
 const converter = new showdown.Converter({
-  tables: true, 
-  ghCodeBlocks: true, 
-  parseImgDimensions: true, 
-  simpleLineBreaks: true,
-  strikethrough: true, 
-  tasklists: true,
+  tables: true,               // Permite el uso de tablas en Markdown
+  ghCodeBlocks: true,          // Activa bloques de código al estilo GitHub
+  parseImgDimensions: true,    // Permite establecer dimensiones de imagen en Markdown
+  simpleLineBreaks: true,      // Habilita saltos de línea simples sin necesidad de dos espacios
+  strikethrough: true,         // Permite tachado usando `~~`
+  tasklists: true,             // Activa listas de tareas `[ ]` o `[x]`
 });
 
-// Convierte el markdown a HTML y ajusta bloques de código para resaltado de sintaxis
+/**
+ * Convierte Markdown a HTML y ajusta bloques de código para el resaltado de sintaxis.
+ * @param {string} markdown - El contenido en formato Markdown que se desea convertir.
+ * @returns {string} - El HTML convertido del Markdown con ajustes específicos.
+ */
 function renderMarkdownToHtml(markdown) {
+  // Convierte el contenido Markdown a HTML usando showdown.js
   const rawHtml = converter.makeHtml(markdown);
+
+  // Ajusta los bloques de código para que usen clases de resaltado específicas de Prism.js
   const htmlContent = rawHtml.replace(
     /<pre><code class="(.*?)">/g,
     '<pre><code class="language-java $1">'
   );
-  return htmlContent;
+
+  return htmlContent; // Devuelve el HTML procesado
 }
 
-// Función para agregar el botón de copiar a cada bloque de código
+/**
+ * Agrega un botón de "Copiar" en la esquina superior derecha de cada bloque de código.
+ * Permite al usuario copiar el contenido del bloque de código al portapapeles.
+ */
 function addCopyButtons() {
+  // Selecciona todos los bloques de código en la página
   const codeBlocks = document.querySelectorAll("pre");
 
+  // Itera sobre cada bloque de código y agrega el botón de "Copiar"
   codeBlocks.forEach((block) => {
+    // Crea el botón de "Copiar"
     const button = document.createElement("button");
     button.className = "copy-button";
-    button.innerHTML = "Copiar"; 
+    button.innerHTML = "Copiar"; // Texto inicial del botón
 
+    // Evento de clic para copiar el contenido del código al portapapeles
     button.addEventListener("click", async () => {
       try {
+        // Selecciona y copia el contenido del bloque de código
         const code = block.querySelector("code").innerText;
         await navigator.clipboard.writeText(code);
 
-        // Cambiar el contenido del botón y el color temporalmente para mostrar el estado de "Copiado"
-        button.innerHTML = "";
-        button.classList.add("copied"); // Agrega la clase para el color verde
+        // Cambia el texto y color del botón para indicar que se ha copiado exitosamente
+        button.innerHTML = "";           // Limpia el texto para mostrar solo el chulo
+        button.classList.add("copied");   // Agrega la clase para el color de estado "Copiado"
 
-        // Después de 2 segundos, restaurar el texto y el color a "Copiar"
+        // Restaura el texto y color del botón después de 2 segundos
         setTimeout(() => {
-          button.innerHTML = "Copiar";
-          button.classList.remove("copied"); // Remueve la clase verde
+          button.innerHTML = "Copiar";    // Vuelve a mostrar "Copiar"
+          button.classList.remove("copied"); // Remueve la clase "copiado"
         }, 2000);
       } catch (error) {
-        console.error("Error al copiar el código:", error);
+        console.error("Error al copiar el código:", error); // Muestra error en caso de fallo
       }
     });
 
-    // Agregar el botón al bloque de código
+    // Establece la posición del bloque de código para que el botón se coloque correctamente
     block.style.position = "relative";
+    // Agrega el botón al bloque de código
     block.appendChild(button);
   });
 }
 
-
-// Función para renderizar el Markdown, añadir el botón de copiar, y colocar el HTML en `#class-content`
+/**
+ * Renderiza el contenido Markdown a HTML, aplica el resaltado de sintaxis, 
+ * añade botones de "Copiar" y coloca el contenido resultante en el contenedor `#class-content`.
+ * @param {string} markdown - El contenido en formato Markdown que se desea renderizar.
+ */
 function renderMarkdownToHtmlWithCopy(markdown) {
+  // Convierte el Markdown a HTML y ajusta los bloques de código
   const htmlContent = renderMarkdownToHtml(markdown);
+
+  // Selecciona el contenedor donde se mostrará el HTML generado
   const contentArea = document.getElementById("class-content");
 
+  // Si el contenedor existe, inserta el HTML y configura resaltado y botones de "Copiar"
   if (contentArea) {
-    contentArea.innerHTML = htmlContent;
-    Prism.highlightAll();
-    addCopyButtons();
+    contentArea.innerHTML = htmlContent;  // Coloca el contenido HTML en el contenedor
+    Prism.highlightAll();                 // Aplica resaltado de sintaxis con Prism.js
+    addCopyButtons();                     // Añade botones de "Copiar" a cada bloque de código
   } else {
+    // Informa en la consola si no se encuentra el contenedor
     console.error("No se encontró el contenedor con id='class-content'");
   }
 }
