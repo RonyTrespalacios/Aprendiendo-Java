@@ -36,8 +36,17 @@ function addCopyButtons() {
   // Selecciona todos los bloques de código en la página
   const codeBlocks = document.querySelectorAll("pre");
 
-  // Itera sobre cada bloque de código y agrega el botón de "Copiar"
+  // Itera sobre cada bloque de código y envuelve en un contenedor antes de agregar el botón de "Copiar"
   codeBlocks.forEach((block) => {
+    // Crear un contenedor para envolver el bloque de código y el botón
+    const container = document.createElement("div");
+    container.className = "code-container"; // Añade la clase para el contenedor
+    container.style.position = "relative"; // Hace que el botón se posicione relativo al contenedor
+
+    // Mueve el bloque de código dentro del contenedor
+    block.parentNode.insertBefore(container, block);
+    container.appendChild(block);
+
     // Crea el botón de "Copiar"
     const button = document.createElement("button");
     button.className = "copy-button";
@@ -51,12 +60,12 @@ function addCopyButtons() {
         await navigator.clipboard.writeText(code);
 
         // Cambia el texto y color del botón para indicar que se ha copiado exitosamente
-        button.innerHTML = "";           // Limpia el texto para mostrar solo el chulo
+        button.innerHTML = "✅ Copied";           // Muestra estado "Copiado"
         button.classList.add("copied");   // Agrega la clase para el color de estado "Copiado"
 
         // Restaura el texto y color del botón después de 2 segundos
         setTimeout(() => {
-          button.innerHTML = "🔗";    // Vuelve a mostrar "Copiar"
+          button.innerHTML = "🔗 Copy";    // Vuelve a mostrar "Copy"
           button.classList.remove("copied"); // Remueve la clase "copiado"
         }, 2000);
       } catch (error) {
@@ -64,10 +73,8 @@ function addCopyButtons() {
       }
     });
 
-    // Establece la posición del bloque de código para que el botón se coloque correctamente
-    block.style.position = "relative";
-    // Agrega el botón al bloque de código
-    block.appendChild(button);
+    // Agrega el botón al contenedor, que ahora envuelve al bloque de código
+    container.appendChild(button);
   });
 }
 

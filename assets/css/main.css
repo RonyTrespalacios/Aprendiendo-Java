@@ -314,15 +314,23 @@ summary:hover {
   }
 }
 
+
+/* Contenedor del bloque de código */
+.code-container {
+  position: relative;
+  max-width: 100%; /* Asegura que el contenedor no exceda el ancho de la página */
+  overflow: hidden; /* Elimina el scroll del contenedor */
+}
+
 /* Estilos para el botón de copiar en bloques de código */
 .copy-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 10px;
   background-color: #4e4e4e;
   color: white;
   border: none;
-  padding: 2px 5px;
+  padding: 5px 10px;
   font-size: 0.8rem;
   border-radius: 3px;
   cursor: pointer;
@@ -339,11 +347,19 @@ summary:hover {
 }
 
 .copy-button::after {
-  content: "✓";
   font-size: 0.8rem;
   display: none;
 }
 
 .copy-button.copied::after {
   display: inline;
+}
+
+/* Bloque de código con desplazamiento horizontal */
+.code-container pre {
+  max-width: 100%; /* Para ajustar al tamaño del contenedor */
+  overflow-x: auto; /* Permite scroll horizontal solo en el contenido del código */
+  padding-right: 40px; /* Espacio adicional para el botón de copiar */
+  white-space: pre; /* Mantiene el formato del código */
+  margin: 0; /* Elimina el margen extra */
 }
