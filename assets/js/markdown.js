@@ -41,7 +41,7 @@ function addCopyButtons() {
     // Crea el botón de "Copiar"
     const button = document.createElement("button");
     button.className = "copy-button";
-    button.innerHTML = "Copiar"; // Texto inicial del botón
+    button.innerHTML = "🔗 Copy"; // Texto inicial del botón
 
     // Evento de clic para copiar el contenido del código al portapapeles
     button.addEventListener("click", async () => {
@@ -56,7 +56,7 @@ function addCopyButtons() {
 
         // Restaura el texto y color del botón después de 2 segundos
         setTimeout(() => {
-          button.innerHTML = "Copiar";    // Vuelve a mostrar "Copiar"
+          button.innerHTML = "🔗";    // Vuelve a mostrar "Copiar"
           button.classList.remove("copied"); // Remueve la clase "copiado"
         }, 2000);
       } catch (error) {
