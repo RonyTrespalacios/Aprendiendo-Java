@@ -29,23 +29,26 @@ function renderMarkdownToHtml(markdown) {
 }
 
 /**
- * Agrega un botón de "Copiar" en la esquina superior derecha de cada bloque de código.
+ * Agrega un botón de "Copiar" en la esquina superior derecha de cada bloque de código en Java.
  * Permite al usuario copiar el contenido del bloque de código al portapapeles.
  */
 function addCopyButtons() {
-  // Selecciona todos los bloques de código en la página
-  const codeBlocks = document.querySelectorAll("pre");
+  // Selecciona solo los bloques de código con la clase `language-java`
+  const javaCodeBlocks = document.querySelectorAll("pre code.language-java");
 
-  // Itera sobre cada bloque de código y envuelve en un contenedor antes de agregar el botón de "Copiar"
-  codeBlocks.forEach((block) => {
+  // Itera sobre cada bloque de código Java y agrega el botón de "Copiar"
+  javaCodeBlocks.forEach((codeBlock) => {
+    // Obtener el elemento `pre` padre del `code`
+    const preBlock = codeBlock.parentNode;
+
     // Crear un contenedor para envolver el bloque de código y el botón
     const container = document.createElement("div");
-    container.className = "code-container"; // Añade la clase para el contenedor
-    container.style.position = "relative"; // Hace que el botón se posicione relativo al contenedor
+    container.className = "code-container";
+    container.style.position = "relative";
 
-    // Mueve el bloque de código dentro del contenedor
-    block.parentNode.insertBefore(container, block);
-    container.appendChild(block);
+    // Mueve el bloque `pre` dentro del contenedor
+    preBlock.parentNode.insertBefore(container, preBlock);
+    container.appendChild(preBlock);
 
     // Crea el botón de "Copiar"
     const button = document.createElement("button");
@@ -56,24 +59,24 @@ function addCopyButtons() {
     button.addEventListener("click", async () => {
       try {
         // Selecciona y copia el contenido del bloque de código
-        const code = block.querySelector("code").innerText;
+        const code = codeBlock.innerText;
         await navigator.clipboard.writeText(code);
 
         // Cambia el texto y color del botón para indicar que se ha copiado exitosamente
-        button.innerHTML = "✅ Copied";           // Muestra estado "Copiado"
-        button.classList.add("copied");   // Agrega la clase para el color de estado "Copiado"
+        button.innerHTML = "✔ Copiado";
+        button.classList.add("copied");
 
         // Restaura el texto y color del botón después de 2 segundos
         setTimeout(() => {
-          button.innerHTML = "🔗 Copy";    // Vuelve a mostrar "Copy"
-          button.classList.remove("copied"); // Remueve la clase "copiado"
+          button.innerHTML = "🔗 Copy";
+          button.classList.remove("copied");
         }, 2000);
       } catch (error) {
-        console.error("Error al copiar el código:", error); // Muestra error en caso de fallo
+        console.error("Error al copiar el código:", error);
       }
     });
 
-    // Agrega el botón al contenedor, que ahora envuelve al bloque de código
+    // Agrega el botón al contenedor
     container.appendChild(button);
   });
 }
