@@ -146,47 +146,6 @@ async function loadClassContent(classId) {
   }
 }
 
-// Función para cargar y mostrar el contenido del README.md de la raíz en #class-content
-async function showWelcomeMessage() {
-  const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la raíz
-
-  if (!contentArea) {
-    console.error(
-      'No se encontró el contenedor de contenido con id="class-content"'
-    );
-    return;
-  }
-
-  try {
-    const response = await fetch("./README.md"); // Cargar el README.md de la raíz
-    if (!response.ok)
-      throw new Error("No se pudo cargar el contenido de la raíz");
-
-    const markdown = await response.text();
-
-    // Renderizar el markdown a HTML usando la función de markdown.js
-    const htmlContent = renderMarkdownToHtmlWithCopy(markdown);
-
-    // Insertar el HTML en el contenedor #class-content
-    contentArea.innerHTML = htmlContent;
-
-    // Aplicar resaltado de sintaxis usando Prism.js para formatear código
-    Prism.highlightAll();
-
-    // Aplicar clases CSS necesarias para el contenedor
-    contentArea.classList.remove("class-content"); // Remover estilos de clase
-    contentArea.classList.add("home-content"); // Asegurar que se apliquen estilos específicos de home
-
-    // Desplazar el contenedor de scroll hacia arriba con animación suave
-    const scrollContainer = document.getElementById("content"); // Contenedor de scroll
-    if (scrollContainer) {
-      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  } catch (error) {
-    console.error(`Error al cargar el contenido de la raíz:`, error);
-    contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
-  }
-}
 
 // Función para gestionar el scroll y la carga de contenido según la ruta actual
 function handleScrollOnRouteChange() {
@@ -271,26 +230,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Función para cargar y mostrar el contenido del README.md de la raíz
+// Función para cargar y mostrar el contenido del README.md de la raíz en #class-content
 async function showWelcomeMessage() {
-  const contentArea = document.getElementById("class-content");
-  if (!contentArea) return;
+  const contentArea = document.getElementById("class-content"); // Contenedor para el contenido HTML de la raíz
+
+  if (!contentArea) {
+    console.error(
+      'No se encontró el contenedor de contenido con id="class-content"'
+    );
+    return;
+  }
 
   try {
-    const response = await fetch("./README.md");
+    const response = await fetch("./README.md"); // Cargar el README.md de la raíz
     if (!response.ok)
-      throw new Error("No se pudo cargar el README.md de la raíz");
+      throw new Error("No se pudo cargar el contenido de la raíz");
 
     const markdown = await response.text();
 
-    const htmlContent = renderMarkdownToHtmlWithCopy(markdown);
-    console.log("Contenido del README.md de la raíz cargado y renderizado");
+    // Renderizar el markdown a HTML usando la función de markdown.js
+    const htmlContent = renderMarkdownToHtml(markdown);
 
+    // Insertar el HTML en el contenedor #class-content
     contentArea.innerHTML = htmlContent;
 
+    // Aplicar resaltado de sintaxis usando Prism.js para formatear código
     Prism.highlightAll();
+
+    // Aplicar clases CSS necesarias para el contenedor
+    contentArea.classList.remove("class-content"); // Remover estilos de clase
+    contentArea.classList.add("home-content"); // Asegurar que se apliquen estilos específicos de home
+
+    // Desplazar el contenedor de scroll hacia arriba con animación suave
+    const scrollContainer = document.getElementById("content"); // Contenedor de scroll
+    if (scrollContainer) {
+      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+    }
   } catch (error) {
-    console.error("Error al cargar el README.md de la raíz:", error);
+    console.error(`Error al cargar el contenido de la raíz:`, error);
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
 }
