@@ -2,224 +2,212 @@
 
 /* Contenedor principal */
 #class-content {
-  font-family: "Roboto", sans-serif;
-  line-height: 1.8;
-  color: #333;
+  font-family: "Roboto", sans-serif; /* Fuente base para todo el contenido */
+  line-height: 1.8; /* Espaciado entre líneas para mejor legibilidad */
+  color: #333; /* Color de texto primario */
 }
 
 /* Encabezados */
 #class-content h1,
 #class-content h2,
 #class-content h3 {
-  color: #2c3e50;
-  margin: 20px 0 10px;
+  color: #2c3e50; /* Color principal para encabezados */
+  margin: 20px 0 10px; /* Espaciado superior e inferior */
 }
 
 #class-content h1 {
-  font-size: 2.5rem; /* Ajusta el tamaño del texto */
-  text-align: center;
-  background-color: #800020; /* Fondo color vinotinto */
-  color: #ffffff; /* Cambia el color del texto a blanco para mejor contraste */
-  padding: 15px 20px; /* Espaciado interno para que se vea más grande */
+  font-size: 2.5rem; /* Tamaño de fuente para encabezado principal */
+  text-align: center; /* Centrado */
+  background-color: #800020; /* Fondo vinotinto */
+  color: #ffffff; /* Texto blanco para mejor contraste */
+  padding: 15px 20px; /* Espaciado interno */
   border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar más profundidad */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
 
 #class-content h2 {
-  font-size: 1.8rem;
-  border-left: 5px solid #3498db;
-  padding-left: 10px;
+  font-size: 1.8rem; /* Tamaño de fuente para encabezado secundario */
+  border-left: 5px solid #3498db; /* Borde izquierdo como énfasis */
+  padding-left: 10px; /* Espaciado interno para separación del borde */
 }
 
 #class-content h3 {
-  font-size: 1.5rem;
-  margin-top: 20px;
+  font-size: 1.5rem; /* Tamaño de fuente para encabezado terciario */
+  margin-top: 20px; /* Espaciado superior */
 }
 
 /* Párrafos */
 #class-content p {
-  margin: 10px 0;
-  text-align: justify;
+  margin: 10px 0; /* Espaciado entre párrafos */
+  text-align: justify; /* Alineación justificada */
 }
 
 /* Estilos para elementos <code> sueltos */
 code {
-  background: #282c34;
-  color: #61dafb;
-  padding: 10px; /* Padding solo para <code> que no estén dentro de <pre> */
-  border-radius: 5px;
-  font-family: "Courier New", Courier, monospace;
+  background: #282c34; /* Fondo oscuro */
+  color: #61dafb; /* Color azul claro para texto */
+  padding: 10px; /* Padding en elementos <code> independientes */
+  border-radius: 5px; /* Bordes redondeados */
+  font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
 }
 
-/* Estilos para <pre> */
+/* Estilos para bloques de código <pre> */
 pre {
-  background: #282c34;
-  color: #61dafb;
-  margin: 20px 0;
-  position: relative;
-  padding: 2px;
-  border-radius: 5px;
-  font-family: "Courier New", Courier, monospace;
-  overflow-x: auto;
-  white-space: pre-wrap;
+  background: #282c34; /* Fondo oscuro para bloques de código */
+  color: #61dafb; /* Color del texto */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  position: relative; /* Para posicionar elementos dentro, como el botón de copiar */
+  padding: 2px; /* Padding mínimo */
+  border-radius: 5px; /* Bordes redondeados */
+  font-family: "Courier New", Courier, monospace; /* Fuente monoespaciada */
+  overflow-x: auto; /* Permitir scroll horizontal */
+  white-space: pre-wrap; /* Mantener el formato de línea */
 }
 
 /* Estilos para <code> dentro de <pre> */
 pre code {
-  padding: 0px; /* Sin padding adicional en <code> dentro de <pre> */
-  background: none; /* Opcional: elimina el fondo adicional de <code> dentro de <pre> */
-  color: inherit; /* Hereda el color de <pre> */
+  padding: 0px; /* Sin padding adicional */
+  background: none; /* Eliminar fondo extra */
+  color: inherit; /* Heredar color del contenedor <pre> */
 }
 
 /* Tablas */
 #class-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ocupar el 100% del ancho disponible */
+  border-collapse: collapse; /* Colapsar bordes */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 #class-content th,
 #class-content td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
+  border: 1px solid #ddd; /* Borde de celda */
+  padding: 12px; /* Padding en cada celda */
+  text-align: left; /* Alineación a la izquierda */
 }
 
 #class-content th {
-  background: #3498db;
-  color: white;
+  background: #3498db; /* Fondo azul para encabezados */
+  color: white; /* Texto blanco */
 }
 
 #class-content td {
-  background: #f9f9f9;
+  background: #f9f9f9; /* Fondo gris claro */
 }
-
 
 /* Listas */
 #class-content ul,
 #class-content ol {
-  margin: 10px 20px;
+  margin: 10px 20px; /* Margen superior y en el lado izquierdo */
 }
 
 #class-content ul li,
 #class-content ol li {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Separación entre elementos de lista */
 }
 
 /* Imágenes */
 #class-content img {
-  max-width: 100%;
-  border-radius: 5px;
-  margin: 20px 0;
+  max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+  border-radius: 5px; /* Bordes redondeados */
+  margin: 20px 0; /* Espaciado superior e inferior */
 }
 
 /* Bloque de citas */
 #class-content blockquote {
-  border-left: 4px solid #3498db;
-  padding-left: 10px;
-  color: #555;
-  font-style: italic;
-  margin: 20px 0;
+  border-left: 4px solid #3498db; /* Línea de énfasis en el lado izquierdo */
+  padding-left: 10px; /* Espaciado interno en el bloque de cita */
+  color: #555; /* Color de texto gris oscuro */
+  font-style: italic; /* Texto en cursiva */
+  margin: 20px 0; /* Espaciado superior e inferior */
 }
 
-#class-content img {
-  display: block; /* Convertir las imágenes en elementos de tipo bloque */
-  margin: 20px auto; /* Centrarlas con margen automático */
-  max-width: 100%; /* Asegurar que la imagen no desborde su contenedor */
-  border-radius: 8px; /* Opcional: Agregar bordes redondeados a las imágenes */
-}
-
-/* Estilos específicos para la imagen con el ID 'banner-img' */
+/* Estilo adicional para la imagen con ID 'banner-img' */
 #banner-img {
-  width: 100%; /* Asegurar que ocupe todo el ancho del contenedor */
-  height: 200px; /* Establecer una altura específica para hacerla tipo banner */
-  object-fit: cover; /* Recortar la imagen para adaptarse a la caja */
+  width: 100%; /* Ancho completo */
+  height: 200px; /* Altura fija para apariencia de banner */
+  object-fit: cover; /* Ajusta la imagen sin distorsión */
 }
 
-/* classStyles.css */
-
-/* Estilos específicos para los botones de navegación */
+/* Botones de navegación */
 .navigation-buttons {
-  display: flex;
-  justify-content: space-between; /* Distribuye los botones en los extremos */
+  display: flex; /* Distribuir en línea */
+  justify-content: space-between; /* Botones en los extremos */
   margin-top: 20px; /* Separación del contenido */
-  user-select: none;
+  user-select: none; /* Deshabilitar selección de texto */
 }
 
 .navigation-buttons .prev-button,
 .navigation-buttons .next-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none; /* Elimina el subrayado de los enlaces */
-  color: #ffffff; /* Color de letra blanco */
-  background-color: #800020; /* Color de fondo personalizado */
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  text-align: center;
+  display: inline-block; /* Botones en línea */
+  padding: 10px 20px; /* Padding interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  font-weight: 600; /* Peso de fuente */
+  text-decoration: none; /* Sin subrayado */
+  color: #ffffff; /* Texto blanco */
+  background-color: #800020; /* Fondo vinotinto */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición en hover */
+  text-align: center; /* Centrado */
 }
 
 .navigation-buttons .prev-button:hover,
 .navigation-buttons .next-button:hover {
-  background-color: #66001a; /* Color más oscuro al hacer hover */
-  transform: translateY(-3px);
+  background-color: #66001a; /* Fondo más oscuro en hover */
+  transform: translateY(-3px); /* Efecto de elevación */
 }
 
 .navigation-buttons .prev-button:active,
 .navigation-buttons .next-button:active {
-  background-color: #4d0013; /* Color aún más oscuro al hacer clic */
-  transform: translateY(0);
+  background-color: #4d0013; /* Color más oscuro al hacer clic */
+  transform: translateY(0); /* Volver a la posición original */
 }
 
 /* Botón deshabilitado */
 .navigation-buttons .disabled {
-  background-color: #a6a6a6; /* Color gris claro para botón deshabilitado */
-  cursor: not-allowed; /* Indica que no es clicable */
-  pointer-events: none; /* Desactiva la interacción */
+  background-color: #a6a6a6; /* Fondo gris claro */
+  cursor: not-allowed; /* Cursor no permitido */
+  pointer-events: none; /* Desactivar interacción */
 }
 
-/* Botón anterior se alinea a la izquierda */
+/* Alineación específica de botones */
 .navigation-buttons .prev-button {
-  margin-right: auto; /* Empuja el botón hacia la izquierda */
+  margin-right: auto; /* Alinear a la izquierda */
 }
 
-/* Botón siguiente se alinea a la derecha */
 .navigation-buttons .next-button {
-  margin-left: auto; /* Empuja el botón hacia la derecha */
+  margin-left: auto; /* Alinear a la derecha */
 }
-
-
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {
   #class-content {
-    padding: 10px;
+    padding: 10px; /* Reducir padding en móviles */
   }
 
   #class-content h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Reducir tamaño de encabezado */
   }
 
   #class-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Reducir tamaño de encabezado secundario */
   }
 
   #class-content pre,
   code {
-    font-size: 14px;
+    font-size: 14px; /* Reducir tamaño de fuente para bloques de código */
   }
+
   table {
-    width: 100%; /* Hacer que las tablas tomen el 100% del contenedor */
-    display: block; /* Cambiar a block para permitir scroll */
-    overflow-x: auto; /* Habilitar el scroll horizontal */
-    border-collapse: collapse; /* Asegurar que las celdas no se separen */
+    width: 100%; /* Ajustar al 100% del contenedor */
+    display: block; /* Permitir scroll horizontal */
+    overflow-x: auto; /* Scroll horizontal */
+    border-collapse: collapse; /* Colapsar bordes */
   }
 
   th,
   td {
-    white-space: nowrap; /* Evitar que el contenido se divida en varias líneas */
-    padding: 10px; /* Ajustar el padding para que el contenido sea más compacto */
+    white-space: nowrap; /* Evitar que el texto se divida */
+    padding: 10px; /* Ajustar padding */
   }
 }

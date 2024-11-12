@@ -2,106 +2,108 @@
 
 /* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* Elimina márgenes predeterminados en todos los elementos */
+  padding: 0; /* Elimina padding predeterminado en todos los elementos */
+  box-sizing: border-box; /* Incluye padding y bordes en el ancho y alto total */
 }
 
 /* Body */
 body {
-  font-family: "Poppins", sans-serif;
-  background: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
+  font-family: "Poppins", sans-serif; /* Fuente principal de la página */
+  background: #f4f4f4; /* Color de fondo claro */
+  color: #333; /* Color de texto estándar */
+  line-height: 1.6; /* Ajusta el espacio entre líneas */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden; /* Evitar scroll horizontal indeseado */
+  min-height: 100vh; /* Asegura que el body ocupe toda la altura del viewport */
+  overflow-x: hidden; /* Evita el scroll horizontal en el body */
 }
 
+/* Configuración del layout principal usando CSS Grid */
 #layout {
-  display: grid; /* Usar Grid para el layout */
-  grid-template-columns: 350px 1fr; /* Definir columnas: 250px para el sidebar y el resto para el contenido */
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Dos columnas: sidebar (350px) y contenido principal */
   grid-template-rows: auto 1fr auto; /* Tres filas: header, contenido y footer */
-  min-height: 100vh; /* Asegurar que el layout ocupe toda la altura del viewport */
+  min-height: 100dvh; /* Ocupa toda la altura del viewport */
 }
 
 /* Sidebar */
 #sidebar {
-  background: #2c3e50;
-  color: #ffffff;
-  font-size: small;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  grid-column: 1 / 2; /* Sidebar en la primera columna */
-  grid-row: 1 / 3; /* Sidebar ocupa las dos primeras filas */
-  height: 100vh; /* Asegura que ocupe toda la altura */
+  background: #2c3e50; /* Color de fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+  font-size: small; /* Tamaño de fuente reducido */
+  padding: 20px; /* Padding alrededor del contenido del sidebar */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  grid-column: 1 / 2; /* Ocupa la primera columna del grid */
+  grid-row: 1 / 3; /* Ocupa desde el header hasta el contenido */
+  height: 100dvh; /* Asegura que el sidebar ocupe toda la altura del viewport */
   display: flex;
   flex-direction: column;
-  z-index: 1000; /* Asegura que esté sobre otros elementos */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  z-index: 1000; /* Asegura que el sidebar esté sobre otros elementos */
+  overflow-y: auto; /* Scroll vertical si el contenido desborda */
+  -webkit-overflow-scrolling: touch; /* Mejora el scroll en dispositivos móviles */
 }
 
+/* Encabezado y subtítulo en el sidebar */
 #sidebar h1 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 1.5rem; /* Tamaño de fuente grande para el encabezado */
+  margin-bottom: 20px; /* Separación debajo del encabezado */
   text-align: center;
 }
 
 #sidebar h2 {
-  font-size: 1rem;
-  margin-bottom: 4px;
+  font-size: 1rem; /* Tamaño de fuente para el subtítulo */
+  margin-bottom: 4px; /* Separación debajo del subtítulo */
   text-align: center;
 }
 
+/* Lista de navegación en el sidebar */
 #sidebar nav ul {
-  list-style: none;
+  list-style: none; /* Elimina el estilo de lista predeterminado */
   padding: 0;
 }
 
 #sidebar nav ul li {
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* Espaciado entre enlaces */
 }
 
 #sidebar nav ul li a {
-  color: #ecf0f1;
-  text-decoration: none;
-  padding: 10px;
+  color: #ecf0f1; /* Color de texto en los enlaces */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  padding: 10px; /* Espaciado interno en los enlaces */
   display: block;
-  border-radius: 5px;
-  transition: background 0.3s;
+  border-radius: 5px; /* Bordes redondeados para los enlaces */
+  transition: background 0.3s; /* Transición suave en el fondo al hacer hover */
 }
 
 #sidebar nav ul li a:hover {
-  background: #3498db;
+  background: #3498db; /* Color de fondo al pasar el cursor */
 }
 
-/* Contenedor principal */
+/* Contenedor principal de contenido */
 #content {
-  padding: 40px;
-  overflow-y: auto; /* Permitir scroll solo en el contenido */
-  background: #ffffff;
-  grid-column: 2 / 3; /* Contenido en la segunda columna */
-  grid-row: 1 / 2; /* Contenido ocupa la primera fila */
-  min-height: calc(
-    100vh - 80px
-  ); /* Ajustar la altura para evitar empujar al footer */
+  padding: 40px; /* Espaciado interno */
+  overflow-y: auto; /* Scroll solo vertical si el contenido es demasiado largo */
+  background: #ffffff; /* Fondo blanco */
+  grid-column: 2 / 3; /* Segunda columna del grid */
+  grid-row: 1 / 2; /* Ocupa la primera fila (header y contenido) */
+  min-height: calc(100dvh - 80px); /* Ajusta altura para no superponer el footer */
 }
 
-/* Footer dentro de #layout */
+/* Footer dentro del layout */
 footer {
-  background: #2c3e50;
-  color: #ffffff;
+  background: #2c3e50; /* Fondo oscuro para el footer */
+  color: #ffffff; /* Texto blanco */
   text-align: center;
   padding: 20px;
-  width: 100%;
-  height: 80px; /* Altura fija para el footer */
-  grid-column: 2 / 3; /* Footer ocupa solo la columna del contenido */
-  grid-row: 2 / 3; /* Footer en la segunda fila */
-  position: relative;
+  width: 100%; /* Ocupa el ancho completo */
+  height: 80px; /* Altura fija */
+  grid-column: 2 / 3; /* Footer solo en la columna de contenido */
+  grid-row: 2 / 3; /* En la segunda fila del grid */
+  position: relative; /* Mantiene el footer dentro del flujo del documento */
 }
 
+/* Texto y enlaces en el footer */
 footer p {
   margin: 0;
 }
@@ -113,18 +115,18 @@ footer a {
   color: #ecf0f1;
   text-decoration: none;
   padding: 10px 20px;
-  background: #3498db;
+  background: #3498db; /* Fondo azul */
   border: 2px solid transparent;
-  border-radius: 25px;
+  border-radius: 25px; /* Bordes redondeados */
   font-weight: 600;
-  transition: background 0.3s, border-color 0.3s, transform 0.3s;
-  animation: pulse 1.5s infinite;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s; /* Transiciones suaves */
+  animation: pulse 1.5s infinite; /* Efecto de pulsación continua */
 }
 
 footer a:hover {
   background: #2980b9;
   border-color: #ecf0f1;
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta ligeramente al hacer hover */
 }
 
 footer img {
@@ -132,14 +134,14 @@ footer img {
   height: 20px;
 }
 
-/* Corrección de desbordamiento y scroll */
+/* Corrección de desbordamiento y scroll en la página */
 html,
 body {
   height: 100%;
-  overflow-y: visible; /* Permitir scroll vertical en el documento */
+  overflow-y: visible; /* Permite scroll vertical */
 }
 
-/* Botón para mostrar/ocultar el sidebar */
+/* Botón de menú (hamburguesa) para dispositivos móviles */
 #menu-toggle {
   background: #3498db;
   color: #ffffff;
@@ -152,17 +154,16 @@ body {
   cursor: pointer;
   border-radius: 5px;
   display: none; /* Oculto por defecto */
-  z-index: 1500; /* Asegura que esté encima del sidebar */
+  z-index: 1500; /* Superposición sobre el sidebar */
 }
 
 #menu-toggle.show {
   display: block; /* Mostrar en pantallas pequeñas */
 }
 
-/* main.css - Estilo personalizado para secciones desplegables */
+/* Configuración para secciones desplegables (details) */
 details {
   margin: 15px 0;
-  /*border: 1px solid #3498db;*/
   border-radius: 5px;
   padding: 10px;
   background-color: #f8f8f8;
@@ -171,9 +172,10 @@ details {
 
 details[open] summary {
   color: #11405f;
-  animation: expand 0.3s ease-in-out forwards;
+  animation: expand 0.3s ease-in-out forwards; /* Animación de expansión */
 }
 
+/* Animación de expansión */
 @keyframes expand {
   0% {
     opacity: 0;
@@ -181,11 +183,11 @@ details[open] summary {
   }
   100% {
     opacity: 1;
-    max-height: 500px; /* Valor arbitrario, ajustar según el contenido */
+    max-height: 500px;
   }
 }
 
-/* Estilo de transición al cerrar */
+/* Estilo de transición para el cierre */
 details:not([open]) summary ~ * {
   animation: collapse 0.6s ease-in-out forwards;
 }
@@ -201,125 +203,114 @@ details:not([open]) summary ~ * {
   }
 }
 
+/* Estilo para el texto del resumen en details */
 summary {
   cursor: pointer;
   font-weight: bold;
   color: #3498db;
-  user-select: none;
+  user-select: none; /* Evita selección accidental */
 }
 
 summary:hover {
-  color: #2980b9;
+  color: #2980b9; /* Cambio de color en hover */
 }
 
-/* Estilos adicionales para el botón de Inicio en el sidebar */
+/* Estilo para el botón "Inicio" en el sidebar */
 #sidebar #home-button {
-  font-size: 1rem; /* Ajustar el tamaño de la fuente */
-  font-weight: 600; /* Hacer el texto un poco más destacado */
+  font-size: 1rem;
+  font-weight: 600;
   color: #ffffff;
-  background: #3498db; /* Color de fondo del botón */
-  padding: 12px 20px; /* Espaciado interior */
-  border-radius: 5px; /* Bordes redondeados */
-  display: block; /* Ocupa toda la fila */
-  text-align: center; /* Centrar el texto */
+  background: #3498db;
+  padding: 12px 20px;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
   margin-bottom: 20px; /* Espacio inferior para separar del resto */
-  transition: background 0.3s, transform 0.3s; /* Transiciones */
+  transition: background 0.3s, transform 0.3s; /* Transiciones suaves */
 }
 
 #sidebar #home-button:hover {
-  background: #2980b9; /* Color más oscuro al pasar el cursor */
-  transform: translateY(-3px); /* Pequeño desplazamiento hacia arriba */
+  background: #2980b9; /* Cambio de color en hover */
+  transform: translateY(-3px); /* Efecto de desplazamiento al pasar el cursor */
 }
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-  /* Ajustes del layout en versión móvil */
+  /* Configuración de layout para pantallas pequeñas */
   #layout {
-    grid-template-columns: 1fr; /* Convertir todo a una sola columna */
-    grid-template-rows: auto 1fr auto; /* Tres filas: sidebar, contenido y footer */
-    min-height: 100vh; /* Asegura que el layout ocupe toda la altura del viewport */
-    height: 100vh; /* Asegurar que el layout no exceda la altura del viewport */
-    overflow: hidden; /* Evitar scroll en el layout completo */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    overflow: hidden; /* Evita scroll horizontal en layout completo */
   }
 
-  /* Ajustes del sidebar */
+  /* Ajustes para el sidebar en dispositivos móviles */
   #sidebar {
     position: fixed;
     left: -250px;
     top: 0;
     width: 250px;
-    height: 100vh;
+    height: 100dvh;
     transition: left 0.3s ease; /* Animación de desplazamiento */
   }
 
-  /* Mostrar el sidebar al hacer clic en el menú */
   #layout.show-sidebar #sidebar {
-    left: 0; /* Mostrar el sidebar cuando se active */
+    left: 0; /* Muestra el sidebar al activar el menú */
   }
 
-  /* Ajustes del contenedor de contenido */
+  /* Configuración para el contenido principal en móvil */
   #content {
-    grid-column: 1 / 2; /* El contenido ocupa toda la columna */
-    grid-row: 2 / 3; /* Segunda fila del grid */
-    overflow-y: auto; /* Permitir scroll solo en el contenido */
-    height: calc(
-      100vh - 120px
-    ); /* Ajustar la altura para considerar el tamaño del footer */
-    max-height: calc(
-      100vh - 120px
-    ); /* Asegurar que el contenido no exceda el tamaño */
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    overflow-y: auto;
+    height: calc(100dvh - 120px); /* Considera la altura del footer */
+    max-height: calc(100dvh - 120px); /* Asegura que el contenido no exceda la pantalla */
     padding: 4px;
   }
 
-  /* Ajustar el footer en dispositivos móviles */
+  /* Ajustes para el footer en pantallas móviles */
   footer {
-    grid-column: 1 / 2; /* Footer ocupa solo la columna del contenido */
-    grid-row: 3 / 4; /* Tercera fila */
-    height: 120px; /* Cambiar la altura del footer a 120px */
-    position: relative; /* Mantener el footer dentro del flujo del documento */
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    height: 120px; /* Altura del footer ajustada para móvil */
   }
 
-  /* Mostrar el botón para abrir/cerrar el sidebar en pantallas pequeñas */
+  /* Muestra el botón del menú en dispositivos móviles */
   #menu-toggle {
     display: block;
   }
 
-  #menu-toggle.show {
-    left: 20px; /* Posición del botón cuando el sidebar esté oculto */
-  }
-
-  /* Ajustar el encabezado del sidebar para evitar superposición con el botón */
+  /* Ajustes de superposición del menú */
   #layout.show-sidebar #sidebar h1 {
-    margin-top: 60px; /* Añadir margen superior para evitar la superposición */
-    transition: margin-top 0.3s ease; /* Animación para suavizar el desplazamiento */
+    margin-top: 60px; /* Evita superposición con el botón del menú */
+    transition: margin-top 0.3s ease;
   }
 
-  /* Animación para el título al cerrar el sidebar */
+  /* Animación del título al cerrar el sidebar */
   #sidebar h1 {
-    margin-top: 0; /* Margen superior original */
-    transition: margin-top 0.3s ease-in-out; /* Animación para salida */
+    margin-top: 0;
+    transition: margin-top 0.3s ease-in-out;
   }
 }
 
-/* Definir la animación `pulse` */
+/* Animación para el efecto de pulsación en el footer */
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.02); /* Aumentar tamaño */
+    transform: scale(1.02);
   }
   100% {
     transform: scale(1);
   }
 }
 
-
 /* Contenedor del bloque de código */
 .code-container {
   position: relative;
-  max-width: 100%; /* Asegura que el contenedor no exceda el ancho de la página */
-  overflow: hidden; /* Elimina el scroll del contenedor */
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* Estilos para el botón de copiar en bloques de código */
@@ -342,24 +333,15 @@ summary:hover {
 }
 
 .copy-button.copied {
-  background-color: #27ae60; /* Cambia a verde cuando está en estado de copiado */
-  pointer-events: none; /* Desactiva temporalmente el botón */
-}
-
-.copy-button::after {
-  font-size: 0.8rem;
-  display: none;
-}
-
-.copy-button.copied::after {
-  display: inline;
+  background-color: #27ae60; /* Verde al copiar */
+  pointer-events: none;
 }
 
 /* Bloque de código con desplazamiento horizontal */
 .code-container pre {
-  max-width: 100%; /* Para ajustar al tamaño del contenedor */
-  overflow-x: auto; /* Permite scroll horizontal solo en el contenido del código */
-  padding-right: 40px; /* Espacio adicional para el botón de copiar */
-  white-space: pre; /* Mantiene el formato del código */
-  margin: 0; /* Elimina el margen extra */
+  max-width: 100%;
+  overflow-x: auto;
+  padding-right: 40px; /* Espacio adicional para botón */
+  white-space: pre;
+  margin: 0;
 }
