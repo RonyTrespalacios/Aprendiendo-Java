@@ -30,7 +30,9 @@ allDetails.forEach((details) => {
 
 // Lista de clases disponibles para navegación dinámica
 const classes = [
-  { id: "class01-intro", name: "Clase 01: Introducción a Java" },
+  { id: "class00-abc", name: "Lectura de introducción" },
+  { id: "class00-instalacion", name: "Clase 00: Instalación de Java" },
+  { id: "class01-intro", name: "Clase 01: Hola mundo! y Variables" },
   { id: "class02-scanner", name: "Clase 02: Scanner y Operadores Lógicos" },
   { id: "class03-reto1", name: "Clase 03: Retos de aprendizaje 1" },
   { id: "class04-if", name: "Clase 04: Condicional if" },
