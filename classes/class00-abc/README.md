@@ -124,3 +124,29 @@ En el desarrollo backend, la conexión con **bases de datos** es crucial, y Java
 Java también es una opción muy popular para el desarrollo de **microservicios**, un estilo arquitectónico donde las aplicaciones se dividen en pequeños servicios independientes que se comunican entre sí. Frameworks como **Spring Boot**, **Micronaut** y **Quarkus** están diseñados específicamente para facilitar el desarrollo de microservicios, proporcionando herramientas que permiten la creación rápida y la fácil integración de múltiples servicios. 🚀
 
 Java es un lenguaje potente, seguro y muy utilizado, especialmente para aplicaciones grandes y empresariales. 💪 Si bien puede ser un poco más complicado al principio, sus características y beneficios lo hacen una excelente opción para desarrollar aplicaciones robustas. ¡Así que sigue adelante, toma tu café ☕ y a programar se ha dicho! 🎉
+
+# Preguntas 🤔
+
+En la época actual, donde la tecnología y el conocimiento avanzan a un ritmo acelerado, la curiosidad se convierte en una herramienta esencial para navegar el vasto mundo de la información y adquirir una comprensión profunda de los temas que nos rodean. Cuestionarse todo durante el proceso de aprendizaje permite a cada persona no solo absorber información, sino también entender sus aplicaciones, desafíos y potenciales innovaciones. Al hacernos preguntas y buscar activamente respuestas, cultivamos una mentalidad de crecimiento, creatividad y capacidad crítica, cualidades que son clave para resolver problemas complejos y adaptarse a nuevas situaciones. Las siguientes preguntas están diseñadas para estimular la creatividad y el razonamiento crítico, animándote a explorar y reflexionar más allá de lo evidente.
+
+ Al aprender, es importante no solo aceptar la información tal cual viene, sino cuestionar y analizar cada concepto, desglosando preguntas en elementos más básicos. Este proceso nos ayuda a ver cómo se interrelacionan las ideas y a construir una comprensión sólida.
+
+ Por ejemplo, si nos planteamos "¿Qué tipos de bases de datos existen y en qué casos es más adecuado usar cada tipo?", podemos explorarla a través de una serie de preguntas más simples y detalladas que nos conduzcan a la respuesta completa. Podríamos empezar con:
+
+#### ¿Qué es una base de datos? (para comprender el concepto básico).
+#### ¿Qué tipos principales de bases de datos existen? (para saber que hay distintos enfoques).
+#### ¿Qué significa que una base de datos sea "relacional"?
+#### ¿Qué es una base de datos "no relacional"? (para conocer y comparar ambos tipos).
+#### ¿Qué lenguajes de programación o tecnologías se usan comúnmente para cada tipo de base de datos? (para entender cómo se implementan en la práctica).
+#### ¿Qué ventajas y desventajas tienen las bases de datos relacionales frente a las no relacionales? (para analizar cuándo usar una u otra).
+
+Desglosar una pregunta compleja en elementos más sencillos nos permite investigar cada parte, reflexionar sobre sus implicaciones y ver el tema desde distintas perspectivas. Te invito a hacer este ejercicio con las siguientes preguntas, abordando cada una desde sus bases y buscando conexiones que enriquezcan tu comprensión. Este método fomenta tu creatividad y pensamiento crítico, ayudándote a aprender de una forma más completa y profunda.
+
+## ¿Qué diferencias existen entre el front-end y el back-end en el desarrollo de aplicaciones?
+## ¿Qué otros lenguajes son multiparadigma y cómo se benefician de esta característica?
+## ¿Qué tipos de bases de datos existen y en qué casos es más adecuado usar cada tipo?
+## ¿Cómo funciona el "garbage collector" en Java y por qué es importante para la gestión de memoria?
+## ¿Qué ventajas tiene usar Maven para la gestión de dependencias en un proyecto Java?
+## ¿Qué diferencia hay entre una API REST y otros tipos de APIs, como SOAP?
+## ¿Qué ventajas aporta el uso de Java en aplicaciones concurrentes y multithreading?
+## ¿Cómo afectan las características de un lenguaje de programación a su rendimiento y facilidad de uso en distintos proyectos?
