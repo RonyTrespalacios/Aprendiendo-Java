@@ -150,6 +150,7 @@ async function loadClassContent(classId) {
     console.error(`Error al cargar el contenido de la clase ${classId}:`, error);
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
+  closeSidebar();
 }
 
 /**
@@ -181,9 +182,21 @@ document.querySelectorAll("#sidebar a").forEach((link) => {
   });
 });
 
+document.querySelectorAll("#sidebar a").forEach((link) => {
+  link.addEventListener("click", () => {
+    closeSidebar(); // Cierra el menú al hacer clic en cualquier enlace del menú
+  });
+});
+
 // Configurar eventos para cambios de hash y de historial
-window.addEventListener("hashchange", handleScrollOnRouteChange);
-window.addEventListener("popstate", handleScrollOnRouteChange);
+window.addEventListener("hashchange", () => {
+  handleScrollOnRouteChange(); // Llama a la función que gestiona el cambio de ruta
+  closeSidebar(); // Cierra el menú cuando cambia la URL de hash
+});
+window.addEventListener("popstate", () => {
+  handleScrollOnRouteChange(); // Llama a la función que gestiona el cambio de ruta
+  closeSidebar(); // Cierra el menú cuando se navega en el historial
+});
 
 /**
  * Muestra el contenido del README.md de la raíz en el contenedor principal
@@ -216,6 +229,7 @@ async function showWelcomeMessage() {
     console.error(`Error al cargar el contenido de la raíz:`, error);
     contentArea.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
   }
+  closeSidebar();
 }
 
 /**
@@ -231,6 +245,16 @@ function setupResponsiveMenu() {
   toggleButton.addEventListener("click", () => {
     document.getElementById("layout").classList.toggle("show-sidebar");
   });
+}
+
+/**
+ * Función para cerrar el menú lateral en dispositivos móviles.
+ */
+function closeSidebar() {
+  const layout = document.getElementById("layout"); // Contenedor principal del layout
+  if (layout.classList.contains("show-sidebar")) {
+    layout.classList.remove("show-sidebar"); // Remueve la clase para cerrar el menú
+  }
 }
 
 /**
